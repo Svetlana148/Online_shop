@@ -7,7 +7,22 @@
   margin-inline-end: 24px;
 }
 
+@font-face {
+	font-family: 'CeraPro';
+	font-style: normal; 
+  font-weight: normal;
+  src: local('CeraPro'), url("./assets/CeraPro/CeraPro-Regular.ttf") format("truetype");
+}
 
+@font-face {
+  font-family: "Hanging Letters";
+  src: url("https://db.onlinewebfonts.com/t/1da2ac0ce2475f77ead14788891e054a.eot");
+  src: url("https://db.onlinewebfonts.com/t/1da2ac0ce2475f77ead14788891e054a.eot?#iefix")format("embedded-opentype"),
+  url("https://db.onlinewebfonts.com/t/1da2ac0ce2475f77ead14788891e054a.woff2")format("woff2"),
+  url("https://db.onlinewebfonts.com/t/1da2ac0ce2475f77ead14788891e054a.woff")format("woff"),
+  url("https://db.onlinewebfonts.com/t/1da2ac0ce2475f77ead14788891e054a.ttf")format("truetype"),
+  url("https://db.onlinewebfonts.com/t/1da2ac0ce2475f77ead14788891e054a.svg#Hanging Letters")format("svg");
+}
 
 
 

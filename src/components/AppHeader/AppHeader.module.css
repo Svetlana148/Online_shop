@@ -1,38 +1,110 @@
 
+body {
+	font-family: "Poppins", "Roboto", sans-serif;
+}
+
+.header {
+	/* grid-area: header; */
+	background:rgba(255, 255, 255, 0.856);
+	display: flex;
+	align-items: center;
+	line-height: 35px;
+
+}
+
+
+.header_Row{
+	width: 100%;
+	background:rgba(255, 255, 255, 0.856);
+
+}
 
 
 .appHeader_logo {
-	width: 120px;
-	min-width: 120px;
-	height: 32px;
-	background: rgba(255, 255, 255, .2);
-	border-radius: 6px;
-	margin-inline-end: 24px;
- }
+	width: 150px;
+	min-width: 150px;
+	height: 35px;
+	background: rgba(255, 255, 255, 0.856);
+	float: left;
+	/* margin-inline-end: 200px; */
+	line-height: 0px;
+}
+
+
+
+.header_menu {
+
+	justify-content: center;
+	/* font-family: 'Hanged_Letters'; */
+	font-size: 16px;
+	color: #3d3d3d;
+	
+
+	:global(.ant-menu-item-selected) {
+			font-weight: 700;
+	} 
+
+	/* Выбранный элемент */
+	:global(.ant-menu-item-selected:after) {
+		/* font-weight: 700 !important;  */
+		color: #46a358 !important; 
+		border-bottom-width: 3px !important; 
+		border-bottom-color: #46a358 !important;
+	}
+
+	/*  элемент с наведенной мышью*/
+	:global(.ant-menu-item-active:after) {
+		border-bottom-width: 3px !important; 
+		border-bottom-color: #46a358 !important;
+	}
+}
+
+/* .ant-menu-item-selected:after {
+	background-color: #46a358
+ } */
+
  
 
 
-
-
-
-
-.header {
-	grid-area: header;
-	background-color: rgba(26, 138, 207, 0.856);
-}
+/* .menu {
 	
-
-
-
-
-
-.header img {
-	width: 50px;
+	background:rgba(196, 187, 187, 0.856);
+	font-weight: 400;
+font-size: 16px;
+color: #3d3d3d;
 }
+
+.menu__link {
+font-weight: 400;
+font-size: 16px;
+color: #3d3d3d;
+border: 1px solid red;
+} */
+
+
 
 .loginBlock{
 	float: right;
 }
-.loginBlock a{
+
+
+
+
+
+
+
+/* .loginBlock a{
+	color: aliceblue;
+} */
+
+
+
+.header_button {
+	background: #46a358 ;
+	border-radius: 6px;
+	width: 100px;
+	height: 35px;
 	color: aliceblue;
 }
+
+
