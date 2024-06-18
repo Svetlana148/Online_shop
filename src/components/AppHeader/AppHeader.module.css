@@ -19,7 +19,15 @@ body {
 
 }
 
-
+/* .App_logo {
+	width: 120px;
+	min-width: 120px;
+	height: 32px;
+	background: rgba(255, 255, 255, .2);
+	border-radius: 6px;
+	margin-inline-end: 24px;
+ } */
+ 
 .appHeader_logo {
 	width: 150px;
 	min-width: 150px;
@@ -84,10 +92,28 @@ border: 1px solid red;
 
 
 .loginBlock{
+	display: flex;
 	float: right;
+	gap: 2em;
+	align-items: center;
+
 }
 
+.basket_img{
+	line-height: 0.5em;
+	width: 1.5em;
+	min-width: 24px;
+	height: 1.5em;
+	min-height: 24px;
+}
 
+/* 
+.space_align_block {
+	flex: none;
+	margin: 8px 4px;
+	padding: 4px;
+	border: 1px solid #40a9ff;
+ } */
 
 
 
@@ -100,11 +126,19 @@ border: 1px solid red;
 
 
 .header_button {
+	display: flex;
+	align-items: center;
+	font-family: 'CeraPro';
+	font-weight: 500;
+
 	background: #46a358 ;
 	border-radius: 6px;
 	width: 100px;
+	min-width: 100px;
 	height: 35px;
-	color: aliceblue;
-}
+	min-height: 35px;
+	color: #fff;
 
+	gap: 0.3em;
+}
 

@@ -14,10 +14,10 @@ import AppContent from '../components/AppContent/AppContent';
 
 // const { Content, Footer } = Layout;
 
-const items = new Array(4).fill(null).map((_, index) => ({
-  key: index + 1,
-  label: `nav ${index + 1}`,
-}));
+// const items = new Array(4).fill(null).map((_, index) => ({
+//   key: index + 1,
+//   label: `nav ${index + 1}`,
+// }));
 
 
 

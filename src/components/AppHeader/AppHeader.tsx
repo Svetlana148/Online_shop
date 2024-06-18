@@ -4,11 +4,15 @@
 import React from 'react';
 import s from './AppHeader.module.css';
 import { NavLink } from 'react-router-dom';
-import { Avatar, Button, Col, ConfigProvider, Layout, Menu, MenuProps, Row, Space } from 'antd';
+import { Avatar, Button, Col, ConfigProvider, Flex, Layout, Menu, MenuProps, Row, Space } from 'antd';
 import { SearchOutlined, UserOutlined } from '@ant-design/icons';
 import { useDispatch, useSelector } from 'react-redux';
 import OnlineShopLogo from '../../resources/img/OnlineShopLogo.svg';
 import MenuItem from 'antd/es/menu/MenuItem';
+import basket from '../../resources/img/basket.svg';
+import logout from '../../resources/img/logout.svg';
+
+
 
 
 
@@ -100,19 +104,30 @@ const AppHeader:React.FC<PropsType> = (props) => {
 
 				<Col span={7} >
 
-
-					
 					<div className={s.loginBlock}>
-						<div className="space-align-container">
-							<div className="space-align-block">
-								<Space size='middle' align="end">
+
+
+						{/* <div className="space-align-container">
+							<div className="space-align-block"> */}
+								{/* <Space size='middle' align="baseline"> */}
+
+
+								{/* <Flex  align={'center'}>
+								<SearchOutlined style={{ fontSize: '1.5em' }} />
+								<img className={s.basket_img} src={basket} alt='' />	
+								</Flex> */}
+
+
 									<SearchOutlined style={{ fontSize: '1.5em' }} />
-									<Avatar style={{ backgroundColor: '##46a358' }} icon={<UserOutlined />} />			
-									<Button className={s.header_button}>Log out</Button>		
-								</Space>			
+									<img className={s.basket_img} src={basket} alt='' />	
+									{/* <Avatar style={{ backgroundColor: '##46a358' }} icon={<UserOutlined />} />			 */}
+									<Button className={s.header_button}>
+										<img src={logout} alt='' />	
+										Logout</Button>		
+								{/* </Space>			 */}
 							</div>
-						</div>
-					</div>
+						{/* </div>
+					</div> */}
 				</Col>
 			
 			</Row>
