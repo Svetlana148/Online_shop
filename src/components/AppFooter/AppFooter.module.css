@@ -1,0 +1,143 @@
+.appFooter {
+	height: 710px;
+	min-height: 710px;
+	background-color: #ffffff;
+
+}
+
+:global(.ant-layout-footer) {
+	padding: 100px 120px 13px 120px;
+} 
+
+
+.appHeader_logo {
+	width: 120px;
+	min-width: 120px;
+	height: 32px;
+	background: rgba(255, 255, 255, .2);
+	border-radius: 6px;
+	margin-inline-end: 24px;
+}
+
+
+
+/* ----1 Row---------------------------------------------------------------- */
+
+.appFooter_row1 {
+	height: 250px;
+	min-height: 250px;
+	flex-wrap: nowrap;
+	background-color: #fbfbfb;
+}
+
+.appFooter_row1_card {
+	display: flex;
+	flex-direction: row;
+	width: 250px;
+	min-width: 250px;
+	height: 100%;
+	/* background-color: beige; */
+}
+
+.appFooter_row1_card_container {
+	padding: 25px 0 24px 23px;
+	/* display: flex;
+	flex-direction: column; */
+	justify-content: start;
+	align-items: start;
+	/* width: 204px; */
+	/* background-color: rgb(212, 212, 168); */
+	height: 100%;
+}
+
+.appFooter_row1_card_divider {
+	margin: 25px 0 24px 0 ;
+	/* background-color: rgb(251, 226, 192); */
+	width: 34px;
+	min-width: 34px;
+	border-right: 1px rgba(70, 163, 88, 0.1) solid;
+}
+
+.appFooter_row1_card_title {
+	font-weight: 700;
+	font-size: 17px;
+	line-height: 94%;
+	margin: 0 0 9px 0;
+
+}
+
+.appFooter_row1_card_text {
+	font-weight: 400;
+	font-size: 14px;
+	letter-spacing: 0;
+	line-height: 157%;
+	color: #727272;
+}
+
+.AppFooter_row1_img1 {
+	width: 77px;
+	min-width: 77px;
+	height: 95px;
+	min-height: 95px;
+	margin: 0 0 17px 0;
+}
+
+.appFooter_row1_img2 {
+	width: 90px;
+	min-width: 90px;
+	height: 95px;
+	min-height: 95px;
+}
+
+.appFooter_row1_img3 {
+	width: 83px;
+	min-width: 83px;
+	height: 85px;
+	min-height: 85px;
+}
+
+.appFooter_row1_card4 {
+	width: 354px;
+	min-width: 414px;
+	height: 100%;
+	/* background-color: rgb(192, 192, 161); */
+}
+
+.appFooter_row1_card_container4 {
+	padding: 25px 35px  0 23px;
+}
+
+.appFooter_joinButton {
+	width: 354px;
+	margin: 9px 0 17px 0 ;
+}
+
+
+/* ----2 Row---------------------------------------------------------------- */
+.appFooter_row2 {
+	height: 88px;
+	min-height: 88px;
+	flex-wrap: nowrap;
+	background-color: #46A3581A;
+}
+
+.appFooter_row2_card {
+	/* display: flex;
+	flex-direction: row; */
+	height: 100%;
+	background-color: beige;
+}
+
+.appFooter_row1_card_container {
+	display: flex;
+	flex-direction: row;
+	/* padding: 25px 0 24px 23px; */
+	
+	justify-content: start;
+	align-items: center;
+	/* width: 204px; */
+	/* background-color: rgb(212, 212, 168); */
+	height: 100%;
+}
+
+

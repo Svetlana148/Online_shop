@@ -1,11 +1,11 @@
 import React from 'react';
 import { Breadcrumb, ConfigProvider, Layout, theme } from 'antd';
-// import s from './App.module.css';
+import s from './AppLayout.module.css';
 import './AppLayout.module.css';
 // import './App.module.css';
 import AppHeader from '../components/AppHeader/AppHeader';
 import AppRouter from '../screens/AppRouter/AppRouter';
-import AppFooter from '../components/AppFooter/Footer';
+import AppFooter from '../components/AppFooter/AppFooter';
 import AppContent from '../components/AppContent/AppContent';
 // import "./assets/CeraPro-Regular.woff"
 
@@ -30,31 +30,32 @@ function App() {
 
 
   return (
-    <div className="App">
+    <div className={s.app}>
+      <div className={s.wrapper}>
+        <Layout>
 
-      <Layout>
+          {/* Для кастомизации дизайна	 */}
+          <ConfigProvider
 
-        {/* Для кастомизации дизайна	 */}
-        <ConfigProvider
-
-          theme={{
-            token: {
-              // Основной Цвет текста на сайте
-              colorText: '#3d3d3d',
-              fontFamily: `"CeraPro", "Hanging Letters", sans-serif`,
-            }
-          }}>
-
-
-
-          <AppHeader />
-          <AppContent />
-          <AppFooter />
+            theme={{
+              token: {
+                // Основной Цвет текста на сайте
+                colorText: '#3d3d3d',
+                colorPrimary: '#46A358',
+                fontFamily: `"CeraPro", "Hanging Letters", sans-serif`,
+              }
+            }}>
 
 
-        </ConfigProvider>
-      </Layout>
 
+            <AppHeader />
+            <AppContent />
+            <AppFooter />
+
+
+          </ConfigProvider>
+        </Layout>
+      </div>
     </div>
   );
 }

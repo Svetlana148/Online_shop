@@ -31,7 +31,7 @@ const AppContent:React.FC<PropsType> = (props) => {
 	return (
 
 		
-		<Content style={{ padding: '0 48px' }}>
+		<Content style={{ padding: '0 118px' }}>
 					
 			<Breadcrumb style={{ margin: '16px 0' }}>
 				<Breadcrumb.Item>Home</Breadcrumb.Item>

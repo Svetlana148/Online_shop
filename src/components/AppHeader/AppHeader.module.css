@@ -1,16 +1,11 @@
-
-body {
-	font-family: "Poppins", "Roboto", sans-serif;
-}
-
 .header {
 	/* grid-area: header; */
 	background:rgba(255, 255, 255, 0.856);
 	display: flex;
 	align-items: center;
 	line-height: 35px;
-
 }
+
 
 
 .header_Row{
@@ -19,15 +14,7 @@ body {
 
 }
 
-/* .App_logo {
-	width: 120px;
-	min-width: 120px;
-	height: 32px;
-	background: rgba(255, 255, 255, .2);
-	border-radius: 6px;
-	margin-inline-end: 24px;
- } */
- 
+
 .appHeader_logo {
 	width: 150px;
 	min-width: 150px;

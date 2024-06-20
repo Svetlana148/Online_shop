@@ -34,7 +34,7 @@ const AppHeader:React.FC<PropsType> = (props) => {
 
 	return (
 		// , 'lineHeight': '0px'
-		<Header className= {s.header} >
+		<Header className= {s.header} style={{ padding: '0 120px' }}>
 
 			<Row className={s.header_Row}>
 				<Col span={5}>
