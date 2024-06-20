@@ -63,7 +63,6 @@
 	font-size: 17px;
 	line-height: 94%;
 	margin: 0 0 9px 0;
-
 }
 
 .appFooter_row1_card_text {
@@ -103,7 +102,7 @@
 	/* background-color: rgb(192, 192, 161); */
 }
 
-.appFooter_row1_card_container4 {
+.appFooter_row1_card4_container {
 	padding: 25px 35px  0 23px;
 }
 
@@ -128,7 +127,7 @@
 	background-color: beige;
 }
 
-.appFooter_row1_card_container {
+.appFooter_row2_card_container {
 	display: flex;
 	flex-direction: row;
 	/* padding: 25px 0 24px 23px; */

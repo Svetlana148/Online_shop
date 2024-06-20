@@ -39,66 +39,68 @@ const AppFooter:React.FC<PropsType> = (props) => {
 			<Row className={s.appFooter_row1}>
 				<Col span={5}>
 						{/* ---------1 карточка-----------------------  */}
-						<div className={s.appFooter_card_row1}>
-							<div className={s.appFooter_card_row1_container}>
+						<div className={s.appFooter_row1_card}>
+							<div className={s.appFooter_row1_card_container}>
 								<div  className={s.AppFooter_row1_img1}>
 									<img  src={AppFooter_img1} alt="" />
 								</div>
 
-								<div className={s.appFooter_card_title}>Garden Care</div>
+								<div className={s.appFooter_row1_card_title}>Garden Care</div>
 
-								<div className={s.appFooter_card_text}>
+								<div className={s.appFooter_row1_card_text}>
 									We are an online plant shop
 									offering a wide range of cheap
 									and trendy plants.
 								</div>
 							</div>
-							<div className={s.appFooter_card_divider}></div>
+							<div className={s.appFooter_row1_card_divider}></div>
 						</div>
 				</Col>
 
+
+
+				{/* ---------2 карточка-----------------------  */}
 				<Col span={5}>
-						{/* ---------2 карточка-----------------------  */}
-						<div className={s.appFooter_card_row1}>
-							<div className={s.appFooter_card_row1_container}>
+						<div className={s.appFooter_row1_card}>
+							<div className={s.appFooter_row1_card_container}>
 								<div  className={s.AppFooter_row1_img2}>
 									<img  src={AppFooter_img2} alt="" />
 								</div>
 
-								<div className={s.appFooter_card_title}>Plant Renovation</div>
+								<div className={s.appFooter_row1_card_title}>Plant Renovation</div>
 
-								<div className={s.appFooter_card_text}>
+								<div className={s.appFooter_row1_card_text}>
 								We are an online plant shop offering a wide range of cheap and trendy plants.
 								</div>
 							</div>
-							<div className={s.appFooter_card_divider}></div>
+							<div className={s.appFooter_row1_card_divider}></div>
 						</div>
 				</Col>
 
 
 				<Col span={5}>
 						{/* ---------3 карточка-----------------------  */}
-						<div className={s.appFooter_card_row1}>
-							<div className={s.appFooter_card_row1_container}>
+						<div className={s.appFooter_row1_card}>
+							<div className={s.appFooter_row1_card_container}>
 								<div  className={s.AppFooter_row1_img3}>
 									<img  src={AppFooter_img3} alt="" />
 								</div>
 
-								<div className={s.appFooter_card_title}>Watering Graden</div>
+								<div className={s.appFooter_row1_card_title}>Watering Graden</div>
 
-								<div className={s.appFooter_card_text}>
+								<div className={s.appFooter_row1_card_text}>
 								We are an online plant shop offering a wide range of cheap and trendy plants.
 								</div>
 							</div>
-							<div className={s.appFooter_card_divider}></div>
+							<div className={s.appFooter_row1_card_divider}></div>
 						</div>
 				</Col>
 
 				<Col span={9}>
 						{/* ---------4 карточка-----------------------  */}
-						<div className={s.appFooter_card4_row1}>
-							<div className={s.appFooter_card_row1_container4}>
-								<div className={s.appFooter_card_title}>Would you like to join newsletters?</div>
+						<div className={s.appFooter_row1_card4}>
+							<div className={s.appFooter_row1_card4_container}>
+								<div className={s.appFooter_row1_card_title}>Would you like to join newsletters?</div>
 								<div>
 
 								<ConfigProvider
@@ -121,7 +123,7 @@ const AppFooter:React.FC<PropsType> = (props) => {
 								</ConfigProvider>
 
 								</div>
-								<div className={s.appFooter_card_text}>
+								<div className={s.appFooter_row1_card_text}>
 								We usually post offers and challenges in newsletter. 
 								We’re your online houseplant destination. We offer a wide 
 								range of houseplants and accessories shipped directly 
@@ -134,7 +136,7 @@ const AppFooter:React.FC<PropsType> = (props) => {
 
 
 
-
+{/* ---------2 Row-----------------------  */}
 
 			<Row className={s.Appfooter_row2}>
 
