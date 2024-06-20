@@ -21,6 +21,8 @@ import AppFooter_paySystems from '../../resources/img/AppFooter/AppFooter_paySys
 
 
 
+
+
 //Типизация для "Footer"-а
 export type PropsType = {}
 
@@ -34,11 +36,10 @@ const AppFooter:React.FC<PropsType> = (props) => {
 		<Footer className= {s.appFooter} style={{ padding: '0 120px' }}>
 
 
-
-
+			{/* ---------1 Row-----------------------  */}
 			<Row className={s.appFooter_row1}>
+				{/* ---------1 карточка-----------------------  */}
 				<Col span={5}>
-						{/* ---------1 карточка-----------------------  */}
 						<div className={s.appFooter_row1_card}>
 							<div className={s.appFooter_row1_card_container}>
 								<div  className={s.AppFooter_row1_img1}>
@@ -136,74 +137,172 @@ const AppFooter:React.FC<PropsType> = (props) => {
 
 
 
-{/* ---------2 Row-----------------------  */}
+			{/* ---------2 Row-----------------------  */}
 
-			<Row className={s.Appfooter_row2}>
+			<Row className={s.appFooter_row2}>
 
+				{/* ---------1 карточка-----------------------  */}
 				<Col span={5}>
+					<div className={s.appFooter_row2_card}>
+						<div className={s.appFooter_row2_card_container}>
+							<div className={s.appFooter_row2_card1_container}>
+								<div className={s.appHeader_logo}>
+									<img src={OnlineShopLogo} alt='' />
+								</div>
+							</div>
+						</div>
+					</div>
+				</Col>							
+
+
+				{/* ---------2 карточка-----------------------  */}
+				<Col span={5}>
+					<div className={s.appFooter_row2_card}>
+						<div className={s.appFooter_row2_card_container}>
+							<div  className={s.AppFooter_img1}>
+								<img  src={AppFooter_EnvironmentOutline} alt="" />
+							</div>
+
+							<div className={s.appFooter_row2_card_text}>
+							<a href="https://maps.google.com/maps?q=70 West Buckingham Ave.
+								Farmingdale, NY 11735" target="_blank" rel="noreferrer">70 West Buckingham Ave.
+							Farmingdale, NY 11735</a>
+													
+							</div>
+						</div>
+					</div>
+				</Col>								
+
+
+				{/* ---------3 карточка-----------------------  */}
+				<Col span={5}>
+					<div className={s.appFooter_row2_card}>
+						<div className={s.appFooter_row2_card_container}>
+							<div className={s.AppFooter_img1}>
+								<img src={AppFooter_Contacts} alt=''/>
+							</div>
+
+							<div className={s.appFooter_row2_card_text}>
+								<a href="mailto:contact@greenshop.com" target="_blank" rel="noreferrer">contact@greenshop.com</a>
 										
-					<div className={s.appHeader_logo}>
-						<img src={OnlineShopLogo} alt='' />
+							</div>
+						</div>
 					</div>
-				</Col>
+				</Col>								
 
-				<Col span={5}>
-					<div  className={s.AppFooter_img1}>
-						<img  src={AppFooter_EnvironmentOutline} alt="" />
-					</div>
-					<div className={s.appFooter_card_text}>
-						70 West Buckingham Ave.
-					Farmingdale, NY 11735
-					</div>
-				</Col>
 
-				<Col span={5}>
-					<div className={s.AppFooter_img1}>
-						<img src={AppFooter_Contacts} alt=''/>
-					</div>
-					<div className={s.appFooter_card_text}>
-						contact@greenshop.com
-					</div>
-				</Col>
-
+			{/* ---------4 карточка-----------------------  */}
 				<Col span={9}>
-					<div className={s.AppFooter_img1}>
-						<img src={AppFooter_Phon} alt=''/>
-					</div>
-					<div className={s.appFooter_card_text}>
-						+88 01911 717 490
-					</div>
-				</Col>
+					<div className={s.appFooter_row2_card}>
+						<div className={s.appFooter_row2_card_container}>
+							<div className={s.AppFooter_img1}>
+								<img src={AppFooter_Phon} alt=''/>
+							</div>
 
+							<div className={s.appFooter_row2_card_text}>
+							<a href="tel:+88 01911 717 490">+88 01911 717 490</a>
+							</div>
+						</div>
+					</div>
+				</Col>									
 			</Row>
 
+			
+			{/* ---------3 Row-----------------------  */}							
 
 
-
-			<Row >
+			<Row className={s.appFooter_row3}>
+				{/* ---------1 карточка-----------------------  */}
 				<Col span={5}>
-					<div >
-					Наша rjkjzrf
-					</div>
+				<div className={s.appFooter_row3_card}>
+							<div className={s.appFooter_row3_card_container}>
+								<div className={s.appFooter_row3_card_title}>My Account</div>
+
+								<div className={s.appFooter_row1_card_text}>
+									<div className={s.appFooter_row3_card_link}><a href="#0">My Account</a></div>
+									<div className={s.appFooter_row3_card_link}><a href="#0" >Our stores</a></div>
+									<div className={s.appFooter_row3_card_link}><a href="#0" >Contact us</a></div>
+									<div className={s.appFooter_row3_card_link}><a href="#0" >Career</a></div>
+									<div className={s.appFooter_row3_card_link}><a href="#0" >Specials</a></div>
+								</div>
+							</div>
+						</div>
 				</Col>
 
+
+				{/* ---------2 карточка-----------------------  */}
 				<Col span={5}>
-					<div >
-					Наша rjkjzrf
-					</div>
+				<div className={s.appFooter_row3_card}>
+							<div className={s.appFooter_row3_card_container}>
+								<div className={s.appFooter_row3_card_title}>Help & Guide</div>
+
+								<div className={s.appFooter_row1_card_text}>
+									<div className={s.appFooter_row3_card_link}><a href="#0">Help Center</a></div>
+									<div className={s.appFooter_row3_card_link}><a href="#0" >How to Buy</a></div>
+									<div className={s.appFooter_row3_card_link}><a href="#0" >Shipping & Delivery</a></div>
+									<div className={s.appFooter_row3_card_link}><a href="#0" >Product Policy</a></div>
+									<div className={s.appFooter_row3_card_link}><a href="#0" >How to Return</a></div>
+								</div>
+							</div>
+						</div>
 				</Col>
 
+
+				{/* ---------3 карточка-----------------------  */}
 				<Col span={5}>
-					<div >
-					Наша rjkjzrf
-					</div>
+				<div className={s.appFooter_row3_card}>
+							<div className={s.appFooter_row3_card_container}>
+								<div className={s.appFooter_row3_card_title}>Categories</div>
+
+								<div className={s.appFooter_row1_card_text}>
+									<div className={s.appFooter_row3_card_link}><a href="#0">House Plants</a></div>
+									<div className={s.appFooter_row3_card_link}><a href="#0" >Potter Plants</a></div>
+									<div className={s.appFooter_row3_card_link}><a href="#0" >Seeds</a></div>
+									<div className={s.appFooter_row3_card_link}><a href="#0" >Small Plants</a></div>
+									<div className={s.appFooter_row3_card_link}><a href="#0" >Accessories</a></div>
+								</div>
+							</div>
+						</div>
 				</Col>
 
-				<Col span={9}>
-					<div >
-					Наша rjkjzrf
-					</div>
-				</Col>
+				{/* ---------4 карточка-----------------------  */}
+				<Col span={5}>
+				<div className={s.appFooter_row3_card}>
+							<div className={s.appFooter_row3_card4_container}>
+								<div className={s.appFooter_row3_card4_1}>
+									<div className={s.appFooter_row3_card_title}>
+										<div className={s.appFooter_row3_card4_title}>
+											Social Media
+										</div>
+									</div>
+										<div className={s.appHeader_logo}>
+											<img src={OnlineShopLogo} alt='' />
+										</div>
+								</div>	
+
+								<div className={s.appFooter_row3_card4_2}>	
+									<div className={s.appFooter_row3_card_title}>
+										<div className={s.appFooter_row3_card4_title}>
+											We accept
+										</div>
+									</div>	
+									
+										<img className={s.appFooter_row3_card4_paySystems} src={AppFooter_paySystems} alt=''/>
+									
+								</div>			
+								
+							</div>
+						</div>
+				</Col>						
+
+
+
+
+
+
+
+
+			
 
 			</Row>
 
