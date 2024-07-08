@@ -14,6 +14,12 @@ import OnlineShopLogo from '../../resources/img/OnlineShopLogo.svg';
 import AppFooter_img1 from '../../resources/img/AppFooter/AppFooter_1.svg';
 import AppFooter_img2 from '../../resources/img/AppFooter/AppFooter_2.svg';
 import AppFooter_img3 from '../../resources/img/AppFooter/AppFooter_3.svg';
+import AppFooter_facebook from '../../resources/img/AppFooter/AppFooter_facebook.svg';
+import AppFooter_Instagram from '../../resources/img/AppFooter/AppFooter_Instagram.svg';
+import AppFooter_Twitter from '../../resources/img/AppFooter/AppFooter_Twitter.svg';
+import AppFooter_LinkedIn from '../../resources/img/AppFooter/AppFooter_LinkedIn.svg';
+import AppFooter_Union from '../../resources/img/AppFooter/AppFooter_Union.svg';
+
 import AppFooter_EnvironmentOutline from '../../resources/img/AppFooter/AppFooter_EnvironmentOutline.svg';
 import AppFooter_Contacts from '../../resources/img/AppFooter/AppFooter_Contacts.svg';
 import AppFooter_Phon from '../../resources/img/AppFooter/AppFooter_Phon.svg';
@@ -275,8 +281,12 @@ const AppFooter:React.FC<PropsType> = (props) => {
 											Social Media
 										</div>
 									</div>
-										<div className={s.appHeader_logo}>
-											<img src={OnlineShopLogo} alt='' />
+										<div className={s.appFooter_row3_card4_media}>
+											<img src={AppFooter_facebook} alt='' />
+											<img src={AppFooter_Instagram} alt='' />
+											<img src={AppFooter_Twitter} alt='' />
+											<img src={AppFooter_LinkedIn} alt='' />
+											<img src={AppFooter_Union} alt='' />
 										</div>
 								</div>	
 

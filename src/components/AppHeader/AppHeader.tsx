@@ -35,6 +35,10 @@ const AppHeader:React.FC<PropsType> = (props) => {
 	return (
 		// , 'lineHeight': '0px'
 		<Header className= {s.header} style={{ padding: '0 120px' }}>
+			
+			<div className="header__burger">
+				<span></span>
+			</div>
 
 			<Row className={s.header_Row}>
 				<Col span={5}>
