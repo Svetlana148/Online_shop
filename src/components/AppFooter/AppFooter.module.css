@@ -27,8 +27,8 @@
 /* ----1 Row---------------------------------------------------------------- */
 
 .appFooter_row1 {
-	height: 250px;
-	min-height: 250px;
+	/* height: 250px;
+	min-height: 250px; */
 	flex-wrap: wrap;
 	background-color: #fbfbfb;
 }
@@ -36,6 +36,7 @@
 .appFooter_row1_card {
 	display: flex;
 	flex-direction: row;
+	justify-content: space-between;
 	width: 250px;
 	min-width: 250px;
 	height: 100%;
@@ -52,9 +53,8 @@
 
 .appFooter_row1_card_divider {
 	margin: 25px 0 24px 0 ;
-	/* width: 34px;
-	min-width: 34px; */
-	border-right: 1px rgba(70, 163, 88, 0.1) solid;
+	/* border-right: 1px rgba(70, 163, 88, 0.1) solid;*/
+	border-right: 1px rgba(6, 48, 14, 0.921) solid;
 }
 
 .appFooter_row1_card_title {

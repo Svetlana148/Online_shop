@@ -43,6 +43,15 @@ function App() {
                 colorText: '#3d3d3d',
                 colorPrimary: '#46A358',
                 fontFamily: `"CeraPro", "Hanging Letters", sans-serif`,
+                // Смена Breack points
+                screenXL : 1440,
+                screenXLMax : 1440,
+                screenXLMin : 1440,
+                screenLGMin : 900,
+                screenLG : 900,
+                screenMDMax : 899,
+
+
               }
             }}>
 

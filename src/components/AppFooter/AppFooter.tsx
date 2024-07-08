@@ -45,7 +45,7 @@ const AppFooter:React.FC<PropsType> = (props) => {
 			{/* ---------1 Row-----------------------  */}
 			<Row className={s.appFooter_row1}>
 				{/* ---------1 карточка-----------------------  */}
-				<Col span={5}>
+				<Col xl={5} lg={12} xs={24}>
 						<div className={s.appFooter_row1_card}>
 							<div className={s.appFooter_row1_card_container}>
 								<div  className={s.AppFooter_row1_img1}>
@@ -67,7 +67,7 @@ const AppFooter:React.FC<PropsType> = (props) => {
 
 
 				{/* ---------2 карточка-----------------------  */}
-				<Col span={5}>
+				<Col xl={5} lg={12} xs={24}>
 						<div className={s.appFooter_row1_card}>
 							<div className={s.appFooter_row1_card_container}>
 								<div  className={s.AppFooter_row1_img2}>
@@ -85,7 +85,7 @@ const AppFooter:React.FC<PropsType> = (props) => {
 				</Col>
 
 
-				<Col span={5}>
+				<Col xl={5} lg={10} xs={24}>
 						{/* ---------3 карточка-----------------------  */}
 						<div className={s.appFooter_row1_card}>
 							<div className={s.appFooter_row1_card_container}>
@@ -103,7 +103,7 @@ const AppFooter:React.FC<PropsType> = (props) => {
 						</div>
 				</Col>
 
-				<Col span={9}>
+				<Col xl={9} lg={14} xs={24}>
 						{/* ---------4 карточка-----------------------  */}
 						<div className={s.appFooter_row1_card4}>
 							<div className={s.appFooter_row1_card4_container}>
