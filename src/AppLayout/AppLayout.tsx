@@ -30,7 +30,7 @@ function App() {
 
 
   return (
-    <div className={s.app}>
+    <div className={s.appbody}>
       <div className={s.wrapper}>
         <Layout>
 

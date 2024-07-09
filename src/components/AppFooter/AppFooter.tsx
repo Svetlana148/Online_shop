@@ -84,9 +84,8 @@ const AppFooter:React.FC<PropsType> = (props) => {
 						</div>
 				</Col>
 
-
-				<Col xl={5} lg={10} xs={24}>
-						{/* ---------3 карточка-----------------------  */}
+				{/* ---------3 карточка-----------------------  */}
+				<Col xl={5} lg={12} xs={24}>
 						<div className={s.appFooter_row1_card}>
 							<div className={s.appFooter_row1_card_container}>
 								<div  className={s.AppFooter_row1_img3}>
@@ -103,7 +102,7 @@ const AppFooter:React.FC<PropsType> = (props) => {
 						</div>
 				</Col>
 
-				<Col xl={9} lg={14} xs={24}>
+				<Col xl={9} lg={12} xs={24}>
 						{/* ---------4 карточка-----------------------  */}
 						<div className={s.appFooter_row1_card4}>
 							<div className={s.appFooter_row1_card4_container}>
@@ -148,23 +147,20 @@ const AppFooter:React.FC<PropsType> = (props) => {
 			<Row className={s.appFooter_row2}>
 
 				{/* ---------1 карточка-----------------------  */}
-				<Col span={5}>
+				<Col xl={5} lg={12} xs={24}>
 					<div className={s.appFooter_row2_card}>
-						<div className={s.appFooter_row2_card_container}>
-							<div className={s.appFooter_row2_card1_container}>
-								<div className={s.appHeader_logo}>
-									<img src={OnlineShopLogo} alt='' />
-								</div>
+					<div className={s.appFooter_row2_card1_container}>
+							<div className={s.appHeader_logo}>
+								<img src={OnlineShopLogo} alt='' />
 							</div>
 						</div>
 					</div>
 				</Col>							
 
-
 				{/* ---------2 карточка-----------------------  */}
-				<Col span={5}>
+				<Col xl={5} lg={12} xs={24}>
 					<div className={s.appFooter_row2_card}>
-						<div className={s.appFooter_row2_card_container}>
+						<div className={s.appFooter_row2_card2_container}>
 							<div  className={s.AppFooter_img1}>
 								<img  src={AppFooter_EnvironmentOutline} alt="" />
 							</div>
@@ -181,9 +177,9 @@ const AppFooter:React.FC<PropsType> = (props) => {
 
 
 				{/* ---------3 карточка-----------------------  */}
-				<Col span={5}>
+				<Col xl={5} lg={12} xs={24}>
 					<div className={s.appFooter_row2_card}>
-						<div className={s.appFooter_row2_card_container}>
+						<div className={s.appFooter_row2_card3_container}>
 							<div className={s.AppFooter_img1}>
 								<img src={AppFooter_Contacts} alt=''/>
 							</div>
@@ -197,10 +193,10 @@ const AppFooter:React.FC<PropsType> = (props) => {
 				</Col>								
 
 
-			{/* ---------4 карточка-----------------------  */}
-				<Col span={9}>
+				{/* ---------4 карточка-----------------------  */}
+				<Col xl={9} lg={12} xs={24}>
 					<div className={s.appFooter_row2_card}>
-						<div className={s.appFooter_row2_card_container}>
+						<div className={s.appFooter_row2_card4_container}>
 							<div className={s.AppFooter_img1}>
 								<img src={AppFooter_Phon} alt=''/>
 							</div>
@@ -210,7 +206,7 @@ const AppFooter:React.FC<PropsType> = (props) => {
 							</div>
 						</div>
 					</div>
-				</Col>									
+				</Col>	
 			</Row>
 
 			
@@ -219,25 +215,25 @@ const AppFooter:React.FC<PropsType> = (props) => {
 
 			<Row className={s.appFooter_row3}>
 				{/* ---------1 карточка-----------------------  */}
-				<Col span={5}>
-				<div className={s.appFooter_row3_card}>
-							<div className={s.appFooter_row3_card_container}>
-								<div className={s.appFooter_row3_card_title}>My Account</div>
+				<Col xl={5} lg={12} xs={24}>
+					<div className={s.appFooter_row3_card}>
+						<div className={s.appFooter_row3_card_container}>
+							<div className={s.appFooter_row3_card_title}>My Account</div>
 
-								<div className={s.appFooter_row1_card_text}>
-									<div className={s.appFooter_row3_card_link}><a href="#0">My Account</a></div>
-									<div className={s.appFooter_row3_card_link}><a href="#0" >Our stores</a></div>
-									<div className={s.appFooter_row3_card_link}><a href="#0" >Contact us</a></div>
-									<div className={s.appFooter_row3_card_link}><a href="#0" >Career</a></div>
-									<div className={s.appFooter_row3_card_link}><a href="#0" >Specials</a></div>
-								</div>
+							<div className={s.appFooter_row1_card_text}>
+								<div className={s.appFooter_row3_card_link}><a href="#0">My Account</a></div>
+								<div className={s.appFooter_row3_card_link}><a href="#0" >Our stores</a></div>
+								<div className={s.appFooter_row3_card_link}><a href="#0" >Contact us</a></div>
+								<div className={s.appFooter_row3_card_link}><a href="#0" >Career</a></div>
+								<div className={s.appFooter_row3_card_link}><a href="#0" >Specials</a></div>
 							</div>
 						</div>
+					</div>
 				</Col>
 
 
 				{/* ---------2 карточка-----------------------  */}
-				<Col span={5}>
+				<Col xl={5} lg={12} xs={24}>
 				<div className={s.appFooter_row3_card}>
 							<div className={s.appFooter_row3_card_container}>
 								<div className={s.appFooter_row3_card_title}>Help & Guide</div>
@@ -255,7 +251,7 @@ const AppFooter:React.FC<PropsType> = (props) => {
 
 
 				{/* ---------3 карточка-----------------------  */}
-				<Col span={5}>
+				<Col xl={5} lg={12} xs={24}>
 				<div className={s.appFooter_row3_card}>
 							<div className={s.appFooter_row3_card_container}>
 								<div className={s.appFooter_row3_card_title}>Categories</div>
@@ -272,7 +268,7 @@ const AppFooter:React.FC<PropsType> = (props) => {
 				</Col>
 
 				{/* ---------4 карточка-----------------------  */}
-				<Col span={5}>
+				<Col xl={9} lg={12} xs={24}>
 				<div className={s.appFooter_row3_card}>
 							<div className={s.appFooter_row3_card4_container}>
 								<div className={s.appFooter_row3_card4_1}>

@@ -45,8 +45,12 @@
 }
 
 
+
 .wrapper{
   max-width: 1440px;
+  /* overflow: hidden; */
+	min-height: 100%;
+  margin: 0 auto
 }
 
 
