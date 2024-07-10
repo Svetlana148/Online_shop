@@ -220,6 +220,16 @@ padding: 0 0 0 9px;
 }
 
 @media (max-width: 900px) {
+
+	/* .appFooter{
+		padding:  0 0 100px 0;
+	} */
+
+	.appFooterCopyright{
+		margin: 0 0 135px 0;
+	}
+
+
 	.appFooter_row2_card2_container,
 	.appFooter_row2_card4_container {
 		padding: 0 0 0 23px;

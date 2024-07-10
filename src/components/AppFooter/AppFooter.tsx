@@ -314,11 +314,11 @@ const AppFooter:React.FC<PropsType> = (props) => {
 
 
 		{/* <Footer style={{ textAlign: 'center' }}> */}
-		<div style={{ textAlign: 'center' }}>
+		<div className={s.appFooterCopyright} style={{ textAlign: 'center' }}>
 		© 2021 GreenShop. All Rights Reserved.
 		{/* Ant Design ©{new Date().getFullYear()} Created by Ant UED */}
 		</div>
-
+		<div>&nbsp;</div>								
 		</Footer>
 	);
 }

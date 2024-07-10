@@ -11,17 +11,6 @@ import AppContent from '../components/AppContent/AppContent';
 
 
 
-
-// const { Content, Footer } = Layout;
-
-// const items = new Array(4).fill(null).map((_, index) => ({
-//   key: index + 1,
-//   label: `nav ${index + 1}`,
-// }));
-
-
-
-
 function App() {
 
   const {
@@ -31,7 +20,7 @@ function App() {
 
   return (
     <div className={s.appbody}>
-      <div className={s.wrapper}>
+      <div className={s.wrapper} >
         <Layout>
 
           {/* Для кастомизации дизайна	 */}
@@ -50,14 +39,12 @@ function App() {
                 screenLGMin : 900,
                 screenLG : 900,
                 screenMDMax : 899,
-
-
-              }
+              } 
             }}>
 
 
 
-            <AppHeader />
+            <AppHeader/>
             <AppContent />
             <AppFooter />
 

@@ -4,36 +4,38 @@
 import React from 'react';
 import s from './AppHeader.module.css';
 import { NavLink } from 'react-router-dom';
-import { Avatar, Button, Col, ConfigProvider, Flex, Layout, Menu, MenuProps, Row, Space } from 'antd';
+import { Affix, Avatar, Button, Col, ConfigProvider, Flex, Grid, Layout, Menu, MenuProps, Row, Space } from 'antd';
 import { SearchOutlined, UserOutlined } from '@ant-design/icons';
 import { useDispatch, useSelector } from 'react-redux';
 import OnlineShopLogo from '../../resources/img/OnlineShopLogo.svg';
 import MenuItem from 'antd/es/menu/MenuItem';
 import basket from '../../resources/img/basket.svg';
 import logout from '../../resources/img/logout.svg';
+import burgerButton from '../../resources/img/AppMenu/burgerButton.svg';
+import basketIcon from '../../resources/img/AppMenu/basketIcon.svg';
+import homeIcon from '../../resources/img/AppMenu/homeIcon.svg';
+import likeIcon from '../../resources/img/AppMenu/likeIcon.svg';
+import userIcon from '../../resources/img/AppMenu/userIcon.svg';
 
 
+import Example from './AppHeaderMenu';
 
 
-
-//Типизация для "Header"-а
-export type PropsType = {}
 
 
 const { Header } = Layout;
+const { useBreakpoint } = Grid;
 
 
 
 
 
+const AppHeader:React.FC= (props) => {
 
-const AppHeader:React.FC<PropsType> = (props) => {
-
-	
+	const screens = useBreakpoint();
 
 
 	return (
-		// , 'lineHeight': '0px'
 		<Header className= {s.header} style={{ padding: '0 120px' }}>
 			
 			<div className="header__burger">
@@ -88,7 +90,7 @@ const AppHeader:React.FC<PropsType> = (props) => {
 							// theme="dark"
 							mode="horizontal"
 							defaultSelectedKeys={['1']}
-							style={{ flex: 1, minWidth: 0 }}
+							style={{ visibility: screens.lg ? "visible" : "hidden" }}
 							className={s.header_menu}>
 
 							
@@ -101,6 +103,7 @@ const AppHeader:React.FC<PropsType> = (props) => {
 							
 						</Menu>
 					</ConfigProvider>
+			
 				</Col>
 
 
@@ -129,12 +132,32 @@ const AppHeader:React.FC<PropsType> = (props) => {
 										<img src={logout} alt='' />	
 										Logout</Button>		
 								{/* </Space>			 */}
+								
 							</div>
 						{/* </div>
 					</div> */}
+				
 				</Col>
 			
 			</Row>
+
+
+			{/* <Affix  style={{ position: 'absolute', bottom: 0, right: 0 }} offsetBottom={200}>
+				<Button type="primary">Fixed at the top of container</Button>
+			</Affix> */}
+			
+
+			<div className={s.footerMobile}>
+				<img src={homeIcon} alt="" />
+				<img src={likeIcon} alt="" />
+
+				<div className={s.footerMobileButton}>
+					<img src={burgerButton} alt="" />
+				</div>
+				<img src={basketIcon} alt="" />
+				<img src={userIcon} alt="" />
+			</div>
+
 		</Header> 
 
 	);
