@@ -16,6 +16,7 @@ import basketIcon from '../../resources/img/AppMenu/basketIcon.svg';
 import homeIcon from '../../resources/img/AppMenu/homeIcon.svg';
 import likeIcon from '../../resources/img/AppMenu/likeIcon.svg';
 import userIcon from '../../resources/img/AppMenu/userIcon.svg';
+import AppHeaderMobileMenu from './AppHeaderMobilMenu';
 
 
 
@@ -81,7 +82,6 @@ const AppHeader:React.FC= (props) => {
 								// theme="dark"
 								mode="horizontal"
 								defaultSelectedKeys={['1']}
-								style={{ visibility: screens.lg ? "visible" : "hidden" }}
 								className={s.header_menu}>
 								
 									<Menu.Item key="1" > <NavLink to="/home" className={s.menu__link }>Home</NavLink></Menu.Item> 
@@ -116,9 +116,11 @@ const AppHeader:React.FC= (props) => {
 					<img src={homeIcon} alt="" />
 					<img src={likeIcon} alt="" />
 
-					<div className={s.hederMobileButton}>
-						<img src={burgerButton} alt="" />
-					</div>
+
+
+					<AppHeaderMobileMenu />
+		
+
 					<img src={basketIcon} alt="" />
 					<img src={userIcon} alt="" />
 				</div>
