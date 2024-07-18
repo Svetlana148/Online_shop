@@ -1,7 +1,7 @@
 //Крутилка для показа пока что-то грузится
 
 import React from 'react';
-import preloaderImg from '../../../img/preloader.gif';
+import preloaderImg from '../../../resources/img/preloader.gif';
 
 //Типизация для "Preloader"-а
 export type PropsType = {

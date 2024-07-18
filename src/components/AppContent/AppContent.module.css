@@ -1,0 +1,7 @@
+.appContent{
+	background: colorBgContainer;
+	min-height: 280px;
+	padding: 95px 24px 24px 24px;
+	border-radius: borderRadiusLG;
+	
+}

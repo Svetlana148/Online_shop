@@ -21,7 +21,7 @@ function App() {
   return (
     <div className={s.appbody}>
       <div className={s.wrapper} >
-        <Layout>
+        
 
           {/* Для кастомизации дизайна	 */}
           <ConfigProvider
@@ -39,17 +39,23 @@ function App() {
                 screenLGMin : 900,
                 screenLG : 900,
                 screenMDMax : 899,
-              } 
+              }, 
+              components: {
+                Layout: {
+                  bodyBg: '#fff',
+                },
+              },
             }}>
 
 
+
+          <Layout>
             <AppHeader/>
             <AppContent />
             <AppFooter />
+          </Layout>
 
-
-          </ConfigProvider>
-        </Layout>
+        </ConfigProvider>
       </div>
     </div>
   );
