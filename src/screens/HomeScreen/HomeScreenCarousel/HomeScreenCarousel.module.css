@@ -1,7 +1,7 @@
 .contentStyle{
 	margin: 0;
 	height: 450px;
-	color:red;
+	/* color:red; */
 	line-height: 160px;
 	/* text-align: center; */
 
@@ -78,29 +78,52 @@
 	letter-spacing: 0;
 	line-height: 24px;
 	color: #727272;
+	margin: 0 0 44px 0;
+
+	font-weight: 700;
+	font-size: 16px;
+	line-height: 20px;
+	letter-spacing: 0%;
+	text-transform:uppercase;
 }
 
 
 
-
-
-.homeScreenCarousel_cardImg1{
-	background-image: url(/src/resources/img/HomeScreen/HomeScreenCarousel_1.png);
+.homeScreenCarousel_cardImg{
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: cover;
 	height: 450px;
 }
-
-.homeScreenCarousel_img1 {
-	min-width: 100%;
-   min-height: 100%;
-   flex-shrink: 0;
+.homeScreenCarousel_cardImg1{
+	background-image: url(/src/resources/img/HomeScreen/HomeScreenCarousel_1.png);
+}
+.homeScreenCarousel_cardImg2{
+	background-image: url(/src/resources/img/HomeScreen/HomeScreenCarousel_2.png);
+}
+.homeScreenCarousel_cardImg3{
+	background-image: url(/src/resources/img/HomeScreen/HomeScreenCarousel_3.png);
 }
 
 
-	
-	
+
+
+
+
+/* .homeScreenCarousel_img1 {
+	min-width: 100%;
+   min-height: 100%;
+   flex-shrink: 0;
+} */
+
+
+.homeScreenCarousel_button{
+	width: 149px;
+	height: 40px;
+	background-color: #46A358;
+	color: #fff;
+}	
+
 
 
 
