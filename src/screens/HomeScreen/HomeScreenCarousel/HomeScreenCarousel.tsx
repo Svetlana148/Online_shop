@@ -1,7 +1,7 @@
 import React from 'react';
 import { Carousel, Col, ConfigProvider, Row } from 'antd';
 import s from './HomeScreenCarousel.module.css';
-import HomeScreenCarousel_img1 from '../../../resources/img/HomeScreen/HomeScreenCarousel_1.png';
+// import HomeScreenCarousel_cardImg1 from '../../../resources/img/HomeScreen/HomeScreenCarousel_1.png';
 
 
 
@@ -46,18 +46,18 @@ import HomeScreenCarousel_img1 from '../../../resources/img/HomeScreen/HomeScree
 
 									<div className={s.homeScreenCarousel_card_text}>
 										We are an online plant shop offering a wide range 
-										of cheap and trendy plants. Use 
-										<br /> our plants to create 
-										an unique Urban Jungle. Order your favorite plants!
+										of cheap and trendy plants. 
+										<br />Use our plants to create an unique Urban Jungle. Order your favorite plants!
 									</div>
 								</div>
 							</div>
 						</Col>
 
 
-
-						<Col span={10}>
-								<img   className={s.homeScreenCarousel_img1} src={HomeScreenCarousel_img1} alt="" />
+						<Col span={10} >
+							<div className={s.homeScreenCarousel_cardImg1}>
+								{/* <img   className={s.homeScreenCarousel_img1} src={HomeScreenCarousel_img1} alt="" /> */}
+							</div>
 						</Col>
 					</Row>
 		

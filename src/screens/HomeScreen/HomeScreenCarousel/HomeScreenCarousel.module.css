@@ -28,7 +28,7 @@
 
 
 
-.homeCarousel_row{
+.homeScreenCarousel_row{
 	flex-wrap: wrap;
 }
 
@@ -84,14 +84,110 @@
 
 
 
-.homeScreenCarousel_img1 {
-	width: 518px;
-	min-width: 518px;
-	max-width: 518px;
+.homeScreenCarousel_cardImg1{
+	background-image: url(/src/resources/img/HomeScreen/HomeScreenCarousel_1.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
 	height: 450px;
-	min-height: 450px;
-	max-height: 450px;
 }
 
+.homeScreenCarousel_img1 {
+	min-width: 100%;
+   min-height: 100%;
+   flex-shrink: 0;
+}
+
+
+	
+	
+
+
+
+
+
+
+/* ----------------------------------------------------------------------------------------------- */
+
+@media (max-width: 1250px) {
+	
+	.homeScreenCarousel_card_title {
+		font-size: 60px;
+		line-height: 60px;
+	}
+		
+	.homeScreenCarousel_card_text {
+		font-size: 12px;
+		line-height: 18px;
+	}
+}
+
+
+	@media (max-width: 1130px) {
+		/* .homeScreenCarousel_card_container {
+			padding: 0px 0 0px 30px;
+		} */
+
+		.homeScreenCarousel_card_subtitle {
+			font-size: 12px;
+			line-height: 12px;
+			letter-spacing: 8%;
+		}
+		
+		.homeScreenCarousel_card_title {
+			font-size: 45px;
+			line-height: 50px;
+			margin: 0 0 5px 0;
+		}
+			
+		.homeScreenCarousel_card_text {
+			font-size: 12px;
+			line-height: 18px;
+		}
+		
+		
+	}
+	
+
+
+@media (max-width: 899px) {
+	.contentStyle{
+		border-radius: 10%;
+	};
+
+	.homeScreenCarousel_card_container {
+		padding: 0px 0px 0px 23px;
+	}
+			
+	.homeScreenCarousel_row{
+
+		border-radius: 10%;
+		background: linear-gradient(70deg, #46A35833, #46A3581A)
+		
+
+}
+		.homeScreenCarousel_card_subtitle {
+			font-size: 12px;
+			line-height: 12px;
+			letter-spacing: 8%;
+		}
+		
+		.homeScreenCarousel_card_title {
+			font-size: 45px;
+			line-height: 50px;
+			margin: 0 0 5px 0;
+		}
+			
+		.homeScreenCarousel_card_text {
+			height: 37px;
+			overflow: hidden;
+			font-size: 12px;
+			line-height: 18px;
+		}
+		.homeScreenCarousel_cardImg1{
+			background-image: url(/src/resources/img/HomeScreen/HomeScreenCarousel_1Mob.png);
+			
+		}
+	}
 
 
