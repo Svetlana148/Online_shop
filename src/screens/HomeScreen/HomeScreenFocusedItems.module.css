@@ -1,0 +1,132 @@
+
+
+.homeScreenFocusedItems_row{
+	flex-wrap: wrap;
+	margin: 94px 0 0 0;
+	height: 302px;
+}
+
+.homeScreenFocusedItems_card {
+	width: 100%;
+	min-width: 100%;
+	height: 100%;
+	min-width: 100%;
+	min-height: 100%;
+	border: rgb(57, 152, 96) 2px solid;
+
+}
+
+.homeScreenFocusedItems_card_container {
+	display: flex;
+	/* flex-direction: column;
+	justify-content: center;
+	align-items: start; 
+	padding: 0 30px 0 0;*/
+	height: 100%;
+	position: relative;
+}
+
+
+.homeScreenFocusedItems_card_background {
+background-color: rgba(0, 0, 0, 0.04);
+position: absolute;
+height: 250px;
+width: 100%;
+bottom: 0;
+z-index: 0;
+}
+
+.homeScreenFocusedItems_card_background_container {
+	height: 100%;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: end;
+	padding: 0 30px 0 0;
+	}
+
+.homeScreenFocusedItems_card_space{
+padding: 0 0 0 15px;
+}
+
+	
+.homeScreenFocusedItems_cardImg{
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
+	min-height: 302px;
+	min-width: 250px;
+}
+
+	.homeScreenFocusedItems_cardImg1{
+		height: 100%;
+		background-image: url(/src/resources/img/HomeScreen/HomeScreenFocusedItems_1.jpg);
+	}
+
+	.homeScreenFocusedItems_cardImg2{
+		background-image: url(/src/resources/img/HomeScreen/HomeScreenFocusedItems_2.png);
+	} 
+	
+
+
+.homeScreenFocusedItems_card_title {
+	
+	font-weight: 900;
+	font-size: 18px;
+	line-height: 24px;
+	letter-spacing:  0%;
+	text-transform:uppercase;
+	color: #3D3D3D;
+	margin: 0 0 10px 0;
+	text-align: right;
+}
+
+
+.homeScreenFocusedItems_card_text {
+	font-weight: 400;
+	font-size: 14px;
+	letter-spacing: 0%;
+	line-height: 24px;
+	color: #727272;
+	margin: 0 0 10px 0;
+	text-align: right;
+}
+
+.homeScreenFocusedItems_cardImg{
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	height: 302px;
+}
+
+
+
+
+
+
+
+.homeScreenFocusedItems_button{
+	width: 149px;
+	height: 40px;
+	background-color: #46A358;
+	color: #fff;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}	
+
+
+
+
+.homeScreenFocusedItems_arrow{
+	margin: 2px 0 0 2px;
+}
+
+
+
+
+
+/* ----------------------------------------------------------------------------------------------- */
+
+

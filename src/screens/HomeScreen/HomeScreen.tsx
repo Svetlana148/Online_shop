@@ -1,5 +1,6 @@
 import React from 'react';
 import HomePageCarousel from './HomeScreenCarousel/HomeScreenCarousel';
+import HomeScreenFocusedItems from './HomeScreenFocusedItems';
 
 
 const HomePage: React.FC = () => {
@@ -8,6 +9,8 @@ const HomePage: React.FC = () => {
 
 		<div>
 			<HomePageCarousel />
+			<HomeScreenFocusedItems />
+			
 		</div>
 
 	);
