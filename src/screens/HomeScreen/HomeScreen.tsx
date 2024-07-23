@@ -3,7 +3,7 @@ import HomePageCarousel from './HomeScreenCarousel/HomeScreenCarousel';
 import HomeScreenFocusedItems from './HomeScreenFocusedItems';
 
 
-const HomePage: React.FC = () => {
+const HomeScreen: React.FC = () => {
 
 	return (
 
@@ -16,4 +16,4 @@ const HomePage: React.FC = () => {
 	);
 };
 
-export default HomePage;
+export default HomeScreen;

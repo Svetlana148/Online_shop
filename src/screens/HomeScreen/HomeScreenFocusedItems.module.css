@@ -3,7 +3,6 @@
 .homeScreenFocusedItems_row{
 	flex-wrap: wrap;
 	margin: 94px 0 0 0;
-	height: 302px;
 }
 
 .homeScreenFocusedItems_card {
@@ -97,7 +96,8 @@ padding: 0 0 0 15px;
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: cover;
-	height: 302px;
+	max-height: 292px;
+	max-width: 250px;
 }
 
 
@@ -128,5 +128,11 @@ padding: 0 0 0 15px;
 
 
 /* ----------------------------------------------------------------------------------------------- */
+/* ------@media------------------------------------------------------------------------------ */
+@media (max-width: 1439px) {
 
+	.homeScreenFocusedItems_row1 {
+		margin: 0 0 50px 0;
+	}
+}
 
