@@ -9,18 +9,18 @@
 };
 
 
-.homeScreenCarousel_row{
+.homeCarousel_row{
 	flex-wrap: wrap;
 }
 
 
-.homeScreenCarousel_card {
+.homeCarousel_card {
 	width: 100%;
 	min-width: 100%;
 	height: 100%;
 }
 
-.homeScreenCarousel_card_container {
+.homeCarousel_card_container {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -30,7 +30,7 @@
 }
 
 
-.homeScreenCarousel_card_subtitle {
+.homeCarousel_card_subtitle {
 	font-weight: 500;
 	font-size: 14px;
 	line-height: 16px;
@@ -40,7 +40,7 @@
 	margin: 0 0 7px 0;
 }
 
-.homeScreenCarousel_card_title {
+.homeCarousel_card_title {
 	font-weight: 900;
 	font-size: 70px;
 	line-height: 70px;
@@ -49,11 +49,11 @@
 	color: #3D3D3D;
 	margin: 0 0 5px 0;
 }
-.homeScreenCarousel_card_title span{
+.homeCarousel_card_title span{
 	color: #46A358;
 }
 
-.homeScreenCarousel_card_text {
+.homeCarousel_card_text {
 	font-weight: 400;
 	font-size: 14px;
 	letter-spacing: 0;
@@ -64,19 +64,19 @@
 
 
 
-.homeScreenCarousel_cardImg{
+.homeCarousel_cardImg{
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: cover;
 	height: 450px;
 }
-.homeScreenCarousel_cardImg1{
+.homeCarousel_cardImg1{
 	background-image: url(/src/resources/img/HomeScreen/HomeScreenCarousel_1.png);
 }
-.homeScreenCarousel_cardImg2{
+.homeCarousel_cardImg2{
 	background-image: url(/src/resources/img/HomeScreen/HomeScreenCarousel_2.png);
 }
-.homeScreenCarousel_cardImg3{
+.homeCarousel_cardImg3{
 	background-image: url(/src/resources/img/HomeScreen/HomeScreenCarousel_3.png);
 }
 
@@ -84,7 +84,7 @@
 
 
 
-.homeScreenCarousel_button{
+.homeCarousel_button{
 	width: 149px;
 	height: 40px;
 	background-color: #46A358;
@@ -92,16 +92,16 @@
 }	
 
 
-.homeScreenCarousel_arrow{
+.homeCarousel_arrow{
 	display: none;
 }
 
 
-.homeScreenCarousel_arrowContainer{
+.homeCarousel_arrowContainer{
 	display: flex;
 }
 
-.homeScreenCarousel_shopArrow_textArrow{
+.homeCarousel_shopArrow_textArrow{
 	margin: 0 2px 0 0;
 	color: #46A358;
 	font-weight: 700;
@@ -117,12 +117,12 @@
 
 @media (max-width: 1250px) {
 	
-	.homeScreenCarousel_card_title {
+	.homeCarousel_card_title {
 		font-size: 60px;
 		line-height: 60px;
 	}
 		
-	.homeScreenCarousel_card_text {
+	.homeCarousel_card_text {
 		font-size: 12px;
 		line-height: 18px;
 	}
@@ -130,23 +130,23 @@
 
 
 	@media (max-width: 1130px) {
-		/* .homeScreenCarousel_card_container {
+		/* .homeCarousel_card_container {
 			padding: 0px 0 0px 30px;
 		} */
 
-		.homeScreenCarousel_card_subtitle {
+		.homeCarousel_card_subtitle {
 			font-size: 12px;
 			line-height: 12px;
 			letter-spacing: 8%;
 		}
 		
-		.homeScreenCarousel_card_title {
+		.homeCarousel_card_title {
 			font-size: 45px;
 			line-height: 50px;
 			margin: 0 0 5px 0;
 		}
 			
-		.homeScreenCarousel_card_text {
+		.homeCarousel_card_text {
 			font-size: 12px;
 			line-height: 18px;
 		}
@@ -161,45 +161,45 @@
 		border-radius: 10%;
 	};
 
-	.homeScreenCarousel_card_container {
+	.homeCarousel_card_container {
 		padding: 0px 0px 0px 23px;
 	}
 			
-	.homeScreenCarousel_row{
+	.homeCarousel_row{
 
 		border-radius: 10%;
 		background: linear-gradient(70deg, #46A35833, #46A3581A)
 		
 
 }
-		.homeScreenCarousel_card_subtitle {
+		.homeCarousel_card_subtitle {
 			font-size: 12px;
 			line-height: 12px;
 			letter-spacing: 8%;
 		}
 		
-		.homeScreenCarousel_card_title {
+		.homeCarousel_card_title {
 			font-size: 45px;
 			line-height: 50px;
 			margin: 0 0 5px 0;
 		}
 			
-		.homeScreenCarousel_card_text {
+		.homeCarousel_card_text {
 			height: 37px;
 			overflow: hidden;
 			font-size: 12px;
 			line-height: 18px;
 		}
-		.homeScreenCarousel_cardImg1{
+		.homeCarousel_cardImg1{
 			background-image: url(/src/resources/img/HomeScreen/HomeScreenCarousel_1Mob.png);
 			
 		}
 		
-	.homeScreenCarousel_button{
+	.homeCarousel_button{
 		display: none;
 	}	
 		
-	.homeScreenCarousel_arrow{
+	.homeCarousel_arrow{
 		display:inline;
 	}	
 }

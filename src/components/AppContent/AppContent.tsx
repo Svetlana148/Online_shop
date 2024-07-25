@@ -7,10 +7,10 @@ import { Breadcrumb, theme } from 'antd';
 // import { NavLink } from 'react-router-dom';
 // import { Avatar, Button, Col, Layout, Menu, MenuProps, Row } from 'antd';
 import { Content } from 'antd/es/layout/layout';
-import HomePageCarousel from '../../screens/HomeScreen/HomeScreen';
-import { Route, Routes } from 'react-router-dom';
-import Preloader from '../common/Preloader/Preloader';
-import HomePage from '../../screens/HomeScreen/HomeScreen';
+// import HomeCarousel from '../../screens/Home/Home';
+// import { Route, Routes } from 'react-router-dom';
+// import Preloader from '../common/Preloader/Preloader';
+// import Home from '../../screens/Home/Home';
 import AppRouter from '../../screens/AppRouter/AppRouter';
 
 
@@ -40,14 +40,14 @@ const AppContent: React.FC<PropsType> = (props) => {
 			<div
 				style={{
 					background: colorBgContainer,
-				// 	minHeight: 280,
-				// 	padding: 24,
-				// 	borderRadius: borderRadiusLG,
+					// 	minHeight: 280,
+					// 	padding: 24,
+					// 	borderRadius: borderRadiusLG,
 				}}
 				className={s.appContent}
 			>
-				<AppRouter />	
-				
+				<AppRouter />
+
 			</div>
 
 
