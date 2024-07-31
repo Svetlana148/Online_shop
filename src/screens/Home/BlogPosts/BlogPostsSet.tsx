@@ -15,6 +15,7 @@ import BlogPost from './BlogPost';
 
 import BlogPost_img1 from '../../../resources/img/HomeScreen/BlogPost_img1.jpg';
 import right_arrow_dark from '../../../resources/img/HomeScreen/right_arrow_dark.svg';
+import BlogPostLatest from '../../../redux/BlogPosts-BLL';
 
 
 
@@ -30,7 +31,7 @@ type BlogPostsSetPropsType = {
 // Users  : React.FC<PropsType>  or     Users  : FC<PropsType> & import React, {FC} from 'react';
 export const BlogPostsSet: FC<BlogPostsSetPropsType> = (props) => {
 
-
+	const blogPostList = BlogPostLatest();
 
 
 	//Используем "useSelector( наш селектор)" для получения данных из "state"-а 
@@ -50,28 +51,17 @@ export const BlogPostsSet: FC<BlogPostsSetPropsType> = (props) => {
 				<div className={s.blogPostSet_subtitle}>We are an online plant shop offering a wide range of cheap and trendy plants. </div>
 
 				<Row className={s.blogPostSet_row} gutter={[{xl:44, lg:30, xs:20}, {xl:0, lg:50, sm: 50, md: 40, xs:40}]}>
-					{/* ---------1 card-----------------------  */}
-					<Col xl={6} lg={12} xs={24}>
-						<BlogPost/>
+
+
+				
+				{blogPostList.map(bp => <Col xl={6} lg={12} xs={24}>
+						<BlogPost blogPost={bp}/>
 					</Col>
+				)}
 
 
-					{/* ---------2 card-----------------------  */}
-					<Col xl={6} lg={12} xs={24}>
-						<BlogPost/>
-					</Col>
 
-
-					{/* ---------3 card-----------------------  */}
-					<Col xl={6} lg={12} xs={24}>
-						<BlogPost/>
-					</Col>
-					
-
-					{/* ---------4 card-----------------------  */}
-					<Col xl={6} lg={12} xs={24}>
-						<BlogPost/>
-					</Col>
+				
 				</Row>
 
 			</div>

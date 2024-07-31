@@ -4,6 +4,7 @@ import s from './BlogPost.module.css';
 import {NavLink} from  'react-router-dom';
 import BlogPost_img1 from '../../../resources/img/HomeScreen/BlogPost_img1.jpg';
 import right_arrow_dark from '../../../resources/img/HomeScreen/right_arrow_dark.svg';
+import { BlogPostType } from '../../../types/types';
 
 
 // import {usersAPI} from '../api/users-api';
@@ -15,45 +16,32 @@ import right_arrow_dark from '../../../resources/img/HomeScreen/right_arrow_dark
 
 //Типизируем "props-ы" для к-ты "BlogPost"
 type PropsType = {
-	// blogPost: blogPostType
+	blogPost: BlogPostType
 }
 
 
 //({blogPost})=>
-let BlogPost: React.FC<PropsType> = ()=>{
+let BlogPost: React.FC<PropsType> = (props)=>{
+	const { DateTime } = require("luxon");
 
 return (
 	<div>
-		{/* <div>
-			<span>
-				<div>
-					<NavLink to = {'/profile/' +user.id}>
-						<img src={user.photos.small !=null ? user.photos.small : userPhoto} className={styles.usersPhoto} alt="" />
-					</NavLink>
-				</div>
-			</span>
-
-			<span>
-				<span>
-					<div>{user.name}</div>
-					<div>{user.status}</div>
-				</span>
-			</span>
-		</div> */}
-
 			<div className={s.blogPost_row_card}>
 				<div className={s.blogPost_row_card_container}>
 					<div  className={s.blogPost_row_img}>
-						<img  className={s.blogPost_row_img} src={BlogPost_img1} alt="" />
+						<img  className={s.blogPost_row_img} src={props.blogPost.titleImage} alt="" />
 					</div>
 
 					<div className={s.blogPost_row_card_textContainer}>
-						<div className={s.blogPost_row_card_subtitle}>September 12  I Read in 6 minutes</div>
+						<div className={s.blogPost_row_card_subtitle}>
+							{DateTime.fromISO(props.blogPost.postDate).toFormat('LLLL d')} 
+							&nbsp;|
+							Read in {props.blogPost.timeToRead}	minutes
+						</div>
 
-						<div className={s.blogPost_row_card_title}>Cactus & Succulent Care Tips</div>
+						<div className={s.blogPost_row_card_title}>{props.blogPost.title}</div>
 
-						<div className={s.blogPost_row_card_text}>
-							Cacti are succulents are easy care plants for any home or patio. 
+						<div className={s.blogPost_row_card_text}>{props.blogPost.description}
 						</div>
 
 						<div className={s.blogPost_link}>
