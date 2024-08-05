@@ -4,6 +4,7 @@
 //current user support--------------------------------------- 
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import { BlogPostListType } from '../../types/types';
 
 
 //  Шаблон запроса на сервер (далее везде он используется при др. запросах)--------------------------
@@ -26,13 +27,13 @@ export const instance = axios.create({
 // }
 
 //Общий тип для получения массива данных GNERIC
-// export type GetItemsType = {
-// 	items: Array<UserType>
-// 	totalCount: number
-// 	error: string | null
-// }
+export type GetItemsType = {
+	items: Array<BlogPostListType>
+	// totalCount: number
+	// error: string | null
+}
 
-// Делаем общий Тип-Generic для всех "Response"...................
+//Делаем общий Тип-Generic для всех "Response"...................
 // export type APIResponseType<D = {}, RC = ResultCodesEnum> = { //D={}- по умолчанию пустой  RC=ResultCodesEnum- по умолчанию"ResultCodesEnum"
 // 	data: D            // Тип для объекта data: разное
 // 	resultCode: RC     //Тип "enum" для перечисления серверных кодов(здесь применяем)

@@ -4,11 +4,9 @@
 import React from 'react';
 import s from './AppHeader.module.css';
 import { NavLink } from 'react-router-dom';
-import { Affix, Avatar, Button, Col, ConfigProvider, Flex, Grid, Layout, Menu, MenuProps, Row, Space } from 'antd';
-import { SearchOutlined, UserOutlined } from '@ant-design/icons';
-import { useDispatch, useSelector } from 'react-redux';
+import { Button, Col, ConfigProvider, Grid, Layout, Menu,  Row } from 'antd';
+import { SearchOutlined} from '@ant-design/icons';
 import OnlineShopLogo from '../../resources/img/OnlineShopLogo.svg';
-import MenuItem from 'antd/es/menu/MenuItem';
 import basket from '../../resources/img/basket.svg';
 import logout from '../../resources/img/logout.svg';
 import burgerButton from '../../resources/img/AppMenu/burgerButton.svg';

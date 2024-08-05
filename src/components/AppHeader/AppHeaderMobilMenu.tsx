@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Button, ConfigProvider, Drawer, Menu } from 'antd';
 import burgerButton from '../../resources/img/AppMenu/burgerButton.svg';
-import s from './AppHeaderMobilMenu.module.css';
+import s from './AppHeader.module.css';
 import { NavLink } from 'react-router-dom';
 
 

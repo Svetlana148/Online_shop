@@ -1,0 +1,77 @@
+import { Dispatch } from 'redux';
+import {BlogPostListType} from '../types/types';
+import { BaseThunkType, InferActionsTypes } from './redux-store';
+import { BlogPostsAPI } from '../components/api/BlogPosts-api';
+
+
+
+//Типизируем initialState
+let initialState = {
+	latestBlogPosts: [] as BlogPostListType, 
+	// pageSize: 10,
+	// totalUsersCount: 0,
+	// currentPage: 1,
+	
+};
+//Выделяем  Type из initialState
+export type InitialStateType = typeof initialState; 
+
+
+
+// ----------------------------------------------------------------------------------------
+
+const blogPostsReducer = (state = initialState, action:any): InitialStateType => {
+	switch (action.type) {
+
+		case 'BLOGPOST/SET_LATEST':
+		// 	return {
+		// 		...state,
+		// 		users: updateObjectInArray(state.users, action.userId, "id", { followed: true }),
+		// 	}
+
+
+		
+		
+		// default:
+			return (state);
+			default:
+			return (state);
+	}
+};
+export default blogPostsReducer;
+
+
+
+// ---Thunk-------------------------------------------------------------------------------------
+
+
+//"requestUsers" - это Thunk-Creator( подвид  ActionCreator-а). Его нельзяя просто вызывать, только "dispatch"-ить
+export const requestLatestBlogPosts = (): ThunkType => {
+
+	return (
+		async (dispatch: DispatchType, getState) => {
+			let data = await BlogPostsAPI.getLatestBlogPosts();
+			dispatch(actions.setLatestBlogPosts(data));
+		}
+	);
+}
+
+
+// -Types---------------------------------------------------------------------------------------
+//-ActionCreator  SET--------------------------------------------------------------
+// Типизируем все "actions"------------------------
+
+
+type DispatchType = Dispatch<ActionsTypes>  //для const "_followUnfollowFlow"
+
+type ActionsTypes = InferActionsTypes<typeof actions>
+
+// Упаковываем все АС в Объект "actions"------------------------
+export const actions = {
+	//Ключ(название АС) : значение (сам АС)
+	setLatestBlogPosts : (blogPostsList: BlogPostListType) =>({ type: 'BLOGPOST/SET_LATEST', blogPostsList } as const),
+}
+
+type ThunkType = BaseThunkType<ActionsTypes>  //Локальный "ThunkType" типизирован общим типом "BaseThunkType" с нашими "<ActionsTypes>"-ми
+
+

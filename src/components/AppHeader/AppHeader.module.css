@@ -86,6 +86,22 @@
 
 
 
+/* Mobile sm = 900------------------------------------------------------------- */
+
+.AppHeaderMobileMenuButton{
+	min-width: 65px;
+	width: 65px;
+	min-height: 65px;
+	border-radius: 220px;
+}
+
+.AppHeaderMobileButton {
+	margin: -53px 0 0 0 ;
+}
+
+
+
+
 /* sm = 900------------------------------------------------------------- */
 
 .headerMobile {
@@ -108,7 +124,6 @@
 	box-shadow: 0px -10px 30px 0px rgba(184, 184, 184, 0.2);
 	border-radius: 29px;
 }
-
 
 
 

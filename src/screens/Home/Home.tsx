@@ -1,6 +1,6 @@
 import React from 'react';
-import ScreenHomePageCarousel from './Carousel/ScreenHomeCarousel';
-import ScreenHomeFocusedItems from './FocusedItems/FocusedItems';
+import HomePageCarousel from './Carousel/ScreenHomeCarousel';
+import HomeFocusedItems from './FocusedItems/FocusedItems';
 import { BlogPostsSet } from './BlogPosts/BlogPostsSet';
 
 
@@ -9,8 +9,8 @@ const ScreenHome: React.FC = () => {
 	return (
 
 		<div>
-			<ScreenHomePageCarousel />
-			<ScreenHomeFocusedItems />
+			<HomePageCarousel />
+			<HomeFocusedItems />
 			<BlogPostsSet />
 			
 

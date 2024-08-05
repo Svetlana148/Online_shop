@@ -1,7 +1,7 @@
 import React from 'react';
 // import "./styles.css";
 import { Route, Routes } from 'react-router-dom';
-import home from '../Home/ScreenHome';
+import home from '../Home/Home';
 import Shop from '../Shop/Shop';
 import ProductView from '../ProductView/ProductView';
 import ProductCart from '../ProductCart/ProductCart';
@@ -11,7 +11,7 @@ import Address from '../Address/Address';
 import Pagenotfound from '../PageNotFound';
 import Blogs from '../Blogs/Blogs';
 import Preloader from '../../components/common/Preloader/Preloader';
-import Home from '../Home/ScreenHome';
+import Home from '../Home/Home';
 
 
 const AppRouter: React.FC = () => {

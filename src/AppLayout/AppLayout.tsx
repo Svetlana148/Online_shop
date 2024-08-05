@@ -21,36 +21,36 @@ function App() {
   return (
     <div className={s.appbody}>
       <div className={s.wrapper} >
-        
 
-          {/* Для кастомизации дизайна	 */}
-          <ConfigProvider
 
-            theme={{
-              token: {
-                // Основной Цвет текста на сайте
-                colorText: '#3d3d3d',
-                colorPrimary: '#46A358',
-                fontFamily: `"CeraPro", "Hanging Letters", sans-serif`,
-                // Смена Breack points
-                screenXL : 1440,
-                screenXLMax : 1440,
-                screenXLMin : 1440,
-                screenLGMin : 900,
-                screenLG : 900,
-                screenMDMax : 899,
-              }, 
-              components: {
-                Layout: {
-                  bodyBg: '#fff',
-                },
+        {/* Для кастомизации дизайна	 */}
+        <ConfigProvider
+
+          theme={{
+            token: {
+              // Основной Цвет текста на сайте
+              colorText: '#3d3d3d',
+              colorPrimary: '#46A358',
+              fontFamily: `"CeraPro", "Hanging Letters", sans-serif`,
+              // Смена Breack points
+              screenXL: 1440,
+              screenXLMax: 1440,
+              screenXLMin: 1440,
+              screenLGMin: 900,
+              screenLG: 900,
+              screenMDMax: 899,
+            },
+            components: {
+              Layout: {
+                bodyBg: '#fff',
               },
-            }}>
+            },
+          }}>
 
 
 
           <Layout>
-            <AppHeader/>
+            <AppHeader />
             <AppContent />
             <AppFooter />
           </Layout>
