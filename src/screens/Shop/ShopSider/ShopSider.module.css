@@ -1,0 +1,71 @@
+.container1{
+	padding: 14px 0 0 18px;
+	margin: 0 0	36px 0;
+}
+
+.container22{
+	padding:0 66px 0 12px;
+	margin: 20px 0	36px 0;
+}
+
+.menu_itemContainer{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+:global(.ant-menu-item-selected) {
+	font-weight: 700;
+} 
+
+.siderTitle{
+	font-weight: 700;
+	font-size: 18px;
+	line-height: 16px;
+	margin: 0 0 7px 0;
+}
+
+.side_button {
+	align-items: center;
+	font-weight: 700;
+	font-size: 16px;
+	line-height: 20px;
+
+	background: #46a358 ;
+	border-radius: 6px;
+	width: 90px;
+	min-width: 90px;
+	height: 35px;
+	min-height: 35px;
+	color: #fff;
+}
+
+.sale{
+	width: 100%;
+	/* max-width: 310px; */
+	height: 470px;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	background-image: url(/src/resources/img/ShopScreen/ShopScreen_Sider1.jpg);
+	padding: 18px 0 0 0;
+	text-align: center;
+}
+
+.sale span{
+	font-family: 'HangingLetters';	
+	font-weight: 400;
+	font-size: 65px;
+	line-height: 65px;
+	letter-spacing: 0%;
+	color: #46A358;
+}
+
+.saleOff{
+	font-weight: 700;
+	font-size: 23px;
+	line-height: 16px;
+	letter-spacing: 0%;
+	margin: 11px 0 0 0;
+}
+
