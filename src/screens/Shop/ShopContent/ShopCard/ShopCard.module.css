@@ -1,0 +1,56 @@
+
+
+
+.shopContent_card {
+	width: 258px;
+	min-width: 258px;
+	height: 350px;
+	height: 100%;
+	margin: 0 auto;
+	border: 1px red solid;
+}
+
+.shopContent_card_container {
+	display: flex;
+	flex-direction: column;
+	/* justify-content: start;
+	align-items: start; */
+	height: 100%;
+	background-color: rgb(251, 251, 251);
+}
+
+.shopContent_img1 {
+	width: 258px;
+	min-width: 258px;
+	max-width: 258px;
+	height: 300px;
+	min-height: 300px;
+	max-height: 300px;
+}
+
+.img1{
+	border: 1px green solid;
+}
+.ShopScreen_textContainer{
+	padding: 12px 0 0 0;
+	text-align: start;
+}
+
+.ShopScreen_card_title {
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 16px;
+	color: #3D3D3D;
+}
+
+
+
+
+.ShopScreen_card_price {
+	font-weight: 700;
+	font-size: 18px;
+	line-height: 16px;
+	letter-spacing: 0%;
+	color: #46A358;
+}
+

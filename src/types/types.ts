@@ -22,3 +22,6 @@ export type BlogPostType = {
 }
 
 export type BlogPostListType = Array<BlogPostType>
+
+//Типизация Photo
+export type PhotosType= string | null

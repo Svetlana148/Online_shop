@@ -9,7 +9,6 @@ import { SearchOutlined} from '@ant-design/icons';
 import OnlineShopLogo from '../../resources/img/OnlineShopLogo.svg';
 import basket from '../../resources/img/basket.svg';
 import logout from '../../resources/img/logout.svg';
-import burgerButton from '../../resources/img/AppMenu/burgerButton.svg';
 import basketIcon from '../../resources/img/AppMenu/basketIcon.svg';
 import homeIcon from '../../resources/img/AppMenu/homeIcon.svg';
 import likeIcon from '../../resources/img/AppMenu/likeIcon.svg';
@@ -54,7 +53,7 @@ const AppHeader:React.FC= (props) => {
 									motion:false,  
 									//Цвет для подчеркивания в меню под активным элементом
 									//#46a358;
-									colorPrimaryActive: '#3d3dff',  
+									//colorPrimaryActive: '#3d3dff',  
 									// colorPrimaryText: '#3d3dff',
 									// fontWeightStrong:900,
 								},
@@ -64,6 +63,7 @@ const AppHeader:React.FC= (props) => {
 										//fontSizeXL: 20,
 										//itemColor: '#3d3d3d',
 										horizontalItemSelectedColor: '#3d3d3d',
+										lineWidth: 0,
 										//itemSelectedBg: '#ff3d3d',
 										//itemSelectedColor: '#3d3dff',
 										// itemBg:'#ff3d3d',
@@ -83,7 +83,7 @@ const AppHeader:React.FC= (props) => {
 								className={s.header_menu}>
 								
 									<Menu.Item key="1" > <NavLink to="/home" className={s.menu__link }>Home</NavLink></Menu.Item> 
-									<Menu.Item key="2" className={s.menu_item}> <NavLink to="/shop">Shop</NavLink></Menu.Item>
+									<Menu.Item key="2" > <NavLink to="/shop">Shop</NavLink></Menu.Item>
 									<Menu.Item key="3" className={s.menu_item}> <NavLink to="/blogs">Blogs</NavLink></Menu.Item>
 																	
 								
