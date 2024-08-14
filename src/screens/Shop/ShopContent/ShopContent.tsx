@@ -1,7 +1,7 @@
 import React from "react";
 import s from "./ShopContent.module.css";
 import { Content } from "antd/es/layout/layout";
-import { Col, ConfigProvider, Menu, Row } from "antd";
+import { Col, ConfigProvider, Menu, Pagination, Row, Select } from "antd";
 import { NavLink } from "react-router-dom";
 import ShopCard from "./ShopCard/ShopCard";
 import ShopScreen_Content_img1 from "../../../resources/img/ShopScreen/ShopScreen_Content_img1.jpg";
@@ -18,16 +18,16 @@ const ShopContent : React.FC<PropsType> = (props) => {
 		textAlign: 'center',
 		minHeight: 120,
 		lineHeight: '120px',
-		color: '#fff',
 		backgroundColor: '#fff',
 	};
 
 	return (
 		<Content style={contentStyle}>
 			
+			{/* ---------Header--------------------------------------------------------  */}
 			<div className={s.shopHeader}>
 				<Row className={s.shopHeader_row}	>
-					<Col span={24} flex="auto">
+					<Col className={s.shopHeader_col} span={16} flex="auto">
 
 						{/* Для кастомизации дизайна	 */}
 						<ConfigProvider
@@ -63,6 +63,24 @@ const ShopContent : React.FC<PropsType> = (props) => {
 							</Menu>
 						</ConfigProvider>
 					</Col>
+
+					<Col className={s.shopHeader_col} span={8} flex="auto">	
+						<div className={s.shopHeader_select}>Short by:
+							<Select
+								variant="borderless"
+								defaultValue="Default_sorting"
+								style={{ width: 160 }}
+								// onChange={handleChange}
+								options={[
+									{ value: 'Default_sorting', label: 'Default sorting' },
+									{ value: 'low', label: 'Price: Low to High' },
+									{ value: 'high', label: 'Price: High to Low' },
+								]}
+							/>
+						</div>
+					</Col>		
+
+		
 				</Row >
 			</div>		
 
@@ -95,8 +113,12 @@ const ShopContent : React.FC<PropsType> = (props) => {
 							<ShopCard shopCard={sc} /> 
 						</Col>
 						)}*/}
+					</Row>
 
-					</Row>			
+					{/* ----Pagination-------------------------------------------------------------  */}
+					<div className={s.shopCardsSet_pagination}>
+						<Pagination defaultCurrent={1} total={50} />			
+					</div>
 				</div>		
 			</div>				
 		</Content>

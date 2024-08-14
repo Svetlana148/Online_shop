@@ -141,12 +141,10 @@ const ShopSider : React.FC<PropsType> = (props) => {
 					</div>
 
 					{/* ---2part PriseSlider------------------------------------------------------- */}
-					<div className={s.container}>
+					<div className={s.container1}>
 						<div className={s.siderTitle}>Price Range</div>
+						
 							<div className={s.container22}>
-
-
-
 								<div>
 									<PriseSlider/>
 								</div>
