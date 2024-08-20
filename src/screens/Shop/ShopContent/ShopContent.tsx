@@ -1,11 +1,12 @@
 import React from "react";
 import s from "./ShopContent.module.css";
 import { Content } from "antd/es/layout/layout";
-import { Col, ConfigProvider, Menu, Pagination, Row, Select } from "antd";
+import { Col, ConfigProvider, Grid, Menu, Pagination, Row, Select } from "antd";
 import { NavLink } from "react-router-dom";
 import ShopCard from "./ShopCard/ShopCard";
 import ShopScreen_Content_img1 from "../../../resources/img/ShopScreen/ShopScreen_Content_img1.jpg";
 
+const { useBreakpoint } = Grid;
 
 
 type PropsType = {							
@@ -13,12 +14,15 @@ type PropsType = {
 }
 
 const ShopContent : React.FC<PropsType> = (props) => {
+
+	const screens = useBreakpoint();
 	
 	const contentStyle: React.CSSProperties = {
 		textAlign: 'center',
 		minHeight: 120,
 		lineHeight: '120px',
 		backgroundColor: '#fff',
+		// padding: '41px 24px',
 	};
 
 	return (
@@ -44,6 +48,7 @@ const ShopContent : React.FC<PropsType> = (props) => {
 										horizontalItemSelectedColor: '#3d3d3d',
 										horizontalLineHeight: '23px',
 										lineWidth: 0,
+										itemPaddingInline: '0  34px',
 									},
 								}
 							}}
@@ -51,6 +56,7 @@ const ShopContent : React.FC<PropsType> = (props) => {
 
 
 							<Menu
+								
 								// theme="dark"
 								mode="horizontal"
 								defaultSelectedKeys={['1']}
@@ -65,7 +71,11 @@ const ShopContent : React.FC<PropsType> = (props) => {
 					</Col>
 
 					<Col className={s.shopHeader_col} span={8} flex="auto">	
-						<div className={s.shopHeader_select}>Short by:
+
+
+
+						{/* Mobile Header menu ------sm = 900----------------------------------------------------------------- */}
+						<div className={s.shopHeader_select} style={{ visibility: screens.lg ? "visible" : "hidden" }}>Short by:
 							<Select
 								variant="borderless"
 								defaultValue="Default_sorting"
@@ -88,28 +98,28 @@ const ShopContent : React.FC<PropsType> = (props) => {
 			{/* ---------Cards--------------------------------------------------------  */}
 			<div>
 				<div className={s.shopCardsSet}>
-					<Row className={s.shopCardsSet_row} gutter={[{ xl: 37, lg: 37, xs: 20 }, { xl: 76, lg: 76, sm: 76, md: 40, xs: 40 }]}>
+					<Row className={s.shopCardsSet_row} gutter={[{ xl: 41, lg: 41, xs: 20 }, { xl: 76, lg: 76, sm: 76, md: 40, xs: 40 }]}>
 
-						<Col xl={8} lg={12} xs={24}>
+						<Col xl={8} lg={12} xs={12}>
 							<ShopCard photo={ShopScreen_Content_img1} name="qwersrxsfd" price={123}/>
 						</Col>
-						<Col xl={8} lg={12} xs={24}>
+						<Col xl={8} lg={12} xs={12}>
 							<ShopCard photo={ShopScreen_Content_img1} name="qwersrxs2" price={123}/>
 						</Col>
-						<Col xl={8} lg={12} xs={24}>
+						<Col xl={8} lg={12} xs={12}>
 							<ShopCard photo={ShopScreen_Content_img1} name="qwersrxs3d" price={123}/>
 						</Col>	
-						<Col xl={8} lg={12} xs={24}>
+						<Col xl={8} lg={12} xs={12}>
 							<ShopCard photo={ShopScreen_Content_img1} name="qwersrxsfd" price={123}/>
 						</Col>
-						<Col xl={8} lg={12} xs={24}>
+						<Col xl={8} lg={12} xs={12}>
 							<ShopCard photo={ShopScreen_Content_img1} name="qwersrxs2" price={123}/>
 						</Col>
-						<Col xl={8} lg={12} xs={24}>
+						<Col xl={8} lg={12} xs={12}>
 							<ShopCard photo={ShopScreen_Content_img1} name="qwersrxs3d" price={123}/>
 						</Col>		
 
-						{/* {shopCards.map(sc => <Col xl={8} lg={12} xs={24}>
+						{/* {shopCards.map(sc => <Col xl={8} lg={12} xs={12}>
 							<ShopCard shopCard={sc} /> 
 						</Col>
 						)}*/}

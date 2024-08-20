@@ -36,7 +36,7 @@ const AppContent: React.FC<PropsType> = (props) => {
 	return (
 
 
-		<Content style={{ padding: '0 118px' }} >
+		<Content  className={s.appContent} >
 			<div
 				style={{
 					background: colorBgContainer,
@@ -44,7 +44,7 @@ const AppContent: React.FC<PropsType> = (props) => {
 					// 	padding: 24,
 					// 	borderRadius: borderRadiusLG,
 				}}
-				className={s.appContent}
+				className={s.appContentRouter}
 			>
 				<AppRouter />
 

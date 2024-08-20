@@ -1,59 +1,81 @@
-import React from "react";
-import s from "./ShopSider.module.css";
+import React, { useState } from "react";
+import s from "../ShopSider.module.css";
 import Sider from "antd/es/layout/Sider";
-import { Button, ConfigProvider, Grid, Menu, Flex, Input } from "antd";
+import { Button, ConfigProvider, Grid, Menu, Flex, Input, Drawer } from "antd";
 import { NavLink } from "react-router-dom";
-import PriseSlider from "./PriceSlider/PriceSlider";
+import PriseSlider from "../PriceSlider/PriceSlider";
+import filterButtonMobile from "../../../../resources/img/ShopScreen/filterButtonMobile.svg";
+import { SearchOutlined } from "@ant-design/icons";
 
 
-const { useBreakpoint } = Grid;
 
 
-type PropsType = {							
-	
+type PropsType = {
+
 }
 
-const ShopSider : React.FC<PropsType> = (props) => {
 
-	const screens = useBreakpoint();
 
-	const siderStyle: React.CSSProperties = {
-		textAlign: 'start',
-		lineHeight: '40px',
-		color: '#3D3D3D',
-		backgroundColor: '#FBFBFB',
-		visibility: screens.lg ? "visible" : "hidden",
-		margin: "0 50px 0 0"
+/* Mobile Header menu ------sm = 900----------------------------------------------------------------- */
+const ShopSiderMobile: React.FC<PropsType> = (props) => {
+
+	const [open, setOpen] = useState(false);
+
+	const showDrawer = () => {
+		setOpen(true);
 	};
 
+	const onClose = () => {
+		setOpen(false);
+	};
 
 	return (
-		<ConfigProvider
-			theme={{
-				token: {
-					// Отключить анимацию
-					motion:false,  
-					colorPrimaryActive: '#3d3dff',  
-					// colorPrimaryText: '#3d3dff',
-					// fontWeightStrong:900,
-					colorBgBase: '#FBFBFB',
-				},
-			
-				components: {
-					Menu: {
-						// horizontalItemSelectedColor: '#3d3d3d',
-						itemSelectedBg: '#FBFBFB',
-						fontSizeXL: 15,
-						itemColor: '#3d3d3d',
-						itemSelectedColor: '#46A358',
-					},
-				}
-			}}
-			>
+		<div className={s.shopScreenMobile}>
+			<Input placeholder="Find your plants" variant="filled"  prefix={<SearchOutlined  style={{ color: 'rgba(0,0,0,.25)' }} />}/>
+		
+			<div className={s.MobileMenuButton}  onClick={showDrawer}>
+				<div className={s.filterButtonMobile}>
+					<img src={filterButtonMobile} alt="" />
+				</div>
+			</div>
 
-			<Sider width={screens.lg ? "25%" : "0%"} style={siderStyle}>
+			<Drawer title="Filter" onClose={onClose} open={open}>
+				{/* Для кастомизации дизайна	 */}
+				<ConfigProvider
+					
+					theme={{
+						token: {
+							// Отключить анимацию
+							motion:false,  
+							//Цвет для подчеркивания в меню под активным элементом
+							//#46a358;
+							colorPrimaryActive: '#3d3dff',  
+							// colorPrimaryText: '#3d3dff',
+							// fontWeightStrong:900,
+						},
+					
+						components: {
+							Menu: {
+								horizontalItemSelectedColor: '#3d3d3d',
+							},
+						}
+					}}
+					>
 
-				{/* ---1part Categories------------------------------------------------------- */}
+
+					{/* <Menu
+						// mode="horizontal"
+						defaultSelectedKeys={['1']}
+						className={s.header_menu}>
+						
+							<Menu.Item key="1" > <NavLink to="/home" className={s.menu__link }>Home</NavLink></Menu.Item> 
+							<Menu.Item key="2" className={s.menu_item}> <NavLink to="/shop">Shop</NavLink></Menu.Item>
+							<Menu.Item key="3" className={s.menu_item}> <NavLink to="/blogs">Blogs</NavLink></Menu.Item>
+															
+						
+					</Menu> */}
+
+						{/* ---1part Categories------------------------------------------------------- */}
 				<div className={s.container1}>
 					<div className={s.container2}>
 						<div className={s.siderTitle}>Categories</div>
@@ -67,7 +89,6 @@ const ShopSider : React.FC<PropsType> = (props) => {
 										{/* <NavLink to="/home" className={s.menu_link }> */}
 											<div className={s.menu_itemContainer }>
 												<div>House Plants</div>
-												<div>(33)</div>
 											</div>
 										{/* </NavLink> */}
 									</Menu.Item> 
@@ -75,7 +96,6 @@ const ShopSider : React.FC<PropsType> = (props) => {
 										{/* <NavLink to="/home" className={s.menu_link }> */}
 											<div className={s.menu_itemContainer }>
 												<div>Potter Plants</div>
-												<div>(33)</div>
 											</div>
 										{/* </NavLink> */}
 									</Menu.Item> 
@@ -83,7 +103,6 @@ const ShopSider : React.FC<PropsType> = (props) => {
 										{/* <NavLink to="/home" className={s.menu_link }> */}
 										<div className={s.menu_itemContainer }>
 											<div>Seed</div>
-											<div>(33)</div>
 										</div>
 										{/* </NavLink> */}
 									</Menu.Item> 
@@ -91,7 +110,6 @@ const ShopSider : React.FC<PropsType> = (props) => {
 										{/* <NavLink to="/home" className={s.menu_link }> */}
 										<div className={s.menu_itemContainer }>
 											<div>Small Plants</div>
-											<div>(33)</div>
 										</div>
 										{/* </NavLink> */}
 									</Menu.Item> 
@@ -99,7 +117,6 @@ const ShopSider : React.FC<PropsType> = (props) => {
 										{/* <NavLink to="/home" className={s.menu_link }> */}
 										<div className={s.menu_itemContainer }>
 											<div>Big Plants</div>
-											<div>(33)</div>
 										</div>
 										{/* </NavLink> */}
 									</Menu.Item> 
@@ -107,7 +124,6 @@ const ShopSider : React.FC<PropsType> = (props) => {
 										{/* <NavLink to="/home" className={s.menu_link }> */}
 										<div className={s.menu_itemContainer }>
 											<div>Succulents</div>
-											<div>(33)</div>
 										</div>
 										{/* </NavLink> */}
 									</Menu.Item>
@@ -115,7 +131,6 @@ const ShopSider : React.FC<PropsType> = (props) => {
 										{/* <NavLink to="/home" className={s.menu_link }> */}
 										<div className={s.menu_itemContainer }>
 											<div>Terrariums</div>
-											<div>(33)</div>
 										</div>
 										{/* </NavLink> */}
 									</Menu.Item> 
@@ -123,7 +138,6 @@ const ShopSider : React.FC<PropsType> = (props) => {
 										{/* <NavLink to="/home" className={s.menu_link }> */}
 										<div className={s.menu_itemContainer }>
 											<div>Gardening</div>
-											<div>(33)</div>
 										</div>
 										{/* </NavLink> */}
 									</Menu.Item> 
@@ -131,7 +145,6 @@ const ShopSider : React.FC<PropsType> = (props) => {
 										{/* <NavLink to="/home" className={s.menu_link }> */}
 										<div className={s.menu_itemContainer }>
 											<div>Accessories</div>
-											<div>(18)</div>
 										</div>
 										{/* </NavLink> */}
 									</Menu.Item> 							
@@ -163,7 +176,6 @@ const ShopSider : React.FC<PropsType> = (props) => {
 										{/* <NavLink to="/home" className={s.menu_link }> */}
 											<div className={s.menu_itemContainer }>
 												<div>Small</div>
-												<div>(33)</div>
 											</div>
 										{/* </NavLink> */}
 									</Menu.Item> 
@@ -171,7 +183,6 @@ const ShopSider : React.FC<PropsType> = (props) => {
 										{/* <NavLink to="/home" className={s.menu_link }> */}
 											<div className={s.menu_itemContainer }>
 												<div>Medium</div>
-												<div>(33)</div>
 											</div>
 										{/* </NavLink> */}
 									</Menu.Item> 
@@ -179,7 +190,6 @@ const ShopSider : React.FC<PropsType> = (props) => {
 										{/* <NavLink to="/home" className={s.menu_link }> */}
 											<div className={s.menu_itemContainer }>
 												<div>Large</div>
-												<div>(33)</div>
 											</div>
 										{/* </NavLink> */}
 									</Menu.Item> 
@@ -187,14 +197,43 @@ const ShopSider : React.FC<PropsType> = (props) => {
 					</div>
 				</div>
 
-				<div className={s.sale}>
-					<span>Super Sale</span>
-					<div className={s.saleOff}>UP TO 75% OFF</div>
+				{/* ---4part Size------------------------------------------------------- */}
+				<div className={s.container1}>
+					<div className={s.container2}>
+						<div className={s.siderTitle}>Sort by</div>
+							<Menu
+								defaultSelectedKeys={['1']}
+								className={s.header_menu}>
+									<Menu.Item key="1" > 
+										{/* <NavLink to="/home" className={s.menu_link }> */}
+											<div className={s.menu_itemContainer }>
+												<div>Default sorting</div>
+											</div>
+										{/* </NavLink> */}
+									</Menu.Item> 
+									<Menu.Item key="2" > 
+										{/* <NavLink to="/home" className={s.menu_link }> */}
+											<div className={s.menu_itemContainer }>
+												<div>Price: Low to High</div>
+											</div>
+										{/* </NavLink> */}
+									</Menu.Item> 
+									<Menu.Item key="3" > 
+										{/* <NavLink to="/home" className={s.menu_link }> */}
+											<div className={s.menu_itemContainer }>
+												<div>Price: High to Low</div>
+											</div>
+										{/* </NavLink> */}
+									</Menu.Item> 
+							</Menu>
+					</div>
 				</div>
-			</Sider>
 
-		</ConfigProvider>
+				
+				</ConfigProvider>
+			</Drawer>
+		</div>
 	)
 }
 
-export default ShopSider;
+export default ShopSiderMobile;

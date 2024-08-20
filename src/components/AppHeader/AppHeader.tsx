@@ -13,7 +13,7 @@ import basketIcon from '../../resources/img/AppMenu/basketIcon.svg';
 import homeIcon from '../../resources/img/AppMenu/homeIcon.svg';
 import likeIcon from '../../resources/img/AppMenu/likeIcon.svg';
 import userIcon from '../../resources/img/AppMenu/userIcon.svg';
-import AppHeaderMobileMenu from './AppHeaderMobilMenu';
+import AppHeaderMobileMenu from './AppHeaderMobileMenu';
 
 
 
@@ -30,12 +30,11 @@ const AppHeader:React.FC= (props) => {
 
 
 	return (
-		<div style={{height: screens.lg ? "65" : "0" }}>
-			<Header className= {s.header} style={{ padding: '0 120px' ,
-																visibility: screens.lg ? "visible" : "hidden" }}>
+		<div >
+			<Header className= {s.header} style={{ display: screens.lg ? "flex" : "none" }}>
 
 				<Row className={s.header_Row}	>
-					<Col span={5} flex="none" style={{minWidth: "150px"}}>
+					<Col span={5} flex="auto" style={{minWidth: "150px"}}>
 						<div className={s.appHeader_logo}>
 							<img src={OnlineShopLogo} alt=''></img> 
 						</div>
@@ -92,17 +91,14 @@ const AppHeader:React.FC= (props) => {
 					</Col>
 										
 
-					<Col span={7} flex="none">
-
+					<Col span={7} flex="auto">
 						<div className={s.loginBlock}>
-
 							<SearchOutlined style={{ fontSize: '1.5em' }} />
 							<img className={s.basket_img} src={basket} alt='' />	
 							{/* <Avatar style={{ backgroundColor: '##46a358' }} icon={<UserOutlined />} />			 */}
 							<Button className={s.header_button}>
 								<img src={logout} alt='' />
 								Logout</Button>		
-									
 						</div>
 					</Col>
 				</Row>
@@ -111,17 +107,12 @@ const AppHeader:React.FC= (props) => {
 
 			{/* Mobile Header menu ------sm = 900----------------------------------------------------------------- */}
 			<div className={s.headerMobile} 	style={{ visibility: !screens.lg ? "visible" : "hidden" }}>
-					<img src={homeIcon} alt="" />
-					<img src={likeIcon} alt="" />
-
-
-
-					<AppHeaderMobileMenu />
-		
-
-					<img src={basketIcon} alt="" />
-					<img src={userIcon} alt="" />
-				</div>
+				<img src={homeIcon} alt="" />
+				<img src={likeIcon} alt="" />
+				<AppHeaderMobileMenu />
+				<img src={basketIcon} alt="" />
+				<img src={userIcon} alt="" />
+			</div>
 		</div>
 	);
 }

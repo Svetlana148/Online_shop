@@ -49,7 +49,6 @@ const AppHeaderMobileMenu: React.FC = () => {
 				}}
 				>
 
-
 				<Menu
 					// mode="horizontal"
 					defaultSelectedKeys={['1']}
@@ -58,8 +57,6 @@ const AppHeaderMobileMenu: React.FC = () => {
 						<Menu.Item key="1" > <NavLink to="/home" className={s.menu__link }>Home</NavLink></Menu.Item> 
 						<Menu.Item key="2" className={s.menu_item}> <NavLink to="/shop">Shop</NavLink></Menu.Item>
 						<Menu.Item key="3" className={s.menu_item}> <NavLink to="/blogs">Blogs</NavLink></Menu.Item>
-														
-					
 				</Menu>
 			</ConfigProvider>
 
