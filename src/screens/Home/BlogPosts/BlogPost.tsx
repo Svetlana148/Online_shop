@@ -4,7 +4,7 @@ import s from './BlogPost.module.css';
 import {NavLink} from  'react-router-dom';
 import BlogPost_img1 from '../../../resources/img/HomeScreen/BlogPost_img1.jpg';
 import right_arrow_dark from '../../../resources/img/HomeScreen/right_arrow_dark.svg';
-import { BlogPostType } from '../../../types/types';
+import { BlogPostType } from '../../../features/BlogPostsSlice';
 
 
 // import {usersAPI} from '../api/users-api';

@@ -81,6 +81,7 @@
 	position: absolute;
 	right: 9px;
 	top: 12px;
+	visibility: hidden;
 }
 /* ----------------------------------------------------------- */
 
@@ -162,5 +163,9 @@
 		visibility: hidden;
 	}
 	border-top: none;
+}
+
+.shopContent_likeMobile {
+	visibility: visible;
 }
 }

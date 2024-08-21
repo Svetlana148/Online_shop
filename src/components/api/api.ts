@@ -4,7 +4,7 @@
 //current user support--------------------------------------- 
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { BlogPostListType } from '../../types/types';
+import { BlogPostListType } from '../../features/BlogPostsSlice';
 
 
 //  Шаблон запроса на сервер (далее везде он используется при др. запросах)--------------------------

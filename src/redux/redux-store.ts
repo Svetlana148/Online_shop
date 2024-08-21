@@ -4,6 +4,7 @@ import {thunk, ThunkAction, ThunkDispatch } from 'redux-thunk';
 
 import authReducer from './auth-reducer'
 import blogPostsReducer from '../features/BlogPostsSlice'
+import shopReducer from '../features/ShopSlice'
 
 //import blogPostsReducer from './BlogPosts-reducer';
 
@@ -63,6 +64,7 @@ const store = configureStore({
 	reducer: {
 		//auth: authReducer,
 		blogPosts: blogPostsReducer,
+		shop: shopReducer,
 	}
 
 });

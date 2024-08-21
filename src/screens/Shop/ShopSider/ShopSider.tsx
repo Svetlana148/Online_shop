@@ -1,9 +1,12 @@
 import React from "react";
 import s from "./ShopSider.module.css";
 import Sider from "antd/es/layout/Sider";
-import { Button, ConfigProvider, Grid, Menu, Flex, Input } from "antd";
+import { Button, ConfigProvider, Grid, Menu, Flex, Input, MenuProps } from "antd";
 import { NavLink } from "react-router-dom";
 import PriseSlider from "./PriceSlider/PriceSlider";
+import { FilterSizeType, selectFilterCategoryId, selectFilterSize, setFilterCategoryId, setFilterSize } from "../../../features/ShopSlice";
+import { useAppDispatch } from "../../../types/types";
+import { useSelector } from "react-redux";
 
 
 const { useBreakpoint } = Grid;
@@ -16,6 +19,10 @@ type PropsType = {
 const ShopSider : React.FC<PropsType> = (props) => {
 
 	const screens = useBreakpoint();
+	const dispatch = useAppDispatch();
+	const currentFilterCategoryId = useSelector(selectFilterCategoryId);
+	const currentFilterSize = useSelector(selectFilterSize);
+
 
 	const siderStyle: React.CSSProperties = {
 		textAlign: 'start',
@@ -27,6 +34,13 @@ const ShopSider : React.FC<PropsType> = (props) => {
 	};
 
 
+	const onClickCategory: MenuProps['onClick'] = (e) => {
+		dispatch(setFilterCategoryId(e.key));
+	};
+	const onClickSize: MenuProps['onClick'] = (e) => {
+		dispatch(setFilterSize(e.key as FilterSizeType));
+	};
+	
 	return (
 		<ConfigProvider
 			theme={{
@@ -59,25 +73,21 @@ const ShopSider : React.FC<PropsType> = (props) => {
 						<div className={s.siderTitle}>Categories</div>
 
 							<Menu
-								
-								defaultSelectedKeys={['1']}
+								onClick={onClickCategory}
+								defaultSelectedKeys={[currentFilterCategoryId]}
 								className={s.header_menu}>
 								
-									<Menu.Item key="1" > 
-										{/* <NavLink to="/home" className={s.menu_link }> */}
-											<div className={s.menu_itemContainer }>
-												<div>House Plants</div>
-												<div>(33)</div>
-											</div>
-										{/* </NavLink> */}
+									<Menu.Item key="1"  > 
+										<div className={s.menu_itemContainer }>
+											<div>House Plants</div>
+											<div>(33)</div>
+										</div>
 									</Menu.Item> 
 									<Menu.Item key="2" > 
-										{/* <NavLink to="/home" className={s.menu_link }> */}
-											<div className={s.menu_itemContainer }>
-												<div>Potter Plants</div>
-												<div>(33)</div>
-											</div>
-										{/* </NavLink> */}
+										<div className={s.menu_itemContainer }>
+											<div>Potter Plants</div>
+											<div>(33)</div>
+										</div>
 									</Menu.Item> 
 									<Menu.Item key="3" > 
 										{/* <NavLink to="/home" className={s.menu_link }> */}
@@ -157,9 +167,10 @@ const ShopSider : React.FC<PropsType> = (props) => {
 					<div className={s.container2}>
 						<div className={s.siderTitle}>Size</div>
 							<Menu
-								defaultSelectedKeys={['1']}
+								onClick={onClickSize}
+								defaultSelectedKeys={[currentFilterSize]}
 								className={s.header_menu}>
-									<Menu.Item key="1" > 
+									<Menu.Item key="small" > 
 										{/* <NavLink to="/home" className={s.menu_link }> */}
 											<div className={s.menu_itemContainer }>
 												<div>Small</div>
@@ -167,7 +178,7 @@ const ShopSider : React.FC<PropsType> = (props) => {
 											</div>
 										{/* </NavLink> */}
 									</Menu.Item> 
-									<Menu.Item key="2" > 
+									<Menu.Item key="medium" > 
 										{/* <NavLink to="/home" className={s.menu_link }> */}
 											<div className={s.menu_itemContainer }>
 												<div>Medium</div>
@@ -175,7 +186,7 @@ const ShopSider : React.FC<PropsType> = (props) => {
 											</div>
 										{/* </NavLink> */}
 									</Menu.Item> 
-									<Menu.Item key="3" > 
+									<Menu.Item key="large" > 
 										{/* <NavLink to="/home" className={s.menu_link }> */}
 											<div className={s.menu_itemContainer }>
 												<div>Large</div>

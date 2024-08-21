@@ -1,12 +1,12 @@
 import React from "react";
 import s from "./ShopCard.module.css";
 import { Col, Row } from "antd";
-import { PhotosType } from "../../../../types/types";
 import ShopScreen_Content_img1 from "../../../../resources/img/ShopScreen/ShopScreen_Content_img1.png";
 import ShopScreen_Content_Basket from "../../../../resources/img/ShopScreen/Basket.svg";
 import ShopScreen_Content_Like from "../../../../resources/img/ShopScreen/Like.svg";
 import ShopScreen_Content_Search from "../../../../resources/img/ShopScreen/Search.svg";
 import LikeMobile from "../../../../resources/img/ShopScreen/LikeMobile.svg";
+import { PhotoType } from "../../../../types/types";
 
 
 
@@ -14,7 +14,7 @@ import LikeMobile from "../../../../resources/img/ShopScreen/LikeMobile.svg";
 
 
 type PropsType = {
-	photo: PhotosType
+	photo: PhotoType
 	name: string
 	price: number
 }

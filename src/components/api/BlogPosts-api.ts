@@ -1,5 +1,5 @@
 //Запросы о BlogPosts на сервер 
-import { BlogPostType, BlogPostListType } from '../../types/types';
+import { BlogPostListType } from '../../features/BlogPostsSlice';
 import { instance } from './api';
 
 
