@@ -6,6 +6,9 @@ import ShopScreen_Content_img1 from "../../../../resources/img/ShopScreen/ShopSc
 import ShopScreen_Content_Basket from "../../../../resources/img/ShopScreen/Basket.svg";
 import ShopScreen_Content_Like from "../../../../resources/img/ShopScreen/Like.svg";
 import ShopScreen_Content_Search from "../../../../resources/img/ShopScreen/Search.svg";
+import LikeMobile from "../../../../resources/img/ShopScreen/LikeMobile.svg";
+
+
 
 
 
@@ -27,6 +30,8 @@ const ShopCard : React.FC<PropsType> = (props) => {
 						<div className={s.shopContent_card_saleContainer}>
 							<div className={s.shopContent_card_sale}>13% OFF</div>
 						</div>
+						<img   className={s.shopContent_likeMobile} src={LikeMobile} alt="" />
+					
 						<div className={s.shopContent_card_likeContainer}>
 							<img src={ShopScreen_Content_Basket} alt="" />
 							<img src={ShopScreen_Content_Like} alt="" />
