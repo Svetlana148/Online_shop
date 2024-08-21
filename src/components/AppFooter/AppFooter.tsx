@@ -39,7 +39,7 @@ export type PropsType = {}
 const AppFooter:React.FC<PropsType> = (props) => {
 
 	return (
-		<Footer className= {s.appFooter} style={{ padding: '0 120px' }}>
+		<Footer className= {s.appFooter} >
 
 
 			{/* ---------1 Row-----------------------  */}
@@ -150,7 +150,7 @@ const AppFooter:React.FC<PropsType> = (props) => {
 				<Col xl={5} lg={12} xs={24}>
 					<div className={s.appFooter_row2_card}>
 					<div className={s.appFooter_row2_card1_container}>
-							<div className={s.appHeader_logo}>
+							<div className={s.appFooter_logo}>
 								<img src={OnlineShopLogo} alt='' />
 							</div>
 						</div>

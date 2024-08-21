@@ -1,0 +1,97 @@
+.shopHeader {
+	background:rgba(255, 255, 255);
+	display: flex;
+	align-items: center;
+}
+
+
+
+.shopHeader_row{
+	min-height: 23px;
+	line-height: 23px;
+	width: 100%;
+	background:rgba(255, 255, 255);
+}
+
+.shopHeader_col{
+	display: flex;
+	justify-content: end;
+}
+
+.shopHeader_menu {
+	width: 100%;
+	align-items: center;
+	justify-content: start;
+	font-size: 15px;
+	color: #3d3d3d;
+	/* padding:  0 0 0 -60px; */
+
+	:global(.ant-menu-item-selected) {
+			font-weight: 700;
+			color: #46a358 !important;
+	} 
+
+	/* Выбранный элемент */
+	:global(.ant-menu-item-selected:after) {
+		color: #46a358 !important; 
+		border-bottom-width: 2px !important; 
+		border-bottom-color: #46a358 !important;
+	}
+
+	/*  элемент с наведенной мышью*/
+	:global(.ant-menu-item-active:after) {
+		border-bottom-width: 2px !important; 
+		border-bottom-color: #46a358 !important;
+	}
+}
+
+.shopHeader_select{
+	justify-self: end;
+	font-weight: 400;
+	font-size: 15px;
+	line-height: 16px;
+	letter-spacing: 0%;
+}
+
+
+	:global(.ant-select-arrow) {
+	color: #3d3d3d!important;
+}
+/* --Cards------------------------------------------------------------------------------------ */
+
+/* ----1 Row---------------------------------------------------------------- */
+
+.shopCardsSet{
+	display: flex;
+	padding: 32px 0px 0 0;
+	flex-direction: column;
+}
+
+.shopCardsSet_row {
+	flex-wrap: wrap;
+}
+
+.shopCardsSet_pagination{
+	width: 100%;
+	min-height: 37px;
+	display: flex;
+	justify-content: end;
+	align-items: center;
+	margin: 90px 0 0 0;
+	border-radius: 1px red solid;
+
+}
+
+
+/* sm = 900------------------------------------------------------------- */
+
+@media (max-width: 899px) {
+	.shopHeader_menu {
+		padding: 0;
+	} 
+}
+
+
+
+
+

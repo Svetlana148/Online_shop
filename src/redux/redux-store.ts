@@ -3,7 +3,7 @@ import { Action, combineReducers} from 'redux';
 import {thunk, ThunkAction, ThunkDispatch } from 'redux-thunk'; 
 
 import authReducer from './auth-reducer'
-import blogPostsReducer from '../features/BlogPopstsSlice'
+import blogPostsReducer from '../features/BlogPostsSlice'
 
 //import blogPostsReducer from './BlogPosts-reducer';
 

@@ -26,22 +26,22 @@ let BlogPost: React.FC<PropsType> = (props)=>{
 
 return (
 	<div>
-			<div className={s.blogPost_row_card}>
-				<div className={s.blogPost_row_card_container}>
-					<div  className={s.blogPost_row_img}>
-						<img  className={s.blogPost_row_img} src={props.blogPost.titleImage} alt="" />
+			<div className={s.blogPost_card}>
+				<div className={s.blogPost_card_container}>
+					<div >
+						<img  className={s.blogPost_img} src={props.blogPost.titleImage} alt="" />
 					</div>
 
-					<div className={s.blogPost_row_card_textContainer}>
-						<div className={s.blogPost_row_card_subtitle}>
+					<div className={s.blogPost_card_textContainer}>
+						<div className={s.blogPost_card_subtitle}>
 							{DateTime.fromISO(props.blogPost.postDate).toFormat('LLLL d')} 
 							&nbsp;|
 							Read in {props.blogPost.timeToRead}	minutes
 						</div>
 
-						<div className={s.blogPost_row_card_title}>{props.blogPost.title}</div>
+						<div className={s.blogPost_card_title}>{props.blogPost.title}</div>
 
-						<div className={s.blogPost_row_card_text}>{props.blogPost.description}
+						<div className={s.blogPost_card_text}>{props.blogPost.description}
 						</div>
 
 						<div className={s.blogPost_link}>

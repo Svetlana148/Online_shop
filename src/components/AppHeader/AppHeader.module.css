@@ -1,8 +1,8 @@
 .header {
-	/* grid-area: header; */
 	background:rgba(255, 255, 255, 0.856);
-	display: flex;
 	align-items: center;
+	height: 65px;
+	padding: 0;
 }
 
 

@@ -32,138 +32,123 @@ const ScreenHomeCarousel: React.FC = () => {
 			<Carousel afterChange={onChange} autoplay={true}>
 
 				{/* ----1Card------------------------------------ */}
-				<div>
-					<div>
-						<h3 className={s.contentStyle}>
+				<div className={s.contentStyle}>
+					<Row className={s.homeCarousel_row}>
+						<Col span={14}>
+							<div className={s.homeCarousel_card}>
+								<div className={s.homeCarousel_card_container}>
 
-							<Row className={s.homeCarousel_row}>
-								<Col span={14}>
-									<div className={s.homeCarousel_card}>
-										<div className={s.homeCarousel_card_container}>
+									<div className={s.homeCarousel_card_subtitle}>Welcome to GreenShop</div>
 
-											<div className={s.homeCarousel_card_subtitle}>Welcome to GreenShop</div>
+									<div className={s.homeCarousel_card_title}>
+										Let’s Make a <br />Better <span>Planet</span></div>
 
-											<div className={s.homeCarousel_card_title}>
-												Let’s Make a <br />Better <span>Planet</span></div>
-
-											<div className={s.homeCarousel_card_text}>
-												We are an online plant shop offering a wide range
-												of cheap and trendy plants.
-												<br />Use our plants to create an unique Urban Jungle. Order your favorite plants!
-											</div>
-
-											<Button className={s.homeCarousel_button}>SHOP NOW</Button>
-											<div className={s.homeCarousel_arrow}>
-												<a href="/shop">
-													<div className={s.homeCarousel_arrowContainer}>
-														<div className={s.homeCarousel_shopArrow_textArrow}>SHOP NOW</div>
-														<img className={s.homeCarousel_shopArrow_arrow} src={right_arrow} alt="" />
-													</div>
-												</a>
-											</div>
-
-										</div>
+									<div className={s.homeCarousel_card_text}>
+										We are an online plant shop offering a wide range
+										of cheap and trendy plants.
+										<br />Use our plants to create an unique Urban Jungle. Order your favorite plants!
 									</div>
-								</Col>
 
-
-								<Col span={10} >
-									<div className={[s["homeCarousel_cardImg"], s["homeCarousel_cardImg1"]].join(" ")}>
+									<Button className={s.homeCarousel_button}>SHOP NOW</Button>
+									<div className={s.homeCarousel_arrow}>
+										<a href="/shop">
+											<div className={s.homeCarousel_arrowContainer}>
+												<div className={s.homeCarousel_shopArrow_textArrow}>SHOP NOW</div>
+												<img className={s.homeCarousel_shopArrow_arrow} src={right_arrow} alt="" />
+											</div>
+										</a>
 									</div>
-								</Col>
-							</Row>
 
-						</h3>
-					</div>
+								</div>
+							</div>
+						</Col>
+
+
+						<Col span={10} >
+							<div className={[s["homeCarousel_cardImg"], s["homeCarousel_cardImg1"]].join(" ")}>
+							</div>
+						</Col>
+					</Row>
 				</div>
 
-
 				{/* ----2Card------------------------------------ */}
-				<div>
-					<h3 className={s.contentStyle}>
+				<div className={s.contentStyle}>
+					<Row className={s.homeCarousel_row}>
+						<Col span={14}>
+							<div className={s.homeCarousel_card}>
+								<div className={s.homeCarousel_card_container}>
 
-						<Row className={s.homeCarousel_row}>
-							<Col span={14}>
-								<div className={s.homeCarousel_card}>
-									<div className={s.homeCarousel_card_container}>
+									<div className={s.homeCarousel_card_subtitle}>Welcome to GreenShop</div>
 
-										<div className={s.homeCarousel_card_subtitle}>Welcome to GreenShop</div>
+									<div className={s.homeCarousel_card_title}>
+										Let’s Make a <br />Better <span>Planet</span></div>
 
-										<div className={s.homeCarousel_card_title}>
-											Let’s Make a <br />Better <span>Planet</span></div>
+									<div className={s.homeCarousel_card_text}>
+										We are an online plant shop offering a wide range
+										of cheap and trendy plants.
+										<br />Use our plants to create an unique Urban Jungle. Order your favorite plants!
+									</div>
 
-										<div className={s.homeCarousel_card_text}>
-											We are an online plant shop offering a wide range
-											of cheap and trendy plants.
-											<br />Use our plants to create an unique Urban Jungle. Order your favorite plants!
-										</div>
-
-										<Button className={s.homeCarousel_button}>SHOP NOW</Button>
-										<div className={s.homeCarousel_arrow}>
-											<a href="/shop">
-												<div className={s.homeCarousel_arrowContainer}>
-													<div className={s.homeCarousel_shopArrow_textArrow}>SHOP NOW</div>
-													<img className={s.homeCarousel_shopArrow_arrow} src={right_arrow} alt="" />
-												</div>
-											</a>
-										</div>
+									<Button className={s.homeCarousel_button}>SHOP NOW</Button>
+									<div className={s.homeCarousel_arrow}>
+										<a href="/shop">
+											<div className={s.homeCarousel_arrowContainer}>
+												<div className={s.homeCarousel_shopArrow_textArrow}>SHOP NOW</div>
+												<img className={s.homeCarousel_shopArrow_arrow} src={right_arrow} alt="" />
+											</div>
+										</a>
 									</div>
 								</div>
-							</Col>
+							</div>
+						</Col>
 
 
-							<Col span={10} >
-								<div className={[s["homeCarousel_cardImg"], s["homeCarousel_cardImg2"]].join(" ")}>
+						<Col span={10} >
+							<div className={[s["homeCarousel_cardImg"], s["homeCarousel_cardImg2"]].join(" ")}>
 
-								</div>
-							</Col>
-						</Row>
-
-					</h3>
+							</div>
+						</Col>
+					</Row>
 				</div>
 
 				{/* ----3Card------------------------------------ */}
-				<div>
-					<h3 className={s.contentStyle}>
+				<div className={s.contentStyle}>
+					<Row className={s.homeCarousel_row}>
+						<Col span={14}>
+							<div className={s.homeCarousel_card}>
+								<div className={s.homeCarousel_card_container}>
 
-						<Row className={s.homeCarousel_row}>
-							<Col span={14}>
-								<div className={s.homeCarousel_card}>
-									<div className={s.homeCarousel_card_container}>
+									<div className={s.homeCarousel_card_subtitle}>Welcome to GreenShop</div>
 
-										<div className={s.homeCarousel_card_subtitle}>Welcome to GreenShop</div>
+									<div className={s.homeCarousel_card_title}>
+										Let’s Make a <br />Better <span>Planet</span></div>
 
-										<div className={s.homeCarousel_card_title}>
-											Let’s Make a <br />Better <span>Planet</span></div>
+									<div className={s.homeCarousel_card_text}>
+										We are an online plant shop offering a wide range
+										of cheap and trendy plants.
+										<br />Use our plants to create an unique Urban Jungle. Order your favorite plants!
+									</div>
 
-										<div className={s.homeCarousel_card_text}>
-											We are an online plant shop offering a wide range
-											of cheap and trendy plants.
-											<br />Use our plants to create an unique Urban Jungle. Order your favorite plants!
-										</div>
-
-										<Button className={s.homeCarousel_button}>SHOP NOW</Button>
-										<div className={s.homeCarousel_arrow}>
-											<a href="/shop">
-												<div className={s.homeCarousel_arrowContainer}>
-													<div className={s.homeCarousel_shopArrow_textArrow}>SHOP NOW</div>
-													<img className={s.homeCarousel_shopArrow_arrow} src={right_arrow} alt="" />
-												</div>
-											</a>
-										</div>
+									<Button className={s.homeCarousel_button}>SHOP NOW</Button>
+									<div className={s.homeCarousel_arrow}>
+										<a href="/shop">
+											<div className={s.homeCarousel_arrowContainer}>
+												<div className={s.homeCarousel_shopArrow_textArrow}>SHOP NOW</div>
+												<img className={s.homeCarousel_shopArrow_arrow} src={right_arrow} alt="" />
+											</div>
+										</a>
 									</div>
 								</div>
-							</Col>
+							</div>
+						</Col>
 
 
-							<Col span={10} >
-								<div className={[s["homeCarousel_cardImg"], s["homeCarousel_cardImg3"]].join(" ")}>
-									{/* <img   className={s.homeCarousel_img1} src={homeCarousel_img1} alt="" /> */}
-								</div>
-							</Col>
-						</Row>
-
-					</h3>
+						<Col span={10} >
+							<div className={[s["homeCarousel_cardImg"], s["homeCarousel_cardImg3"]].join(" ")}>
+								{/* <img   className={s.homeCarousel_img1} src={homeCarousel_img1} alt="" /> */}
+							</div>
+						</Col>
+					</Row>
 				</div>
 
 			</Carousel>

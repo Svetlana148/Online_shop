@@ -19,10 +19,8 @@ function App() {
 
 
   return (
-    <div className={s.appbody}>
+    <div >
       <div className={s.wrapper} >
-
-
         {/* Для кастомизации дизайна	 */}
         <ConfigProvider
 
@@ -33,9 +31,9 @@ function App() {
               colorPrimary: '#46A358',
               fontFamily: `"CeraPro", "Hanging Letters", sans-serif`,
               // Смена Breack points
-              screenXL: 1440,
-              screenXLMax: 1440,
-              screenXLMin: 1440,
+              screenXL: 1200,
+              screenXLMax: 1200,
+              screenXLMin: 1200,
               screenLGMin: 900,
               screenLG: 900,
               screenMDMax: 899,

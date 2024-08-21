@@ -6,11 +6,11 @@
 }
 
 :global(.ant-layout-footer) {
-	padding: 100px 120px 13px 120px;
+	padding: 100px 0 13px 0;
 } 
 
 
-.appHeader_logo {
+.appFooter_logo {
 	width: 120px;
 	min-width: 120px;
 	height: 32px;

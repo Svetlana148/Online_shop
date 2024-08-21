@@ -1,46 +1,5 @@
-.container1{
-	padding: 14px 0 0 18px;
-	margin: 0 0	36px 0;
-}
-
-.container22{
-	padding:0 66px 0 35px;
-	margin: 0 0	36px 0;
-}
-
-.menu_itemContainer{
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
-}
-
-:global(.ant-menu-item-selected) {
-	font-weight: 700;
-} 
-
-.siderTitle1,
-.siderTitle2{
-	font-weight: 700;
-	font-size: 18px;
-	line-height: 16px;
-	margin: 0 0 7px 0;
-}
-
-.siderTitle2{
-	margin: 0 0 27px 0;
-}
-
-.side_button {
-	align-items: center;
-	font-weight: 700;
-	font-size: 16px;
-	line-height: 20px;
-
-	background: #46a358 ;
-	border-radius: 6px;
-	width: 90px;
-	min-width: 90px;
-	height: 35px;
-	min-height: 35px;
-	color: #fff;
+@media (max-width: 899px) {
+	.shopLayout{
+		padding: 0 24px;
+	}
 }

@@ -1,7 +1,24 @@
-.appContent{
+.appContentRouter{
 	background: colorBgContainer;
 	min-height: 280px;
-	padding: 95px 0px;
 	border-radius: borderRadiusLG;
-	
 }
+
+.appContent{
+	/* padding: 0 118px  */
+}
+
+/* sm = 900------------------------------------------------------------- */
+
+@media (max-width: 899px) {
+	.appContent{
+		padding: 0 24px 
+	}
+	.appContentRouter{
+		padding: 41px 0px;
+	}
+}
+
+
+
+
