@@ -1,10 +1,13 @@
 import React from "react";
 import s from "./ShopContent.module.css";
 import { Content } from "antd/es/layout/layout";
-import { Col, ConfigProvider, Grid, Menu, Pagination, Row, Select } from "antd";
+import { Col, ConfigProvider, Grid, Menu, Pagination, Row, Select, MenuProps } from "antd";
 import { NavLink } from "react-router-dom";
 import ShopCard from "./ShopCard/ShopCard";
 import ShopScreen_Content_img1 from "../../../resources/img/ShopScreen/ShopScreen_Content_img1.jpg";
+import { useAppDispatch } from "../../../types/types";
+import { FilterExtraFilterType, FilterSortType, selectFilterExtraFilter, selectFilterSort, setFilterExtraFilter, setFilterSort } from "../../../features/ShopSlice";
+import { useSelector } from "react-redux";
 
 const { useBreakpoint } = Grid;
 
@@ -15,8 +18,24 @@ type PropsType = {
 
 const ShopContent : React.FC<PropsType> = (props) => {
 
+	//Получает Hook-и
 	const screens = useBreakpoint();
-	
+	const dispatch = useAppDispatch();
+
+	//Для установки по default-у   значения фильтров     из Store2 
+	const currentFilterExtraFilter = useSelector(selectFilterExtraFilter);
+	const currentFilterSort= useSelector(selectFilterSort);
+
+	//dispatch-им полученное значение Filter-ра в Store2
+	const onClickExtraFilter: MenuProps['onClick'] = (e) => {
+		dispatch(setFilterExtraFilter(e.key as FilterExtraFilterType));
+	};
+	const onClickSort = (value: string) => {
+		dispatch(setFilterSort(value as FilterSortType));
+	};
+
+
+
 	const contentStyle: React.CSSProperties = {
 		textAlign: 'center',
 		minHeight: 120,
@@ -24,6 +43,7 @@ const ShopContent : React.FC<PropsType> = (props) => {
 		backgroundColor: '#fff',
 		// padding: '41px 24px',
 	};
+
 
 	return (
 		<Content style={contentStyle}>
@@ -33,16 +53,13 @@ const ShopContent : React.FC<PropsType> = (props) => {
 				<Row className={s.shopHeader_row}	>
 					<Col className={s.shopHeader_col} span={16} flex="auto">
 
-						{/* Для кастомизации дизайна	 */}
 						<ConfigProvider
-			
 							theme={{
 								token: {
 									// Отключить анимацию
 									motion:false,  
 									//fontWeightStrong:700,
 								},
-							
 								components: {
 									Menu: {
 										horizontalItemSelectedColor: '#3d3d3d',
@@ -54,17 +71,17 @@ const ShopContent : React.FC<PropsType> = (props) => {
 							}}
 							>
 
-
 							<Menu
 								
 								// theme="dark"
 								mode="horizontal"
-								defaultSelectedKeys={['1']}
+								onClick={onClickExtraFilter}
+								defaultSelectedKeys={[currentFilterExtraFilter]}
 								className={s.shopHeader_menu}>
 								
-									<Menu.Item key="1" > <NavLink to="/shop" className={s.menu__link }>All Plants</NavLink></Menu.Item> 
-									<Menu.Item key="2" > <NavLink to="/shop">New Arrivals</NavLink></Menu.Item>
-									<Menu.Item key="3" className={s.menu_item}> <NavLink to="/shop">Sale</NavLink></Menu.Item>
+									<Menu.Item key="all" > <NavLink to="/shop" className={s.menu__link }>All Plants</NavLink></Menu.Item> 
+									<Menu.Item key="new" > <NavLink to="/shop">New Arrivals</NavLink></Menu.Item>
+									<Menu.Item key="sale" className={s.menu_item}> <NavLink to="/shop">Sale</NavLink></Menu.Item>
 																	
 							</Menu>
 						</ConfigProvider>
@@ -74,17 +91,18 @@ const ShopContent : React.FC<PropsType> = (props) => {
 
 
 
-						{/* Mobile Header menu ------sm = 900----------------------------------------------------------------- */}
+						{/* Mobile Header menu ------sm = 900 */}
 						<div className={s.shopHeader_select} style={{ visibility: screens.lg ? "visible" : "hidden" }}>Short by:
 							<Select
+								onChange={onClickSort}
 								variant="borderless"
-								defaultValue="Default_sorting"
+								defaultValue={currentFilterSort}
 								style={{ width: 160 }}
 								// onChange={handleChange}
 								options={[
-									{ value: 'Default_sorting', label: 'Default sorting' },
+									{ value: 'default', label: 'Default sorting' },
 									{ value: 'low', label: 'Price: Low to High' },
-									{ value: 'high', label: 'Price: High to Low' },
+									{ value: 'max', label: 'Price: High to Low' },
 								]}
 							/>
 						</div>

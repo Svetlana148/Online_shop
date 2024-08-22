@@ -2,7 +2,6 @@ import React from "react";
 import s from "./ShopSider.module.css";
 import Sider from "antd/es/layout/Sider";
 import { Button, ConfigProvider, Grid, Menu, Flex, Input, MenuProps } from "antd";
-import { NavLink } from "react-router-dom";
 import PriseSlider from "./PriceSlider/PriceSlider";
 import { FilterSizeType, selectFilterCategoryId, selectFilterSize, setFilterCategoryId, setFilterSize } from "../../../features/ShopSlice";
 import { useAppDispatch } from "../../../types/types";
@@ -18,12 +17,26 @@ type PropsType = {
 
 const ShopSider : React.FC<PropsType> = (props) => {
 
+	//Получает Hook-и
 	const screens = useBreakpoint();
 	const dispatch = useAppDispatch();
+
+	//Для установки по default-у   значения фильтров     из Store2 
 	const currentFilterCategoryId = useSelector(selectFilterCategoryId);
 	const currentFilterSize = useSelector(selectFilterSize);
+	
+	//dispatch-им полученное значение Filter-ра в Store2
+	const onClickCategory: MenuProps['onClick'] = (e) => {
+		dispatch(setFilterCategoryId(e.key));
+	};
+	const onClickSize: MenuProps['onClick'] = (e) => {
+		dispatch(setFilterSize(e.key as FilterSizeType));
+	};
+	
 
 
+
+	//Стиль для Sider-а
 	const siderStyle: React.CSSProperties = {
 		textAlign: 'start',
 		lineHeight: '40px',
@@ -34,13 +47,7 @@ const ShopSider : React.FC<PropsType> = (props) => {
 	};
 
 
-	const onClickCategory: MenuProps['onClick'] = (e) => {
-		dispatch(setFilterCategoryId(e.key));
-	};
-	const onClickSize: MenuProps['onClick'] = (e) => {
-		dispatch(setFilterSize(e.key as FilterSizeType));
-	};
-	
+
 	return (
 		<ConfigProvider
 			theme={{

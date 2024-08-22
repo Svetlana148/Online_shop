@@ -25,12 +25,13 @@ export interface ShopFilterType {
 	size: FilterSizeType
 	priceMin: number
 	priceMax: number
-	sort: FilterSortType
 	extraFilter: FilterExtraFilterType
+	sort: FilterSortType
 }
 export type FilterSizeType = "small"|"medium"|"large"
-export type FilterSortType = "default"|"low"|"max"
 export type FilterExtraFilterType = "all"|"new"|"sale"
+export type FilterSortType = "default"|"low"|"max"
+
 
 
 	// -->>shopCards  :  shopCardsList --> shopCard
@@ -51,10 +52,10 @@ const initialState: initialStateType  = {
 	shopFilter: {
 		categoryId: "1",
 		size: "small",
-		priceMin: 100,
+		priceMin: 37,
 		priceMax: 1500,
-		sort: "default",
 		extraFilter: "all",
+		sort: "default",
 	},
 
 	shopCardsList: [
