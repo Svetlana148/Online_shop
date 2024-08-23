@@ -5,6 +5,9 @@ import {thunk, ThunkAction, ThunkDispatch } from 'redux-thunk';
 import authReducer from './auth-reducer'
 import blogPostsReducer from '../features/BlogPostsSlice'
 import shopReducer from '../features/ShopSlice'
+import userProfileReducer from '../features/UserProfileSlice'
+
+
 
 //import blogPostsReducer from './BlogPosts-reducer';
 
@@ -65,8 +68,8 @@ const store = configureStore({
 		//auth: authReducer,
 		blogPosts: blogPostsReducer,
 		shop: shopReducer,
+		userProfile: userProfileReducer,
 	}
-
 });
 export default store;
 

@@ -2,14 +2,14 @@ import React, { useState } from "react";
 import s from "./PriseSlider.module.css";
 import { Slider } from "antd";
 import { useSelector } from "react-redux";
-import { selectFilterPriceMax, selectFilterPriceMin, setFilterPriceMax, setFilterPriceMin } from "../../../../features/ShopSlice";
+import { selectFilterPriceMax, selectFilterPriceMin, shop_setFilterPriceMax, shop_setFilterPriceMin } from "../../../../features/ShopSlice";
 import { useAppDispatch } from "../../../../types/types";
 
 
-type PriceSliderType = {							
+type PriceSliderType = {
 }
 
-const PriceSlider : React.FC<PriceSliderType> = (props) => {
+const PriceSlider: React.FC<PriceSliderType> = (props) => {
 
 	//Получает Hook-и
 	const dispatch = useAppDispatch();
@@ -18,22 +18,22 @@ const PriceSlider : React.FC<PriceSliderType> = (props) => {
 	const currentFilterPriceMin = useSelector(selectFilterPriceMin);
 	const currentFilterPriceMax = useSelector(selectFilterPriceMax);
 
-	
+
 	//dispatch-им полученное значение Filter-ра в Store2
 	const onPriceChange = (value: number[]) => {
-		dispatch(setFilterPriceMin(value[0]))
-		dispatch(setFilterPriceMax(value[1]))
-		};
+		dispatch(shop_setFilterPriceMin(value[0]))
+		dispatch(shop_setFilterPriceMax(value[1]))
+	};
 
 
 
 	return (
 		<div >
-			<Slider 
-			min={37}
-			max={1500}
-			onChange={onPriceChange}
-			range defaultValue={[currentFilterPriceMin, currentFilterPriceMax]} />
+			<Slider
+				min={37}
+				max={1500}
+				onChange={onPriceChange}
+				range defaultValue={[currentFilterPriceMin, currentFilterPriceMax]} />
 			<div className={s.sliderText}>
 				Price: <span>min-{currentFilterPriceMin}  max-{currentFilterPriceMax}</span>
 			</div>

@@ -6,17 +6,17 @@ import { NavLink } from "react-router-dom";
 import ShopCard from "./ShopCard/ShopCard";
 import ShopScreen_Content_img1 from "../../../resources/img/ShopScreen/ShopScreen_Content_img1.jpg";
 import { useAppDispatch } from "../../../types/types";
-import { FilterExtraFilterType, FilterSortType, selectFilterExtraFilter, selectFilterSort, setFilterExtraFilter, setFilterSort } from "../../../features/ShopSlice";
+import { FilterExtraFilterType, FilterSortType, selectFilterExtraFilter, selectFilterSort, shop_setFilterExtraFilter, shop_setFilterSort } from "../../../features/ShopSlice";
 import { useSelector } from "react-redux";
 
 const { useBreakpoint } = Grid;
 
 
-type PropsType = {							
-	
+type PropsType = {
+
 }
 
-const ShopContent : React.FC<PropsType> = (props) => {
+const ShopContent: React.FC<PropsType> = (props) => {
 
 	//Получает Hook-и
 	const screens = useBreakpoint();
@@ -24,14 +24,14 @@ const ShopContent : React.FC<PropsType> = (props) => {
 
 	//Для установки по default-у   значения фильтров     из Store2 
 	const currentFilterExtraFilter = useSelector(selectFilterExtraFilter);
-	const currentFilterSort= useSelector(selectFilterSort);
+	const currentFilterSort = useSelector(selectFilterSort);
 
 	//dispatch-им полученное значение Filter-ра в Store2
 	const onClickExtraFilter: MenuProps['onClick'] = (e) => {
-		dispatch(setFilterExtraFilter(e.key as FilterExtraFilterType));
+		dispatch(shop_setFilterExtraFilter(e.key as FilterExtraFilterType));
 	};
 	const onClickSort = (value: string) => {
-		dispatch(setFilterSort(value as FilterSortType));
+		dispatch(shop_setFilterSort(value as FilterSortType));
 	};
 
 
@@ -47,7 +47,7 @@ const ShopContent : React.FC<PropsType> = (props) => {
 
 	return (
 		<Content style={contentStyle}>
-			
+
 			{/* ---------Header--------------------------------------------------------  */}
 			<div className={s.shopHeader}>
 				<Row className={s.shopHeader_row}	>
@@ -57,7 +57,7 @@ const ShopContent : React.FC<PropsType> = (props) => {
 							theme={{
 								token: {
 									// Отключить анимацию
-									motion:false,  
+									motion: false,
 									//fontWeightStrong:700,
 								},
 								components: {
@@ -69,25 +69,25 @@ const ShopContent : React.FC<PropsType> = (props) => {
 									},
 								}
 							}}
-							>
+						>
 
 							<Menu
-								
+
 								// theme="dark"
 								mode="horizontal"
 								onClick={onClickExtraFilter}
 								defaultSelectedKeys={[currentFilterExtraFilter]}
 								className={s.shopHeader_menu}>
-								
-									<Menu.Item key="all" > <NavLink to="/shop" className={s.menu__link }>All Plants</NavLink></Menu.Item> 
-									<Menu.Item key="new" > <NavLink to="/shop">New Arrivals</NavLink></Menu.Item>
-									<Menu.Item key="sale" className={s.menu_item}> <NavLink to="/shop">Sale</NavLink></Menu.Item>
-																	
+
+								<Menu.Item key="all" > <NavLink to="/shop" className={s.menu__link}>All Plants</NavLink></Menu.Item>
+								<Menu.Item key="new" > <NavLink to="/shop">New Arrivals</NavLink></Menu.Item>
+								<Menu.Item key="sale" className={s.menu_item}> <NavLink to="/shop">Sale</NavLink></Menu.Item>
+
 							</Menu>
 						</ConfigProvider>
 					</Col>
 
-					<Col className={s.shopHeader_col} span={8} flex="auto">	
+					<Col className={s.shopHeader_col} span={8} flex="auto">
 
 
 
@@ -106,11 +106,11 @@ const ShopContent : React.FC<PropsType> = (props) => {
 								]}
 							/>
 						</div>
-					</Col>		
+					</Col>
 
-		
+
 				</Row >
-			</div>		
+			</div>
 
 
 			{/* ---------Cards--------------------------------------------------------  */}
@@ -119,23 +119,23 @@ const ShopContent : React.FC<PropsType> = (props) => {
 					<Row className={s.shopCardsSet_row} gutter={[{ xl: 41, lg: 41, xs: 20 }, { xl: 76, lg: 76, sm: 76, md: 40, xs: 40 }]}>
 
 						<Col xl={8} lg={12} xs={12}>
-							<ShopCard photo={ShopScreen_Content_img1} name="qwersrxsfd" price={123}/>
+							<ShopCard photo={ShopScreen_Content_img1} name="qwersrxsfd" price={123} />
 						</Col>
 						<Col xl={8} lg={12} xs={12}>
-							<ShopCard photo={ShopScreen_Content_img1} name="qwersrxs2" price={123}/>
+							<ShopCard photo={ShopScreen_Content_img1} name="qwersrxs2" price={123} />
 						</Col>
 						<Col xl={8} lg={12} xs={12}>
-							<ShopCard photo={ShopScreen_Content_img1} name="qwersrxs3d" price={123}/>
-						</Col>	
-						<Col xl={8} lg={12} xs={12}>
-							<ShopCard photo={ShopScreen_Content_img1} name="qwersrxsfd" price={123}/>
+							<ShopCard photo={ShopScreen_Content_img1} name="qwersrxs3d" price={123} />
 						</Col>
 						<Col xl={8} lg={12} xs={12}>
-							<ShopCard photo={ShopScreen_Content_img1} name="qwersrxs2" price={123}/>
+							<ShopCard photo={ShopScreen_Content_img1} name="qwersrxsfd" price={123} />
 						</Col>
 						<Col xl={8} lg={12} xs={12}>
-							<ShopCard photo={ShopScreen_Content_img1} name="qwersrxs3d" price={123}/>
-						</Col>		
+							<ShopCard photo={ShopScreen_Content_img1} name="qwersrxs2" price={123} />
+						</Col>
+						<Col xl={8} lg={12} xs={12}>
+							<ShopCard photo={ShopScreen_Content_img1} name="qwersrxs3d" price={123} />
+						</Col>
 
 						{/* {shopCards.map(sc => <Col xl={8} lg={12} xs={12}>
 							<ShopCard shopCard={sc} /> 
@@ -145,10 +145,10 @@ const ShopContent : React.FC<PropsType> = (props) => {
 
 					{/* ----Pagination-------------------------------------------------------------  */}
 					<div className={s.shopCardsSet_pagination}>
-						<Pagination defaultCurrent={1} total={50} />			
+						<Pagination defaultCurrent={1} total={50} />
 					</div>
-				</div>		
-			</div>				
+				</div>
+			</div>
 		</Content>
 	)
 }

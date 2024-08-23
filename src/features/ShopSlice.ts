@@ -4,6 +4,10 @@ import type { RootState } from '../redux/redux-store'
 import { PhotoType, useAppDispatch, useAppSelector } from '../types/types';
 import { useEffect, useState } from 'react';
 import { BlogPostsAPI } from '../components/api/BlogPosts-api';
+import { selectUserProfileId } from './UserProfileSlice';
+import { useSelector } from 'react-redux';
+import { ShopAPI } from '../components/api/Shop-api';
+
 
 
 
@@ -19,7 +23,7 @@ interface initialStateType {
 	shopFilter: ShopFilterType,
 	shopCardsList: ShopCardsListType,
 }
-	//-->>shopFilter
+//-->>shopFilter
 export interface ShopFilterType {
 	categoryId: string
 	size: FilterSizeType
@@ -28,27 +32,41 @@ export interface ShopFilterType {
 	extraFilter: FilterExtraFilterType
 	sort: FilterSortType
 }
-export type FilterSizeType = "small"|"medium"|"large"
-export type FilterExtraFilterType = "all"|"new"|"sale"
-export type FilterSortType = "default"|"low"|"max"
+export type FilterSizeType = "small" | "medium" | "large"
+export type FilterExtraFilterType = "all" | "new" | "sale"
+export type FilterSortType = "default" | "low" | "max"
 
 
 
-	// -->>shopCards  :  shopCardsList --> shopCard
+// -->>shopCards  :  shopCardsList --> shopCard
 export type ShopCardsListType = Array<ShopCardType>
 interface ShopCardType {
-	id: number
-	photo:  PhotoType
+	cardId: string
+	photo: PhotoType
 	title: string
 	price: number
-	salePrice: number|null
-	salePercent: number|null
-	like: boolean
+	salePrice: number | null
+	salePercent: number | null
+	isLike: boolean
 	inBasket: boolean
 }
 
+//Type для  Payload
+type ShopCardLikeType={
+	cardId: string
+	isLike: boolean
+}
+//-----------------------------------------------------------------------------
+
+
+
+
+
+
+
+
 //Конкретный заяц
-const initialState: initialStateType  = {
+const initialState: initialStateType = {
 	shopFilter: {
 		categoryId: "1",
 		size: "small",
@@ -59,37 +77,35 @@ const initialState: initialStateType  = {
 	},
 
 	shopCardsList: [
-		{id: 1,
-		photo:  "https://stistore001.blob.core.windows.net/res/img/0213100222-Hibiscus-weiss-mit-Topf-Dallas-anthrazit-2er-Set.webp",
-		title: "Barberton Daisy",
-		price: 119,
-		salePrice: null,
-		salePercent:null,
-		like: false,
-		inBasket: false,},
+		{
+			cardId: "1",
+			photo: "https://stistore001.blob.core.windows.net/res/img/0213100222-Hibiscus-weiss-mit-Topf-Dallas-anthrazit-2er-Set.webp",
+			title: "Barberton Daisy",
+			price: 119,
+			salePrice: null,
+			salePercent: null,
+			isLike: false,
+			inBasket: false,
+		},
 
-		{id: 2,
-		photo:  "https://stistore001.blob.core.windows.net/res/img/0213100222-Hibiscus-weiss-mit-Topf-Dallas-anthrazit-2er-Set.webp",
-		title: "Daisy",
-		price: 119,
-		salePrice: null,
-		salePercent:null,
-		like: false,
-		inBasket: false,}
+		{
+			cardId: "2",
+			photo: "https://stistore001.blob.core.windows.net/res/img/0213100222-Hibiscus-weiss-mit-Topf-Dallas-anthrazit-2er-Set.webp",
+			title: "Daisy",
+			price: 119,
+			salePrice: null,
+			salePercent: null,
+			isLike: false,
+			inBasket: false,
+		}
 	],
 }
-
-
 //----------------------------
 
-
-
-
-
-export const shopSlice = createSlice({
+export const ShopSlice = createSlice({
 	name: 'shop',
 
-  // `createSlice` will infer the state type from the `initialState` argument
+	// `createSlice` will infer the state type from the `initialState` argument
 	//`createSlice` выведет тип состояния из аргумента `initialState`
 	initialState,
 
@@ -97,43 +113,59 @@ export const shopSlice = createSlice({
 	reducers: {
 		//создаем и ActionCrearor-ы, и swich-case-ы
 		//Запись в Store2
-		setShopCardsList: (state, action: PayloadAction<ShopCardsListType>) => {
+		shop_setShopCardsList: (state, action: PayloadAction<ShopCardsListType>) => {
 			state.shopCardsList = action.payload
 		},
 
 		//Для Filtr-ов
-		setFilterCategoryId: (state, action: PayloadAction<string>) => {
+		shop_setFilterCategoryId: (state, action: PayloadAction<string>) => {
 			state.shopFilter.categoryId = action.payload
 		},
-		setFilterSize: (state, action: PayloadAction<FilterSizeType>) => {
+		shop_setFilterSize: (state, action: PayloadAction<FilterSizeType>) => {
 			state.shopFilter.size = action.payload
 		},
-		setFilterPriceMin: (state, action: PayloadAction<number>) => {
+		shop_setFilterPriceMin: (state, action: PayloadAction<number>) => {
 			state.shopFilter.priceMin = action.payload
 		},
-		setFilterPriceMax: (state, action: PayloadAction<number>) => {
+		shop_setFilterPriceMax: (state, action: PayloadAction<number>) => {
 			state.shopFilter.priceMax = action.payload
 		},
-		setFilterSort: (state, action: PayloadAction<FilterSortType>) => {
+		shop_setFilterSort: (state, action: PayloadAction<FilterSortType>) => {
 			state.shopFilter.sort = action.payload
 		},
-		setFilterExtraFilter: (state, action: PayloadAction<FilterExtraFilterType>) => {
+		shop_setFilterExtraFilter: (state, action: PayloadAction<FilterExtraFilterType>) => {
 			state.shopFilter.extraFilter = action.payload
+		},
+		shop_clickShopCardLike: (state, action: PayloadAction<string>) => {
+			ClickCardLike(action.payload);
+		},
+		shop_setShopCardLike: (state, action: PayloadAction<ShopCardLikeType >) => {
+			state.shopCardsList.forEach(card => {
+				if (card.cardId===action.payload.cardId) card.isLike=action.payload.isLike;
+			});
 		},
 	},
 })
 
 // Reducer----------------
-export default shopSlice.reducer;
+export default ShopSlice.reducer;
+
+
+
+
+
 
 //Actions--1объект со всеми Action-ами--------------
-export const { setShopCardsList,  
-					setFilterCategoryId, 
-					setFilterSize,
-					setFilterPriceMin,
-					setFilterPriceMax,
-					setFilterSort,
-					setFilterExtraFilter} = shopSlice.actions
+export const { shop_setShopCardsList,
+	shop_setFilterCategoryId,
+	shop_setFilterSize,
+	shop_setFilterPriceMin,
+	shop_setFilterPriceMax,
+	shop_setFilterSort,
+	shop_setFilterExtraFilter,
+	shop_clickShopCardLike,
+	shop_setShopCardLike, } = ShopSlice.actions
+	
 
 // Selectors-----------------
 export const selectShopCardsList = (state: RootState) => state.shop.shopCardsList;
@@ -158,3 +190,37 @@ export const selectFilterExtraFilter = (state: RootState) => state.shop.shopFilt
 //       .catch((res) => console.error(res.status));
 // 	}, [dispatch]);
 // };
+
+
+
+const ClickCardLike=(cardId:string)=>{
+
+	const dispatch = useAppDispatch();
+
+	//Это *Аргумент  для dispatch(Action-а(*))  (* - Объект-экземпляр типа ShopCardLikeType)
+	const shopCardLike: ShopCardLikeType = {
+		cardId: cardId,
+		isLike: false,
+	};
+
+	//Получаем ProfileId
+	const userProfileId = useSelector(selectUserProfileId);
+	let isLike: boolean = false;
+
+	//Обработка Like-ов---forEach-просмотр всех----------------------------------------------
+	const cardList = useSelector(selectShopCardsList);
+
+	cardList.forEach(card => {
+		if (card.cardId===cardId) {
+			isLike=card.isLike;
+			isLike=!isLike;
+			if (isLike) ShopAPI.delCardLike(cardId, userProfileId)
+				else ShopAPI.putCardLike(cardId, userProfileId );	
+
+			shopCardLike.isLike=isLike;
+			dispatch(shop_setShopCardLike(shopCardLike));
+		};
+	});
+};
+
+

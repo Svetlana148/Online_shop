@@ -33,9 +33,14 @@ export type GetItemsType = {
 	// error: string | null
 }
 
+
+export enum ResultCodesEnum {  //Тип "enum" для перечисления серверных кодов 
+	Success = 0,
+	Error = 1,
+}
 //Делаем общий Тип-Generic для всех "Response"...................
-// export type APIResponseType<D = {}, RC = ResultCodesEnum> = { //D={}- по умолчанию пустой  RC=ResultCodesEnum- по умолчанию"ResultCodesEnum"
-// 	data: D            // Тип для объекта data: разное
-// 	resultCode: RC     //Тип "enum" для перечисления серверных кодов(здесь применяем)
-// 	messages: Array<string>
-// }
+export type APIResponseType<D = {}, RC = ResultCodesEnum> = { //D={}- по умолчанию пустой  RC=ResultCodesEnum- по умолчанию"ResultCodesEnum"
+	data: D            // Тип для объекта data: разное
+	resultCode: RC     //Тип "enum" для перечисления серверных кодов(здесь применяем)
+	messages: Array<string>
+}
