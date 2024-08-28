@@ -3,8 +3,8 @@ import s from "./ShopSider.module.css";
 import Sider from "antd/es/layout/Sider";
 import { Button, ConfigProvider, Grid, Menu, Flex, Input, MenuProps } from "antd";
 import PriseSlider from "./PriceSlider/PriceSlider";
-import { FilterSizeType, selectFilterCategoryId, selectFilterSize, shop_setFilterCategoryId, shop_setFilterSize } from "../../../features/ShopSlice";
-import { useAppDispatch } from "../../../types/types";
+import { FilterSizeType, selectFilterCategoryId, selectFilterSize, selectShopCategoryList, shop_setFilterCategoryId, shop_setFilterSize, useShopCategoryList } from "../../../features/ShopSlice";
+import { useAppDispatch, useAppSelector } from "../../../types/types";
 import { useSelector } from "react-redux";
 
 
@@ -20,19 +20,33 @@ const ShopSider: React.FC<PropsType> = (props) => {
 	//Получает Hook-и
 	const screens = useBreakpoint();
 	const dispatch = useAppDispatch();
+	const categoryIdItems = useAppSelector(selectFilterCategoryId);
+	
+	const shopCategoryList = useAppSelector(selectShopCategoryList);
+	useShopCategoryList(); //Наш HOOK
 
-	//Для установки по default-у   значения фильтров     из Store2 
+
+	//Для установки по default-у   значения фильтров     из Store2 ------------------------
 	const currentFilterCategoryId = useSelector(selectFilterCategoryId);
 	const currentFilterSize = useSelector(selectFilterSize);
 
-	//dispatch-им полученное значение Filter-ра в Store2
-	const onClickCategory: MenuProps['onClick'] = (e) => {
-		dispatch(shop_setFilterCategoryId(e.key));
+	//dispatch-им полученное значение Filter-ра в Store2------------------------
+	const onSelectCategory: MenuProps['onSelect'] = (e) => {
+		dispatch(shop_setFilterCategoryId(e.selectedKeys));
 	};
-	const onClickSize: MenuProps['onClick'] = (e) => {
-		dispatch(shop_setFilterSize(e.key as FilterSizeType));
+	const onDeselectCategory: MenuProps['onDeselect'] = (e) => {
+		dispatch(shop_setFilterCategoryId(e.selectedKeys));
 	};
+	// const onClickCategory: MenuProps['onClick'] = (e) => {
+	// 	dispatch(shop_setFilterCategoryId(e.key));
+	// };
 
+	const onSelectSize: MenuProps['onSelect'] = (e) => {
+		dispatch(shop_setFilterSize(e.selectedKeys as FilterSizeType[]));
+	};
+	const onDeselectSize: MenuProps['onDeselect'] = (e) => {
+		dispatch(shop_setFilterSize(e.selectedKeys as FilterSizeType[]));
+	};
 
 
 
@@ -80,79 +94,26 @@ const ShopSider: React.FC<PropsType> = (props) => {
 						<div className={s.siderTitle}>Categories</div>
 
 						<Menu
-							onClick={onClickCategory}
+							// onClick={onClickCategory}
+							onSelect={onSelectCategory}
+							onDeselect={onDeselectCategory}
 							multiple={true}
-							defaultSelectedKeys={[currentFilterCategoryId]}
+							defaultSelectedKeys={currentFilterCategoryId}
 							className={s.header_menu}>
 
-							<Menu.Item key="1"  >
-								<div className={s.menu_itemContainer}>
-									<div>House Plants</div>
-									<div>(33)</div>
-								</div>
-							</Menu.Item>
-							<Menu.Item key="2" >
-								<div className={s.menu_itemContainer}>
-									<div>Potter Plants</div>
-									<div>(33)</div>
-								</div>
-							</Menu.Item>
-							<Menu.Item key="3" >
-								{/* <NavLink to="/home" className={s.menu_link }> */}
-								<div className={s.menu_itemContainer}>
-									<div>Seed</div>
-									<div>(33)</div>
-								</div>
-								{/* </NavLink> */}
-							</Menu.Item>
-							<Menu.Item key="4" >
-								{/* <NavLink to="/home" className={s.menu_link }> */}
-								<div className={s.menu_itemContainer}>
-									<div>Small Plants</div>
-									<div>(33)</div>
-								</div>
-								{/* </NavLink> */}
-							</Menu.Item>
-							<Menu.Item key="5" >
-								{/* <NavLink to="/home" className={s.menu_link }> */}
-								<div className={s.menu_itemContainer}>
-									<div>Big Plants</div>
-									<div>(33)</div>
-								</div>
-								{/* </NavLink> */}
-							</Menu.Item>
-							<Menu.Item key="6" >
-								{/* <NavLink to="/home" className={s.menu_link }> */}
-								<div className={s.menu_itemContainer}>
-									<div>Succulents</div>
-									<div>(33)</div>
-								</div>
-								{/* </NavLink> */}
-							</Menu.Item>
-							<Menu.Item key="7" >
-								{/* <NavLink to="/home" className={s.menu_link }> */}
-								<div className={s.menu_itemContainer}>
-									<div>Terrariums</div>
-									<div>(33)</div>
-								</div>
-								{/* </NavLink> */}
-							</Menu.Item>
-							<Menu.Item key="8" >
-								{/* <NavLink to="/home" className={s.menu_link }> */}
-								<div className={s.menu_itemContainer}>
-									<div>Gardening</div>
-									<div>(33)</div>
-								</div>
-								{/* </NavLink> */}
-							</Menu.Item>
-							<Menu.Item key="9" >
-								{/* <NavLink to="/home" className={s.menu_link }> */}
-								<div className={s.menu_itemContainer}>
-									<div>Accessories</div>
-									<div>(18)</div>
-								</div>
-								{/* </NavLink> */}
-							</Menu.Item>
+							{shopCategoryList.map(cl => {
+
+								return < >
+								<Menu.Item key={cl.categoryId}  >
+									<div className={s.menu_itemContainer}>
+										<div>{cl.name}</div>
+										<div>{cl.itemCount}</div>
+									</div>
+								</Menu.Item>
+								</>
+								})
+							}
+							
 						</Menu>
 
 					</div>
@@ -175,9 +136,11 @@ const ShopSider: React.FC<PropsType> = (props) => {
 					<div className={s.container2}>
 						<div className={s.siderTitle}>Size</div>
 						<Menu
-							onClick={onClickSize}
+							onSelect={onSelectSize}
+							onDeselect={onDeselectSize}
+							// onClick={onClickSize}
 							multiple={true}
-							defaultSelectedKeys={[currentFilterSize]}
+							defaultSelectedKeys={currentFilterSize}
 							className={s.header_menu}>
 							<Menu.Item key="small" >
 								{/* <NavLink to="/home" className={s.menu_link }> */}

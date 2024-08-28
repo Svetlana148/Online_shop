@@ -10,7 +10,6 @@ import { BlogPostsAPI } from '../components/api/BlogPosts-api';
 
 // SLICE------------------------------------------------------------------------
 
-// ------------------------------------------------------------------------
 //Main----initialState-->BlogPostList-->BlogPost-----------------------------
 
 //Типизируем initialState

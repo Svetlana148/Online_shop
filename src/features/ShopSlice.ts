@@ -22,11 +22,12 @@ import { ShopAPI } from '../components/api/Shop-api';
 interface initialStateType {
 	shopFilter: ShopFilterType,
 	shopCardsList: ShopCardsListType,
+	shopCategoryList: ShopCategoryListType,
 }
-//-->>shopFilter
+//-->>shopFilter-------------------------------------------------------------------
 export interface ShopFilterType {
-	categoryId: string
-	size: FilterSizeType
+	categoryId: Array<string>
+	size: Array<FilterSizeType>
 	priceMin: number
 	priceMax: number
 	extraFilter: FilterExtraFilterType
@@ -59,6 +60,13 @@ type ShopCardLikeType={
 }
 //-----------------------------------------------------------------------------
 
+//shopCategory---------------------------
+export interface ShopCategoryType {
+	categoryId: string
+	name: string
+	itemCount: number
+}
+export type ShopCategoryListType = ShopCategoryType[]
 
 
 
@@ -69,11 +77,11 @@ type ShopCardLikeType={
 //Конкретный заяц
 const initialState: initialStateType = {
 	shopFilter: {
-		categoryId: "",
-		size: "",
+		categoryId: [],
+		size: [],
 		priceMin: 0,
 		priceMax: 1500,
-		extraFilter: "all",
+		extraFilter:"all" ,
 		sort: "default",
 	},
 
@@ -100,6 +108,18 @@ const initialState: initialStateType = {
 			inBasket: false,
 		}
 	],
+	shopCategoryList: [
+		{
+			categoryId: "1",
+			name: "House Plants",
+			itemCount: 1,
+		},
+		{
+			categoryId: "2",
+			name: "Potter Plants",
+			itemCount: 2,
+		},
+	]
 }
 //----------------------------
 
@@ -117,12 +137,15 @@ export const ShopSlice = createSlice({
 		shop_setShopCardsList: (state, action: PayloadAction<ShopCardsListType>) => {
 			state.shopCardsList = action.payload
 		},
+		shop_setCategoryList	: (state, action: PayloadAction<ShopCategoryListType>) => {
+			state.shopCategoryList = action.payload
+		},
 
 		//Для Filtr-ов
-		shop_setFilterCategoryId: (state, action: PayloadAction<string>) => {
+		shop_setFilterCategoryId: (state, action: PayloadAction<string[]>) => {
 			state.shopFilter.categoryId = action.payload
 		},
-		shop_setFilterSize: (state, action: PayloadAction<FilterSizeType>) => {
+		shop_setFilterSize: (state, action: PayloadAction<FilterSizeType[]>) => {
 			state.shopFilter.size = action.payload
 		},
 		shop_setFilterPriceMin: (state, action: PayloadAction<number>) => {
@@ -166,11 +189,15 @@ export const {
 	shop_setFilterSort,
 	shop_setFilterExtraFilter,
 	shop_clickShopCardLike,
-	shop_setShopCardLike, } = ShopSlice.actions
+	shop_setShopCardLike, 
+	shop_setCategoryList,
+} = ShopSlice.actions
 	
 
 // Selectors-----------------
 export const selectShopCardsList = (state: RootState) => state.shop.shopCardsList;
+export const selectShopCategoryList = (state: RootState) => state.shop.shopCategoryList;
+
 export const selectFilterCategoryId = (state: RootState) => state.shop.shopFilter.categoryId;
 export const selectFilterSize = (state: RootState) => state.shop.shopFilter.size;
 export const selectFilterPriceMin = (state: RootState) => state.shop.shopFilter.priceMin;
@@ -180,14 +207,11 @@ export const selectFilterExtraFilter = (state: RootState) => state.shop.shopFilt
 export const selectFilters = (state: RootState) => state.shop.shopFilter;
 
 
-
 // BLL-Запросы на сервер-----------------------------------------------------------------------
 
-// Запрос на сервер--на ShopCardList--------------------------------
+// 1.Вызов Запроса на сервер(из "Shop-api.ts")--на ShopCardList--------------------------------
 export const ShopCardsList = () => {
-
 	let filters = useAppSelector(selectFilters);
-	
 	const dispatch = useAppDispatch()
 
 	useEffect(() => {
@@ -201,7 +225,7 @@ export const ShopCardsList = () => {
 };
 
 
-
+// 2.ЗВызов апроса на сервер(из "Shop-api.ts")---на CardLike--------------------------------
 const ClickCardLike=(cardId:string)=>{
 
 	const dispatch = useAppDispatch();
@@ -233,3 +257,18 @@ const ClickCardLike=(cardId:string)=>{
 };
 
 
+// 3.Вызов Запроса на сервер(из "Shop-api.ts")---на конкретные категории в меню "Categories"--------------------------------
+
+export const useShopCategoryList = () => {
+	const dispatch = useAppDispatch()
+
+	useEffect(() => {
+		//Запроса на сервер
+		ShopAPI.getShopCategoryList() 
+      .then((res) => {
+			// Записали ответ сервера в Store2
+			dispatch(shop_setCategoryList(res));
+      })
+      .catch((res) => console.error(res.status));
+	}, [dispatch]);
+};

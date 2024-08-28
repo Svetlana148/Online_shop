@@ -24,26 +24,33 @@ const ShopSiderMobile: React.FC<PropsType> = (props) => {
 	//Получает Hook-и
 	const dispatch = useAppDispatch();
 
-	//Для установки по default-у   значения фильтров     из Store2 
+	//Для установки по default-у   значения фильтров     из Store2--------------- 
 	const currentFilterCategoryId = useSelector(selectFilterCategoryId);
 	const currentFilterSize = useSelector(selectFilterSize);
 	const currentFilterSort = useSelector(selectFilterSort);
 
 
-	//dispatch-им полученное значение Filter-ра в Store2
-	const onClickCategory: MenuProps['onClick'] = (e) => {
-		dispatch(shop_setFilterCategoryId(e.key));
+	//dispatch-им полученное значение Filter-ра в Store2------------------------
+	const onSelectCategory: MenuProps['onSelect'] = (e) => {
+		dispatch(shop_setFilterCategoryId(e.selectedKeys));
 	};
-	const onClickSize: MenuProps['onClick'] = (e) => {
-		dispatch(shop_setFilterSize(e.key as FilterSizeType));
+	const onDeselectCategory: MenuProps['onDeselect'] = (e) => {
+		dispatch(shop_setFilterCategoryId(e.selectedKeys));
 	};
+	// const onClickCategory: MenuProps['onClick'] = (e) => {
+	// 	dispatch(shop_setFilterCategoryId(e.key));
+	// };
+
+	const onSelectSize: MenuProps['onSelect'] = (e) => {
+		dispatch(shop_setFilterSize(e.selectedKeys as FilterSizeType[]));
+	};
+	const onDeselectSize: MenuProps['onDeselect'] = (e) => {
+		dispatch(shop_setFilterSize(e.selectedKeys as FilterSizeType[]));
+	};
+	
 	const onClickSort: MenuProps['onClick'] = (e) => {
 		dispatch(shop_setFilterSort(e.key as FilterSortType));
 	};
-
-
-
-
 
 
 
@@ -102,17 +109,7 @@ const ShopSiderMobile: React.FC<PropsType> = (props) => {
 				>
 
 
-					{/* <Menu
-						// mode="horizontal"
-						defaultSelectedKeys={['1']}
-						className={s.header_menu}>
-						
-							<Menu.Item key="1" > <NavLink to="/home" className={s.menu__link }>Home</NavLink></Menu.Item> 
-							<Menu.Item key="2" className={s.menu_item}> <NavLink to="/shop">Shop</NavLink></Menu.Item>
-							<Menu.Item key="3" className={s.menu_item}> <NavLink to="/blogs">Blogs</NavLink></Menu.Item>
-															
-						
-					</Menu> */}
+					
 
 					{/* ---1part Categories------------------------------------------------------- */}
 					<div className={s.container1}>
@@ -120,8 +117,11 @@ const ShopSiderMobile: React.FC<PropsType> = (props) => {
 							<div className={s.siderTitle}>Categories</div>
 
 							<Menu
-								onClick={onClickCategory}
-								defaultSelectedKeys={[currentFilterCategoryId]}
+								onSelect={onSelectCategory}
+								onDeselect={onDeselectCategory}
+								multiple={true}
+								//onClick={onClickCategory}
+								defaultSelectedKeys={currentFilterCategoryId}
 								className={s.header_menu}>
 
 								<Menu.Item key="1" >
@@ -209,8 +209,11 @@ const ShopSiderMobile: React.FC<PropsType> = (props) => {
 						<div className={s.container2}>
 							<div className={s.siderTitle}>Size</div>
 							<Menu
-								onClick={onClickSize}
-								defaultSelectedKeys={[currentFilterSize]}
+								onSelect={onSelectSize}
+								onDeselect={onDeselectSize}
+								multiple={true}
+								// onClick={onClickSize}
+								defaultSelectedKeys={currentFilterSize}
 								className={s.header_menu}>
 								<Menu.Item key="small" >
 									<div className={s.menu_itemContainer}>

@@ -28,7 +28,7 @@ const ShopCard : React.FC<PropsType> = (props) => {
 			<div className={s.shopContent_card}>
 				<div className={s.shopContent_card_container}>
 					<div className={s.shopContent_card_imgContainer}>
-						<img   className={s.shopContent_img1} src={ShopScreen_Content_img1} alt="" />
+						<img   className={s.shopContent_img1} src={props.shopCard.photo} alt="" />
 						<div className={s.shopContent_card_saleContainer} 
 						style={{visibility: (props.shopCard.salePercent !=null ? "visible" : "hidden")}}>
 							<div className={s.shopContent_card_sale}>{props.shopCard.salePercent}% OFF</div>
