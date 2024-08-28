@@ -8,8 +8,21 @@ import { APIResponseType, instance } from './api';
 export const ShopAPI = {
 	//Получить все карточки по фильтру
 	getShopCardsList(shopFilter:ShopFilterType):Promise<ShopCardsListType> {
-		return instance.get<ShopCardsListType>(`blog/latest?top=4`).then(res => res.data)
-	},
+		
+		//[?categoryId][&priceMin][&priceMax][&size][&extraFilter][&sortBy]
+		let backendQuery = `shop/items?`;
+		if(!!shopFilter.categoryId) backendQuery += "categoryId=" + shopFilter.categoryId;
+		if(!!shopFilter.priceMin) backendQuery += "&priceMin=" + shopFilter.priceMin;
+		if(!!shopFilter.priceMax) backendQuery += "&priceMax=" + shopFilter.priceMax;
+		if(!!shopFilter.size) backendQuery += "&size=" + shopFilter.size;
+		if(!!shopFilter.extraFilter) backendQuery += "&extraFilter=" + shopFilter.extraFilter;
+		if(!!shopFilter.sort) backendQuery += "&sort=" + shopFilter.sort;
+
+		return instance.get<ShopCardsListType>(backendQuery)
+			//На сервер уйдет :   shop/items?categoryId=5
+			//С сервера придет : список Card-очек
+			.then(res => res.data)
+			},
 
 	//Обработка like-ов-----------------------------------------------------------------------------
 	//Поставить состояние like=true. Отправить Click по like-у на карточке  (set-аем на Server : cardId  userProfileId  isLike)

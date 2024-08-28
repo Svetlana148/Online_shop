@@ -32,7 +32,7 @@ export interface ShopFilterType {
 	extraFilter: FilterExtraFilterType
 	sort: FilterSortType
 }
-export type FilterSizeType = "small" | "medium" | "large"
+export type FilterSizeType = "small" | "medium" | "large" | ""
 export type FilterExtraFilterType = "all" | "new" | "sale"
 export type FilterSortType = "default" | "low" | "max"
 
@@ -40,7 +40,7 @@ export type FilterSortType = "default" | "low" | "max"
 
 // -->>shopCards  :  shopCardsList --> shopCard
 export type ShopCardsListType = Array<ShopCardType>
-interface ShopCardType {
+export interface ShopCardType {
 	cardId: string
 	photo: PhotoType
 	title: string
@@ -48,6 +48,7 @@ interface ShopCardType {
 	salePrice: number | null
 	salePercent: number | null
 	isLike: boolean
+	
 	inBasket: boolean
 }
 
@@ -68,9 +69,9 @@ type ShopCardLikeType={
 //Конкретный заяц
 const initialState: initialStateType = {
 	shopFilter: {
-		categoryId: "1",
-		size: "small",
-		priceMin: 37,
+		categoryId: "",
+		size: "",
+		priceMin: 0,
 		priceMax: 1500,
 		extraFilter: "all",
 		sort: "default",
@@ -156,7 +157,8 @@ export default ShopSlice.reducer;
 
 
 //Actions--1объект со всеми Action-ами--------------
-export const { shop_setShopCardsList,
+export const { 
+	shop_setShopCardsList,
 	shop_setFilterCategoryId,
 	shop_setFilterSize,
 	shop_setFilterPriceMin,
@@ -175,21 +177,28 @@ export const selectFilterPriceMin = (state: RootState) => state.shop.shopFilter.
 export const selectFilterPriceMax = (state: RootState) => state.shop.shopFilter.priceMax;
 export const selectFilterSort = (state: RootState) => state.shop.shopFilter.sort;
 export const selectFilterExtraFilter = (state: RootState) => state.shop.shopFilter.extraFilter;
+export const selectFilters = (state: RootState) => state.shop.shopFilter;
 
-// BLL-Запрос на сервер-----------------------------------------------------------------------
 
-// export const useLatestBlogPost = () => {
 
-// 	const dispatch = useAppDispatch()
+// BLL-Запросы на сервер-----------------------------------------------------------------------
 
-// 	useEffect(() => {
-// 		BlogPostsAPI.getLatestBlogPosts()
-//       .then((data) => {
-// 			dispatch(setLatest(data));
-//       })
-//       .catch((res) => console.error(res.status));
-// 	}, [dispatch]);
-// };
+// Запрос на сервер--на ShopCardList--------------------------------
+export const ShopCardsList = () => {
+
+	let filters = useAppSelector(selectFilters);
+	
+	const dispatch = useAppDispatch()
+
+	useEffect(() => {
+		ShopAPI.getShopCardsList(filters)
+      .then((res) => {
+			// Записали ответ сервера в Store2
+			dispatch(shop_setShopCardsList(res));
+      })
+      .catch((res) => console.error(res.status));
+	}, [dispatch, filters]);
+};
 
 
 

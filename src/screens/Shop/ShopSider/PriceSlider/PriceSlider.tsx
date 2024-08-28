@@ -30,7 +30,7 @@ const PriceSlider: React.FC<PriceSliderType> = (props) => {
 	return (
 		<div >
 			<Slider
-				min={37}
+				min={0}
 				max={1500}
 				onChange={onPriceChange}
 				range defaultValue={[currentFilterPriceMin, currentFilterPriceMax]} />

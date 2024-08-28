@@ -81,6 +81,7 @@ const ShopSider: React.FC<PropsType> = (props) => {
 
 						<Menu
 							onClick={onClickCategory}
+							multiple={true}
 							defaultSelectedKeys={[currentFilterCategoryId]}
 							className={s.header_menu}>
 
@@ -175,6 +176,7 @@ const ShopSider: React.FC<PropsType> = (props) => {
 						<div className={s.siderTitle}>Size</div>
 						<Menu
 							onClick={onClickSize}
+							multiple={true}
 							defaultSelectedKeys={[currentFilterSize]}
 							className={s.header_menu}>
 							<Menu.Item key="small" >

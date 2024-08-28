@@ -5,8 +5,8 @@ import { Col, ConfigProvider, Grid, Menu, Pagination, Row, Select, MenuProps } f
 import { NavLink } from "react-router-dom";
 import ShopCard from "./ShopCard/ShopCard";
 import ShopScreen_Content_img1 from "../../../resources/img/ShopScreen/ShopScreen_Content_img1.jpg";
-import { useAppDispatch } from "../../../types/types";
-import { FilterExtraFilterType, FilterSortType, selectFilterExtraFilter, selectFilterSort, shop_setFilterExtraFilter, shop_setFilterSort } from "../../../features/ShopSlice";
+import { useAppDispatch, useAppSelector } from "../../../types/types";
+import { FilterExtraFilterType, FilterSortType, selectFilterExtraFilter, selectFilterSort, selectShopCardsList, shop_setFilterExtraFilter, shop_setFilterSort, ShopCardsList } from "../../../features/ShopSlice";
 import { useSelector } from "react-redux";
 
 const { useBreakpoint } = Grid;
@@ -44,6 +44,9 @@ const ShopContent: React.FC<PropsType> = (props) => {
 		// padding: '41px 24px',
 	};
 
+	//Достаем из Store2  1. initialState,   2... отфильтрованные Cards 
+	const shopCardList = useAppSelector(selectShopCardsList); 
+	ShopCardsList(); //Запускаем синхронизацию с useEffect-ом для слежки за изменениями в Filtrs
 
 	return (
 		<Content style={contentStyle}>
@@ -117,30 +120,14 @@ const ShopContent: React.FC<PropsType> = (props) => {
 			<div>
 				<div className={s.shopCardsSet}>
 					<Row className={s.shopCardsSet_row} gutter={[{ xl: 41, lg: 41, xs: 20 }, { xl: 76, lg: 76, sm: 76, md: 40, xs: 40 }]}>
-
-						<Col xl={8} lg={12} xs={12}>
-							<ShopCard photo={ShopScreen_Content_img1} name="qwersrxsfd" price={123} />
-						</Col>
-						<Col xl={8} lg={12} xs={12}>
-							<ShopCard photo={ShopScreen_Content_img1} name="qwersrxs2" price={123} />
-						</Col>
-						<Col xl={8} lg={12} xs={12}>
+{/* 					<Col xl={8} lg={12} xs={12}>
 							<ShopCard photo={ShopScreen_Content_img1} name="qwersrxs3d" price={123} />
-						</Col>
-						<Col xl={8} lg={12} xs={12}>
-							<ShopCard photo={ShopScreen_Content_img1} name="qwersrxsfd" price={123} />
-						</Col>
-						<Col xl={8} lg={12} xs={12}>
-							<ShopCard photo={ShopScreen_Content_img1} name="qwersrxs2" price={123} />
-						</Col>
-						<Col xl={8} lg={12} xs={12}>
-							<ShopCard photo={ShopScreen_Content_img1} name="qwersrxs3d" price={123} />
-						</Col>
+						</Col> */}
 
-						{/* {shopCards.map(sc => <Col xl={8} lg={12} xs={12}>
+						{shopCardList.map(sc => <Col xl={8} lg={12} xs={12}>
 							<ShopCard shopCard={sc} /> 
 						</Col>
-						)}*/}
+						)}
 					</Row>
 
 					{/* ----Pagination-------------------------------------------------------------  */}
