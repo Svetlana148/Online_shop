@@ -6,7 +6,7 @@ import { NavLink } from "react-router-dom";
 import ShopCard from "./ShopCard/ShopCard";
 import ShopScreen_Content_img1 from "../../../resources/img/ShopScreen/ShopScreen_Content_img1.jpg";
 import { useAppDispatch, useAppSelector } from "../../../types/types";
-import { FilterExtraFilterType, FilterSortType, selectFilterExtraFilter, selectFilterSort, selectShopCardsList, shop_setFilterExtraFilter, shop_setFilterSort, ShopCardsList } from "../../../features/ShopSlice";
+import { FilterExtraFilterType, FilterSortType,  selectFilterExtraFilter, selectFilterPage, selectFilterSort, selectShopCardsList, shop_setFilterExtraFilter, shop_setFilterSort, ShopCardsList, ShopItemsCount } from "../../../features/ShopSlice";
 import { useSelector } from "react-redux";
 
 const { useBreakpoint } = Grid;
@@ -44,9 +44,17 @@ const ShopContent: React.FC<PropsType> = (props) => {
 		// padding: '41px 24px',
 	};
 
+
+
 	//Достаем из Store2  1. initialState,   2... отфильтрованные Cards 
 	const shopCardList = useAppSelector(selectShopCardsList); 
 	ShopCardsList(); //Запускаем синхронизацию с useEffect-ом для слежки за изменениями в Filtrs
+	ShopItemsCount();//Запускаем синхронизацию с useEffect-ом для слежки за общим количеством карточек
+
+	//Достаем из Store2  1. selectItemsCount,   2. PageSize, 3.CurrentPage
+	const shopFilterPage = useAppSelector(selectFilterPage); 
+
+
 
 	return (
 		<Content style={contentStyle}>
@@ -120,10 +128,6 @@ const ShopContent: React.FC<PropsType> = (props) => {
 			<div>
 				<div className={s.shopCardsSet}>
 					<Row className={s.shopCardsSet_row} gutter={[{ xl: 41, lg: 41, xs: 20 }, { xl: 76, lg: 76, sm: 76, md: 40, xs: 40 }]}>
-{/* 					<Col xl={8} lg={12} xs={12}>
-							<ShopCard photo={ShopScreen_Content_img1} name="qwersrxs3d" price={123} />
-						</Col> */}
-
 						{shopCardList.map(sc => <Col xl={8} lg={12} xs={12}>
 							<ShopCard shopCard={sc} /> 
 						</Col>
@@ -132,7 +136,10 @@ const ShopContent: React.FC<PropsType> = (props) => {
 
 					{/* ----Pagination-------------------------------------------------------------  */}
 					<div className={s.shopCardsSet_pagination}>
-						<Pagination defaultCurrent={1} total={50} />
+						<Pagination defaultCurrent={shopFilterPage.currentPage} 
+										total={shopFilterPage.itemsCount}
+										pageSize={shopFilterPage.pageSize} 
+										showSizeChanger={false}/>
 					</div>
 				</div>
 			</div>

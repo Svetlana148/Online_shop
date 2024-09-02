@@ -38,6 +38,24 @@ export type FilterExtraFilterType = "all" | "new" | "sale"
 export type FilterSortType = "default" | "low" | "max"
 
 
+//-------initialState-->>shopFilter-&-shopCards-----Paginator----------------------------
+interface initialStateType {
+	shopFilter: ShopFilterType,
+	shopCardsList: ShopCardsListType,
+	shopCategoryList: ShopCategoryListType,
+	shopFilterPage: shopFilterPageType,
+}
+
+
+//---Paginator----
+export type shopFilterPageType = 	{
+	currentPage: number
+	pageSize: number
+	itemsCount: number
+}
+
+
+
 
 // -->>shopCards  :  shopCardsList --> shopCard
 export type ShopCardsListType = Array<ShopCardType>
@@ -119,9 +137,14 @@ const initialState: initialStateType = {
 			name: "Potter Plants",
 			itemCount: 2,
 		},
-	]
+	],
+	shopFilterPage:{
+		currentPage: 1,
+		pageSize: 9,
+		itemsCount: 15,
+	},
 }
-//----------------------------
+//----------------------------------------------------
 
 export const ShopSlice = createSlice({
 	name: 'shop',
@@ -132,6 +155,8 @@ export const ShopSlice = createSlice({
 
 	//1reducers внутри имеет неск.разделов: (1action + его обработка) этим  reducers-ом
 	reducers: {
+
+
 		//создаем и ActionCrearor-ы, и swich-case-ы
 		//Запись в Store2
 		shop_setShopCardsList: (state, action: PayloadAction<ShopCardsListType>) => {
@@ -168,6 +193,22 @@ export const ShopSlice = createSlice({
 				if (card.cardId===action.payload.cardId) card.isLike=action.payload.isLike;
 			});
 		},
+
+
+		//Для Paginator-а------------------------------------------------------
+		// записать в Store2 :
+			//---общее кол-во карточек
+		shop_setShopItemsCount: (state, action: PayloadAction<number>) => {
+			state.shopFilterPage.itemsCount = action.payload
+		},
+			//---currentPage
+		shop_setShopCurrentPage: (state, action: PayloadAction<number>) => {
+		state.shopFilterPage.currentPage = action.payload
+		},
+			//---pageSize
+		shop_setShopPageSize: (state, action: PayloadAction<number>) => {
+			state.shopFilterPage.pageSize = action.payload
+		},
 	},
 })
 
@@ -182,15 +223,21 @@ export default ShopSlice.reducer;
 //Actions--1объект со всеми Action-ами--------------
 export const { 
 	shop_setShopCardsList,
+
 	shop_setFilterCategoryId,
 	shop_setFilterSize,
 	shop_setFilterPriceMin,
 	shop_setFilterPriceMax,
 	shop_setFilterSort,
 	shop_setFilterExtraFilter,
+
 	shop_clickShopCardLike,
 	shop_setShopCardLike, 
 	shop_setCategoryList,
+
+	shop_setShopItemsCount,
+	shop_setShopCurrentPage,
+	shop_setShopPageSize,
 } = ShopSlice.actions
 	
 
@@ -206,27 +253,35 @@ export const selectFilterSort = (state: RootState) => state.shop.shopFilter.sort
 export const selectFilterExtraFilter = (state: RootState) => state.shop.shopFilter.extraFilter;
 export const selectFilters = (state: RootState) => state.shop.shopFilter;
 
+export const selectFilterPage = (state: RootState) => state.shop.shopFilterPage;
+
+
+
 
 // BLL-Запросы на сервер-----------------------------------------------------------------------
 
-// 1.Вызов Запроса на сервер(из "Shop-api.ts")--на ShopCardList--------------------------------
+// 1.Вызов Запроса на сервер(из "Shop-api.ts")--на ShopCardList--(отфильтрованные карточки)------------------------------
 export const ShopCardsList = () => {
 	let filters = useAppSelector(selectFilters);
-	const dispatch = useAppDispatch()
+	let filterPage = useAppSelector(selectFilterPage);
+
+	
+	const dispatch = useAppDispatch();
+
 
 	useEffect(() => {
-		ShopAPI.getShopCardsList(filters)
+		ShopAPI.getShopCardsList(filters, filterPage)
       .then((res) => {
 			// Записали ответ сервера в Store2
 			dispatch(shop_setShopCardsList(res));
       })
       .catch((res) => console.error(res.status));
-	}, [dispatch, filters]);
+	}, [dispatch, filters, filterPage]);
 };
 
 
-// 2.ЗВызов апроса на сервер(из "Shop-api.ts")---на CardLike--------------------------------
-const ClickCardLike=(cardId:string)=>{
+// 2.ЗВызов запроса на сервер(из "Shop-api.ts")---на CardLike--------------------------------
+export const ClickCardLike=(cardId:string)=>{
 
 	const dispatch = useAppDispatch();
 
@@ -240,7 +295,8 @@ const ClickCardLike=(cardId:string)=>{
 	const userProfileId = useSelector(selectUserProfileId);
 	let isLike: boolean = false;
 
-	//Обработка Like-ов---forEach-просмотр всех----------------------------------------------
+	//Обработка Like-ов-------------------------------------------------
+	//forEach-просмотр всех
 	const cardList = useSelector(selectShopCardsList);
 
 	cardList.forEach(card => {
@@ -271,4 +327,21 @@ export const useShopCategoryList = () => {
       })
       .catch((res) => console.error(res.status));
 	}, [dispatch]);
+};
+
+
+// 4.Вызов Запроса на сервер(из "Shop-api.ts")--на общее количество карточек--------------------------------
+export const ShopItemsCount = () => {
+	let filters = useAppSelector(selectFilters);
+	let filterPage = useAppSelector(selectFilterPage);
+	const dispatch = useAppDispatch()
+
+	useEffect(() => {
+		ShopAPI.getShopItemsCount(filters, filterPage)
+      .then((res) => {	
+			// Записали ответ сервера в Store2
+			dispatch(shop_setShopItemsCount(res));
+      })
+      .catch((res) => console.error(res.status));
+	}, [dispatch, filters, filterPage]);
 };

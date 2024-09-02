@@ -1,6 +1,6 @@
 //Это DAl (Data Access Layer) - уровень. 
 //Все общение с сервером *(получить get; и за-set-ать(post)-то чего не было нервере; и put-изменить то что есть на сервере)
-import { FilterSizeType, ShopCardsListType, ShopCategoryType, ShopFilterType } from '../../features/ShopSlice';
+import { FilterSizeType, ShopCardsListType, ShopCategoryType, shopFilterPageType, ShopFilterType } from '../../features/ShopSlice';
 import { APIResponseType, instance } from './api';
 
 
@@ -11,29 +11,55 @@ export interface ServerShopCategoryType {
 	name: string
 }
 
-
+export interface ServerShopTotalCountType {
+	totalCount: number
+}
 
 
 
 // Группа запросов на сервер для Shop----------------------------------------------
 export const ShopAPI = {
-	//Получить все карточки со всеми фильтровыми ограничениями--------------------
-	getShopCardsList(shopFilter:ShopFilterType):Promise<ShopCardsListType> {
-		
+
+	//Собирает строку запроса
+	_calculateQueryParamsString(shopFilter:ShopFilterType, filterPage: shopFilterPageType):string {
+
+		//Filters
 		//[?categoryId][&priceMin][&priceMax][&size][&extraFilter][&sortBy]
-		let backendQuery = `shop/items?`;
+		let backendQuery = "";
 		if(!!shopFilter.categoryId && shopFilter.categoryId.length > 0) backendQuery += "categoryId=" + shopFilter.categoryId;
 		if(!!shopFilter.priceMin) backendQuery += "&priceMin=" + shopFilter.priceMin;
 		if(!!shopFilter.priceMax) backendQuery += "&priceMax=" + shopFilter.priceMax;
-		if(!!shopFilter.size) backendQuery += "&size=" + shopFilter.size;
+		if(!!shopFilter.size && shopFilter.size.length > 0) backendQuery += "&size=" + shopFilter.size;
 		if(!!shopFilter.extraFilter) backendQuery += "&extraFilter=" + shopFilter.extraFilter;
 		if(!!shopFilter.sort) backendQuery += "&sort=" + shopFilter.sort;
 
-		return instance.get<ShopCardsListType>(backendQuery)
-			//На сервер уйдет :   shop/items?categoryId=5
+		let itemsCount = `shop/itemsitemsCount?`;
+		backendQuery += "&itemsCount=" + filterPage.itemsCount;
+		backendQuery += "&currentPage=" + filterPage.currentPage;
+		backendQuery += "&pageSize=" + filterPage.pageSize;
+
+		return backendQuery;
+	},
+
+
+
+	//Получить все КАРТОЧКИ со всеми фильтровыми ограничениями--------------------
+	getShopCardsList(shopFilter: ShopFilterType, filterPage: shopFilterPageType ):Promise<ShopCardsListType> {
+		let backendQuery = this._calculateQueryParamsString(shopFilter, filterPage);
+		return instance.get<ShopCardsListType>("shop/items?" + backendQuery)
 			//С сервера придет : список Card-очек
 			.then(res => res.data)
-			},
+	},
+
+	//Получить общее КОЛИЧЕСТВО карточек --------------------
+	getShopItemsCount(shopFilter:ShopFilterType, filterPage: shopFilterPageType):Promise<number> {
+		let backendQuery = this._calculateQueryParamsString(shopFilter, filterPage);
+
+		return instance.get<ServerShopTotalCountType>("shop/itemsCount?" + backendQuery)
+			//С сервера придет : список Card-очек
+			.then(res => res.data.totalCount)
+	},		
+
 
 
 	//Обработка like-ов-----------------------------------------------------------------------------
@@ -60,5 +86,5 @@ export const ShopAPI = {
 					}
 					return appCategory;
 				}  ))
-			},
+	},
 }
