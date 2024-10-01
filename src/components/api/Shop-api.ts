@@ -1,11 +1,11 @@
-//Это DAl (Data Access Layer) - уровень. 
-//Все общение с сервером *(получить get; и за-set-ать(post)-то чего не было нервере; и put-изменить то что есть на сервере)
-import { FilterSizeType, ShopCardsListType, ShopCategoryType, shopFilterPageType, ShopFilterType } from '../../features/ShopSlice';
+/** DAl (Data Access Layer)
+ * Server Request Group for Shop page
+*/
+import { ShopCardsListType, ShopCategoryType, shopFilterPageType, ShopFilterType } from '../../features/ShopSlice';
 import { APIResponseType, instance } from './api';
 
 
-//Что приходит с Server-а---------------------------------------------------------
-
+/** server response*/
 export interface ServerShopCategoryType {
 	id: string
 	name: string
@@ -16,15 +16,12 @@ export interface ServerShopTotalCountType {
 }
 
 
-
-// Группа запросов на сервер для Shop----------------------------------------------
+/** Server Request Group for Shop page*/
 export const ShopAPI = {
 
-	//Собирает строку запроса
+	/** Assembles a query string*/
 	_calculateQueryParamsString(shopFilter:ShopFilterType, filterPage: shopFilterPageType):string {
 
-		//Filters
-		//[?categoryId][&priceMin][&priceMax][&size][&extraFilter][&sortBy]
 		let backendQuery = "";
 		if(!!shopFilter.categoryId && shopFilter.categoryId.length > 0) backendQuery += "categoryId=" + shopFilter.categoryId;
 		if(!!shopFilter.priceMin) backendQuery += "&priceMin=" + shopFilter.priceMin;
@@ -33,8 +30,6 @@ export const ShopAPI = {
 		if(!!shopFilter.extraFilter) backendQuery += "&extraFilter=" + shopFilter.extraFilter;
 		if(!!shopFilter.sort) backendQuery += "&sort=" + shopFilter.sort;
 
-		let itemsCount = `shop/itemsitemsCount?`;
-		backendQuery += "&itemsCount=" + filterPage.itemsCount;
 		backendQuery += "&currentPage=" + filterPage.currentPage;
 		backendQuery += "&pageSize=" + filterPage.pageSize;
 
@@ -42,8 +37,7 @@ export const ShopAPI = {
 	},
 
 
-
-	//Получить все КАРТОЧКИ со всеми фильтровыми ограничениями--------------------
+	/** Get all CARDS with all filter restrictions*/
 	getShopCardsList(shopFilter: ShopFilterType, filterPage: shopFilterPageType ):Promise<ShopCardsListType> {
 		let backendQuery = this._calculateQueryParamsString(shopFilter, filterPage);
 		return instance.get<ShopCardsListType>("shop/items?" + backendQuery)
@@ -51,31 +45,28 @@ export const ShopAPI = {
 			.then(res => res.data)
 	},
 
-	//Получить общее КОЛИЧЕСТВО карточек --------------------
+	/** Get the total NUMBER of cards*/
 	getShopItemsCount(shopFilter:ShopFilterType, filterPage: shopFilterPageType):Promise<number> {
 		let backendQuery = this._calculateQueryParamsString(shopFilter, filterPage);
 
 		return instance.get<ServerShopTotalCountType>("shop/itemsCount?" + backendQuery)
-			//С сервера придет : список Card-очек
+		/** a list of Cards comes from the server : */
 			.then(res => res.data.totalCount)
 	},		
 
 
-
-	//Обработка like-ов-----------------------------------------------------------------------------
-	//Поставить состояние like=true. Отправить Click по like-у на карточке  (set-аем на Server : cardId  userProfileId  isLike)
+	/** Processing likes*/
+	/** Set the state "like=true". Send Click on the like on the card (set on Server: ""cardId", "userProfileId", "isLike")*/
 	putCardLike(cardId:string, userProfileId:string ) {
 		return instance.put<ShopCardsListType>(`blog/latest?top=4`).then(res => res.data)
 	},
-	//Убрать состояние like=true
+	/**  Delete the state "like=true".*/
 	delCardLike(cardId: string, userProfileId:string) {
 		return instance.delete(`like/${cardId}`).then(res => res.data) as Promise<APIResponseType>
 	},
-	//----------------------------------
 
 
-
-	//Получение конкретных категорий в меню "Categories" ------(Sider-->menu для Categories)--------------------------------------------------
+	/** Getting specific categories in the "Categories" menu ---(Sider-->menu for Categories)*/
 	getShopCategoryList():Promise<ShopCategoryType[]> {
 			return instance.get<ServerShopCategoryType[]>("catalog/0")
 				.then(res => res.data.map( (srvCategory) => {

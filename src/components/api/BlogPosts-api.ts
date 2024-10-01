@@ -1,10 +1,9 @@
-//Запросы о BlogPosts на сервер 
+/** Requests for BlogPosts to the server*/
 import { BlogPostListType } from '../../features/BlogPostsSlice';
 import { instance } from './api';
 
 
-
-// Группа запросов на сервер для BlogPosts--------------------------
+/** Requests for BlogPosts to the server*/
 export const BlogPostsAPI = {
 	getLatestBlogPosts():Promise<BlogPostListType> {
 		return instance.get<BlogPostListType>(`blog/latest?top=4`).then(res => res.data)

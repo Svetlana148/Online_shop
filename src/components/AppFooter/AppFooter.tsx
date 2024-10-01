@@ -1,15 +1,9 @@
-//Рисуем самую первую верхнюю картинку и провнеряем залогинены ли 
+/** Footer for the application*/
 import React from 'react';
 import s from './AppFooter.module.css';
-import { NavLink } from 'react-router-dom';
-import { Avatar, Button, Card, Col, ConfigProvider, Layout, Menu, MenuProps, Row } from 'antd';
-import { EnvironmentOutlined, UserOutlined } from '@ant-design/icons';
-import { useDispatch, useSelector } from 'react-redux';
+import { Col, ConfigProvider, Row } from 'antd';
 import { Footer } from 'antd/es/layout/layout';
 import Search from 'antd/es/input/Search';
-// import { selectCurrentUserLogin, selectIsAuth } from '../../redux/auth-selectors';
-// import { logout } from '../../redux/auth-reducer';
-// import { AppDispatch } from '../../redux/redux-store';
 import OnlineShopLogo from '../../resources/img/OnlineShopLogo.svg';
 import AppFooter_img1 from '../../resources/img/AppFooter/AppFooter_1.svg';
 import AppFooter_img2 from '../../resources/img/AppFooter/AppFooter_2.svg';
@@ -19,32 +13,22 @@ import AppFooter_Instagram from '../../resources/img/AppFooter/AppFooter_Instagr
 import AppFooter_Twitter from '../../resources/img/AppFooter/AppFooter_Twitter.svg';
 import AppFooter_LinkedIn from '../../resources/img/AppFooter/AppFooter_LinkedIn.svg';
 import AppFooter_Union from '../../resources/img/AppFooter/AppFooter_Union.svg';
-
 import AppFooter_EnvironmentOutline from '../../resources/img/AppFooter/AppFooter_EnvironmentOutline.svg';
 import AppFooter_Contacts from '../../resources/img/AppFooter/AppFooter_Contacts.svg';
 import AppFooter_Phon from '../../resources/img/AppFooter/AppFooter_Phon.svg';
 import AppFooter_paySystems from '../../resources/img/AppFooter/AppFooter_paySystems.png';
 
 
-
-
-
-//Типизация для "Footer"-а
 export type PropsType = {}
 
-
-// const { Footer } = Layout;
-
-
-const AppFooter:React.FC<PropsType> = (props) => {
-
+/** Footer for the application*/
+const AppFooter:React.FC<PropsType> = () => {
 	return (
 		<Footer className= {s.appFooter} >
 
-
 			{/* ---------1 Row-----------------------  */}
 			<Row className={s.appFooter_row1}>
-				{/* ---------1 карточка-----------------------  */}
+				{/* ---------1 card-----------------------  */}
 				<Col xl={5} lg={12} xs={24}>
 						<div className={s.appFooter_row1_card}>
 							<div className={s.appFooter_row1_card_container}>
@@ -65,8 +49,7 @@ const AppFooter:React.FC<PropsType> = (props) => {
 				</Col>
 
 
-
-				{/* ---------2 карточка-----------------------  */}
+				{/* ---------2 card-----------------------  */}
 				<Col xl={5} lg={12} xs={24}>
 						<div className={s.appFooter_row1_card}>
 							<div className={s.appFooter_row1_card_container}>
@@ -84,7 +67,7 @@ const AppFooter:React.FC<PropsType> = (props) => {
 						</div>
 				</Col>
 
-				{/* ---------3 карточка-----------------------  */}
+				{/* ---------3 card-----------------------  */}
 				<Col xl={5} lg={12} xs={24}>
 						<div className={s.appFooter_row1_card}>
 							<div className={s.appFooter_row1_card_container}>
@@ -103,7 +86,7 @@ const AppFooter:React.FC<PropsType> = (props) => {
 				</Col>
 
 				<Col xl={9} lg={12} xs={24}>
-						{/* ---------4 карточка-----------------------  */}
+						{/* ---------4 card-----------------------  */}
 						<div className={s.appFooter_row1_card4}>
 							<div className={s.appFooter_row1_card4_container}>
 								<div className={s.appFooter_row1_card_title}>Would you like to join newsletters?</div>
@@ -146,7 +129,7 @@ const AppFooter:React.FC<PropsType> = (props) => {
 
 			<Row className={s.appFooter_row2}>
 
-				{/* ---------1 карточка-----------------------  */}
+				{/* ---------1 card-----------------------  */}
 				<Col xl={5} lg={12} xs={24}>
 					<div className={s.appFooter_row2_card}>
 					<div className={s.appFooter_row2_card1_container}>
@@ -157,7 +140,7 @@ const AppFooter:React.FC<PropsType> = (props) => {
 					</div>
 				</Col>							
 
-				{/* ---------2 карточка-----------------------  */}
+				{/* ---------2 card-----------------------  */}
 				<Col xl={5} lg={12} xs={24}>
 					<div className={s.appFooter_row2_card}>
 						<div className={s.appFooter_row2_card2_container}>
@@ -176,7 +159,7 @@ const AppFooter:React.FC<PropsType> = (props) => {
 				</Col>								
 
 
-				{/* ---------3 карточка-----------------------  */}
+				{/* ---------3 card-----------------------  */}
 				<Col xl={5} lg={12} xs={24}>
 					<div className={s.appFooter_row2_card}>
 						<div className={s.appFooter_row2_card3_container}>
@@ -193,7 +176,7 @@ const AppFooter:React.FC<PropsType> = (props) => {
 				</Col>								
 
 
-				{/* ---------4 карточка-----------------------  */}
+				{/* ---------4 card-----------------------  */}
 				<Col xl={9} lg={12} xs={24}>
 					<div className={s.appFooter_row2_card}>
 						<div className={s.appFooter_row2_card4_container}>
@@ -211,10 +194,8 @@ const AppFooter:React.FC<PropsType> = (props) => {
 
 			
 			{/* ---------3 Row-----------------------  */}							
-
-
 			<Row className={s.appFooter_row3}>
-				{/* ---------1 карточка-----------------------  */}
+				{/* ---------1 card-----------------------  */}
 				<Col xl={5} lg={12} xs={24}>
 					<div className={s.appFooter_row3_card}>
 						<div className={s.appFooter_row3_card_container}>
@@ -231,8 +212,7 @@ const AppFooter:React.FC<PropsType> = (props) => {
 					</div>
 				</Col>
 
-
-				{/* ---------2 карточка-----------------------  */}
+				{/* ---------2 card-----------------------  */}
 				<Col xl={5} lg={12} xs={24}>
 				<div className={s.appFooter_row3_card}>
 							<div className={s.appFooter_row3_card_container}>
@@ -249,8 +229,7 @@ const AppFooter:React.FC<PropsType> = (props) => {
 						</div>
 				</Col>
 
-
-				{/* ---------3 карточка-----------------------  */}
+				{/* ---------3 card-----------------------  */}
 				<Col xl={5} lg={12} xs={24}>
 				<div className={s.appFooter_row3_card}>
 							<div className={s.appFooter_row3_card_container}>
@@ -267,7 +246,7 @@ const AppFooter:React.FC<PropsType> = (props) => {
 						</div>
 				</Col>
 
-				{/* ---------4 карточка-----------------------  */}
+				{/* ---------4 card-----------------------  */}
 				<Col xl={9} lg={12} xs={24}>
 				<div className={s.appFooter_row3_card}>
 							<div className={s.appFooter_row3_card4_container}>
@@ -300,23 +279,10 @@ const AppFooter:React.FC<PropsType> = (props) => {
 							</div>
 						</div>
 				</Col>						
-
-
-
-
-
-
-
-
-			
-
 			</Row>
 
-
-		{/* <Footer style={{ textAlign: 'center' }}> */}
 		<div className={s.appFooterCopyright} style={{ textAlign: 'center' }}>
-		© 2021 GreenShop. All Rights Reserved.
-		{/* Ant Design ©{new Date().getFullYear()} Created by Ant UED */}
+			© 2021 GreenShop. All Rights Reserved.
 		</div>
 		<div>&nbsp;</div>								
 		</Footer>

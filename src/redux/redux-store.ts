@@ -6,6 +6,8 @@ import authReducer from './auth-reducer'
 import blogPostsReducer from '../features/BlogPostsSlice'
 import shopReducer from '../features/ShopSlice'
 import userProfileReducer from '../features/UserProfileSlice'
+import commonSliceReducer from '../features/CommonSlice'
+
 
 
 
@@ -69,6 +71,7 @@ const store = configureStore({
 		blogPosts: blogPostsReducer,
 		shop: shopReducer,
 		userProfile: userProfileReducer,
+		common: commonSliceReducer,
 	}
 });
 export default store;

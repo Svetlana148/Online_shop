@@ -14,7 +14,7 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    {/* Provider кладет store в глобальный CONTEXT, чтобы все  */}
+    {/* Provider кладет store в глобальный CONTEXT, чтобы все  имели к нему доступ*/}
     <Provider store={store}>
       <BrowserRouter>
         <App />

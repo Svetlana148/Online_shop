@@ -1,26 +1,20 @@
+/** Renders 1 Card for a content of a shop page*/
 import React from "react";
 import s from "./ShopCard.module.css";
-import { Col, Row } from "antd";
-import ShopScreen_Content_img1 from "../../../../resources/img/ShopScreen/ShopScreen_Content_img1.png";
 import ShopScreen_Content_Basket from "../../../../resources/img/ShopScreen/Basket.svg";
 import ShopScreen_Content_Like from "../../../../resources/img/ShopScreen/Like.svg";
 import ShopScreen_Content_Search from "../../../../resources/img/ShopScreen/Search.svg";
 import LikeMobile from "../../../../resources/img/ShopScreen/LikeMobile.svg";
-import { PhotoType } from "../../../../types/types";
-import { ShopCardsListType, ShopCardType } from "../../../../features/ShopSlice";
-
-
-
+import { ShopCardType } from "../../../../features/ShopSlice";
 
 
 
 type PropsType = {
 	shopCard: ShopCardType
-	// photo: PhotoType
-	// name: string
-	// price: number
 }
 
+
+/** Renders 1 Card for a content of a shop page*/
 const ShopCard : React.FC<PropsType> = (props) => {
 	
 	return (

@@ -2,13 +2,11 @@
 	height: 710px;
 	min-height: 710px;
 	background-color: #ffffff;
-
 }
 
 :global(.ant-layout-footer) {
 	padding: 100px 0 13px 0;
 } 
-
 
 .appFooter_logo {
 	width: 120px;
@@ -18,11 +16,6 @@
 	border-radius: 6px;
 	margin-inline-end: 24px;
 }
-
-
-
-
-
 
 /* ----1 Row---------------------------------------------------------------- */
 
@@ -107,16 +100,11 @@
 .appFooter_joinButton {
 	min-width: 226px;
 	max-width: 354px;
-
-
 	margin: 9px 0 17px 0 ;
 }
 
-
-
-
-
 /* ----2 Row---------------------------------------------------------------- */
+
 .appFooter_row2 {
 	flex-wrap: wrap;
 	background-color: #46A3581A;
@@ -176,7 +164,6 @@ padding: 0 0 0 9px;
 	margin: 4px 0 4px 0;
 }
 
-
 .appFooter_row3_card4_1 {
 	padding: 0 0 33px 0;
 }
@@ -198,11 +185,9 @@ padding: 0 0 0 9px;
 }
 
 
-
-
 /* ------@media------------------------------------------------------------------------------ */
-@media (max-width: 1439px) {
 
+@media (max-width: 1439px) {
 	.appFooter_row1_card, 
 	.appFooter_row1_card4,
 	.appFooter_row2_card,

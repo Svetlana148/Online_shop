@@ -1,23 +1,19 @@
+/** Renders a Carousel for Home page*/
 import React from 'react';
 import { Button, Carousel, Col, ConfigProvider, Row } from 'antd';
 import s from './ScreenHomeCarousel.module.css';
 import right_arrow from '../../../resources/img/HomeScreen/right_arrow.svg';
 
 
-
-
-
+/** Renders a Carousel for Home page*/
 const ScreenHomeCarousel: React.FC = () => {
 	const onChange = (currentSlide: number) => {
 		console.log(currentSlide);
 	};
 
 	return (
-
 		<ConfigProvider
-
 			theme={{
-
 				components: {
 					Carousel: {
 						dotHeight: 8,
@@ -27,8 +23,6 @@ const ScreenHomeCarousel: React.FC = () => {
 					},
 				},
 			}}>
-
-
 			<Carousel afterChange={onChange} autoplay={true}>
 
 				{/* ----1Card------------------------------------ */}
@@ -62,7 +56,6 @@ const ScreenHomeCarousel: React.FC = () => {
 								</div>
 							</div>
 						</Col>
-
 
 						<Col span={10} >
 							<div className={[s["homeCarousel_cardImg"], s["homeCarousel_cardImg1"]].join(" ")}>
@@ -101,7 +94,6 @@ const ScreenHomeCarousel: React.FC = () => {
 								</div>
 							</div>
 						</Col>
-
 
 						<Col span={10} >
 							<div className={[s["homeCarousel_cardImg"], s["homeCarousel_cardImg2"]].join(" ")}>
@@ -142,7 +134,6 @@ const ScreenHomeCarousel: React.FC = () => {
 							</div>
 						</Col>
 
-
 						<Col span={10} >
 							<div className={[s["homeCarousel_cardImg"], s["homeCarousel_cardImg3"]].join(" ")}>
 								{/* <img   className={s.homeCarousel_img1} src={homeCarousel_img1} alt="" /> */}
@@ -150,7 +141,6 @@ const ScreenHomeCarousel: React.FC = () => {
 						</Col>
 					</Row>
 				</div>
-
 			</Carousel>
 		</ConfigProvider>
 	);

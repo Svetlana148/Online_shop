@@ -4,8 +4,6 @@
 	align-items: center;
 }
 
-
-
 .shopHeader_row{
 	min-height: 23px;
 	line-height: 23px;
@@ -24,21 +22,20 @@
 	justify-content: start;
 	font-size: 15px;
 	color: #3d3d3d;
-	/* padding:  0 0 0 -60px; */
 
 	:global(.ant-menu-item-selected) {
 			font-weight: 700;
 			color: #46a358 !important;
 	} 
 
-	/* Выбранный элемент */
+	/* Selected item */
 	:global(.ant-menu-item-selected:after) {
 		color: #46a358 !important; 
 		border-bottom-width: 2px !important; 
 		border-bottom-color: #46a358 !important;
 	}
 
-	/*  элемент с наведенной мышью*/
+	/*  mouse hover element*/
 	:global(.ant-menu-item-active:after) {
 		border-bottom-width: 2px !important; 
 		border-bottom-color: #46a358 !important;
@@ -52,14 +49,14 @@
 	line-height: 16px;
 	letter-spacing: 0%;
 }
-
-
 	:global(.ant-select-arrow) {
 	color: #3d3d3d!important;
 }
-/* --Cards------------------------------------------------------------------------------------ */
 
-/* ----1 Row---------------------------------------------------------------- */
+
+/* --Cards---------- */
+
+/* ----1 Row */
 
 .shopCardsSet{
 	display: flex;
@@ -79,7 +76,6 @@
 	align-items: center;
 	margin: 90px 0 0 0;
 	border-radius: 1px red solid;
-
 }
 
 

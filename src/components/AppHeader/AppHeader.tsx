@@ -1,6 +1,4 @@
-//Горизонтальное меню вверху
-//Рисуем самую первую верхнюю картинку и проверяем залогинены ли 
-
+/** Header for the application*/
 import React from 'react';
 import s from './AppHeader.module.css';
 import { NavLink } from 'react-router-dom';
@@ -16,80 +14,50 @@ import userIcon from '../../resources/img/AppMenu/userIcon.svg';
 import AppHeaderMobileMenu from './AppHeaderMobileMenu';
 
 
-
 const { Header } = Layout;
 const { useBreakpoint } = Grid;
 
 
-
-
-
+/** Header for the application*/
 const AppHeader:React.FC= (props) => {
 
 	const screens = useBreakpoint();
-
-
 	return (
 		<div >
 			<Header className= {s.header} style={{ display: screens.lg ? "flex" : "none" }}>
-
 				<Row className={s.header_Row}	>
 					<Col span={5} flex="auto" style={{minWidth: "150px"}}>
 						<div className={s.appHeader_logo}>
 							<img src={OnlineShopLogo} alt=''></img> 
 						</div>
 					</Col>
-
-				
 					<Col span={12} flex="auto">
 
-						{/* Для кастомизации дизайна	 */}
 						<ConfigProvider
-			
 							theme={{
 								token: {
-									// Отключить анимацию
+									// Disable animation
 									motion:false,  
-									//Цвет для подчеркивания в меню под активным элементом
-									//#46a358;
-									//colorPrimaryActive: '#3d3dff',  
-									// colorPrimaryText: '#3d3dff',
-									// fontWeightStrong:900,
 								},
 							
 								components: {
 									Menu: {
-										//fontSizeXL: 20,
-										//itemColor: '#3d3d3d',
 										horizontalItemSelectedColor: '#3d3d3d',
 										lineWidth: 0,
-										//itemSelectedBg: '#ff3d3d',
-										//itemSelectedColor: '#3d3dff',
-										// itemBg:'#ff3d3d',
-										// colorText: '#ff3d3d',
-										//colorPrimary: '#3d3d3d',
-										//algorithm: true, // Enable a
 									},
 								}
 							}}
 							>
-
-
 							<Menu
-								// theme="dark"
 								mode="horizontal"
 								defaultSelectedKeys={['1']}
 								className={s.header_menu}>
-								
 									<Menu.Item key="1" > <NavLink to="/home" className={s.menu__link }>Home</NavLink></Menu.Item> 
 									<Menu.Item key="2" > <NavLink to="/shop">Shop</NavLink></Menu.Item>
 									<Menu.Item key="3" className={s.menu_item}> <NavLink to="/blogs">Blogs</NavLink></Menu.Item>
-																	
-								
 							</Menu>
 						</ConfigProvider>
 					</Col>
-										
 
 					<Col span={7} flex="auto">
 						<div className={s.loginBlock}>
@@ -103,7 +71,6 @@ const AppHeader:React.FC= (props) => {
 					</Col>
 				</Row>
 			</Header> 
-
 
 			{/* Mobile Header menu ------sm = 900----------------------------------------------------------------- */}
 			<div className={s.headerMobile} 	style={{ visibility: !screens.lg ? "visible" : "hidden" }}>

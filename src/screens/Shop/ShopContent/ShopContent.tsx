@@ -1,32 +1,33 @@
+/** Renders a content for a shop page*/
 import React from "react";
 import s from "./ShopContent.module.css";
 import { Content } from "antd/es/layout/layout";
 import { Col, ConfigProvider, Grid, Menu, Pagination, Row, Select, MenuProps } from "antd";
 import { NavLink } from "react-router-dom";
 import ShopCard from "./ShopCard/ShopCard";
-import ShopScreen_Content_img1 from "../../../resources/img/ShopScreen/ShopScreen_Content_img1.jpg";
 import { useAppDispatch, useAppSelector } from "../../../types/types";
-import { FilterExtraFilterType, FilterSortType,  selectFilterExtraFilter, selectFilterPage, selectFilterSort, selectShopCardsList, shop_setFilterExtraFilter, shop_setFilterSort, ShopCardsList, ShopItemsCount } from "../../../features/ShopSlice";
+import { FilterExtraFilterType, FilterSortType,  selectFilterExtraFilter, selectFilterPage, selectFilterSort, selectShopCardsList, shop_setFilterExtraFilter, shop_setFilterSort, shop_setShopCurrentPage, ShopCardsList, ShopItemsCount } from "../../../features/ShopSlice";
 import { useSelector } from "react-redux";
+
 
 const { useBreakpoint } = Grid;
 
-
 type PropsType = {
-
 }
 
+
+/** Renders a content for a shop page*/
 const ShopContent: React.FC<PropsType> = (props) => {
 
-	//Получает Hook-и
+	/** get HOOKs*/
 	const screens = useBreakpoint();
 	const dispatch = useAppDispatch();
 
-	//Для установки по default-у   значения фильтров     из Store2 
+	/** To set default filters from Store*/
 	const currentFilterExtraFilter = useSelector(selectFilterExtraFilter);
 	const currentFilterSort = useSelector(selectFilterSort);
 
-	//dispatch-им полученное значение Filter-ра в Store2
+	/** dispatch the received Filter value to Store*/
 	const onClickExtraFilter: MenuProps['onClick'] = (e) => {
 		dispatch(shop_setFilterExtraFilter(e.key as FilterExtraFilterType));
 	};
@@ -35,27 +36,27 @@ const ShopContent: React.FC<PropsType> = (props) => {
 	};
 
 
-
 	const contentStyle: React.CSSProperties = {
 		textAlign: 'center',
 		minHeight: 120,
 		lineHeight: '120px',
 		backgroundColor: '#fff',
-		// padding: '41px 24px',
 	};
 
 
-
-	//Достаем из Store2  1. initialState,   2... отфильтрованные Cards 
+	/** Get from Store2 1. initialState, 2... filtered Cards*/
 	const shopCardList = useAppSelector(selectShopCardsList); 
-	ShopCardsList(); //Запускаем синхронизацию с useEffect-ом для слежки за изменениями в Filtrs
-	ShopItemsCount();//Запускаем синхронизацию с useEffect-ом для слежки за общим количеством карточек
+	/** Start synchronization with useEffect to track changes in Filtrs*/
+	ShopCardsList(); 
+	/** Start synchronization with useEffect to track the total number of cards*/
+	ShopItemsCount();
 
-	//Достаем из Store2  1. selectItemsCount,   2. PageSize, 3.CurrentPage
+	/** get from Store  1. selectItemsCount,   2. PageSize, 3.CurrentPage*/
 	const shopFilterPage = useAppSelector(selectFilterPage); 
-
-
-
+	const onChange=(page: number, pageSize: number)=>{
+		dispatch(shop_setShopCurrentPage(page))
+	}
+	
 	return (
 		<Content style={contentStyle}>
 
@@ -123,7 +124,6 @@ const ShopContent: React.FC<PropsType> = (props) => {
 				</Row >
 			</div>
 
-
 			{/* ---------Cards--------------------------------------------------------  */}
 			<div>
 				<div className={s.shopCardsSet}>
@@ -135,17 +135,31 @@ const ShopContent: React.FC<PropsType> = (props) => {
 					</Row>
 
 					{/* ----Pagination-------------------------------------------------------------  */}
-					<div className={s.shopCardsSet_pagination}>
-						<Pagination defaultCurrent={shopFilterPage.currentPage} 
-										total={shopFilterPage.itemsCount}
-										pageSize={shopFilterPage.pageSize} 
-										showSizeChanger={false}/>
-					</div>
+					<ConfigProvider
+						theme={{
+							token: {
+								colorPrimary: '#fff'
+							},
+							components: {
+								Pagination: {
+									itemActiveBg: '#46A358',
+								},
+							}
+						}}
+					>
+
+						<div className={s.shopCardsSet_pagination}>
+							<Pagination defaultCurrent={shopFilterPage.currentPage} 
+											total={shopFilterPage.itemsCount}
+											pageSize={shopFilterPage.pageSize} 
+											showSizeChanger={false}
+											onChange={onChange}/>
+						</div>
+					</ConfigProvider>
 				</div>
 			</div>
 		</Content>
 	)
 }
-
 
 export default ShopContent;

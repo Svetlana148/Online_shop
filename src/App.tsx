@@ -3,6 +3,7 @@ import React from 'react';
 import './App.module.css';
 // import { BrowserRouter, Route, RouterProvider, Routes, createBrowserRouter } from 'react-router-dom';
 import AppLayout from './AppLayout/AppLayout';
+import { Router, Routes } from 'react-router-dom';
 // import Preloader from './components/common/Preloader/Preloader';
 // import Home from './screens/Home/Home';
 // import Shop from './screens/Shop/Shop';
@@ -12,7 +13,9 @@ import AppLayout from './AppLayout/AppLayout';
 function App() {
   return (
     <div>
-      <AppLayout />
+
+        <AppLayout />
+
     </div>
   );
 }

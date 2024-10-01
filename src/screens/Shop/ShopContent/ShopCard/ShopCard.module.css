@@ -1,13 +1,9 @@
-
-
-
 .shopContent_card {
 	width: 258px;
 	min-width: 258px;
 	height: 350px;
 	height: 100%;
 	margin: 0 auto;
-	/* border: 1px red solid; */
 }
 .shopContent_card:hover{
 	.shopContent_card_likeContainer{
@@ -23,7 +19,7 @@
 	background-color: rgb(251, 251, 251);
 }
 
-/* --img--------------------------------------------------------- */
+/* --img--------------- */
 .shopContent_card_imgContainer{
 	position: relative;
 	background-color: #FBFBFB;
@@ -38,7 +34,6 @@
 	max-height: 100%;
 	padding: 31px 0 0 0;
 }
-
 
 .shopContent_card_likeContainer{
 	width: 100%;
@@ -63,7 +58,6 @@
 	top: 14px;
 	left: 0;
 	background-color: #46A358;
-	/* border: 1px red solid; */
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -83,8 +77,6 @@
 	top: 12px;
 	visibility: hidden;
 }
-/* ----------------------------------------------------------- */
-
 
 
 
@@ -100,8 +92,6 @@
 	color: #3D3D3D;
 	margin: 0 0 6px 0;
 }
-
-
 
 
 .ShopScreen_card_price {

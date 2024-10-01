@@ -1,36 +1,26 @@
+/** Main component with layout*/
 import React from 'react';
-import { Breadcrumb, ConfigProvider, Layout, theme } from 'antd';
+import { ConfigProvider, Layout } from 'antd';
 import s from './AppLayout.module.css';
 import './AppLayout.module.css';
-// import './App.module.css';
 import AppHeader from '../components/AppHeader/AppHeader';
-import AppRouter from '../screens/AppRouter/AppRouter';
 import AppFooter from '../components/AppFooter/AppFooter';
 import AppContent from '../components/AppContent/AppContent';
-// import "./assets/CeraPro-Regular.woff"
-
 
 
 function App() {
 
-  const {
-    token: { colorBgContainer, borderRadiusLG },
-  } = theme.useToken();
-
-
   return (
     <div >
       <div className={s.wrapper} >
-        {/* Для кастомизации дизайна	 */}
         <ConfigProvider
-
           theme={{
             token: {
-              // Основной Цвет текста на сайте
+              /** Main Color of text on the site*/
               colorText: '#3d3d3d',
               colorPrimary: '#46A358',
               fontFamily: `"CeraPro", "Hanging Letters", sans-serif`,
-              // Смена Breack points
+              /** Change Breakpoints*/
               screenXL: 1200,
               screenXLMax: 1200,
               screenXLMin: 1200,
@@ -44,9 +34,7 @@ function App() {
               },
             },
           }}>
-
-
-
+            
           <Layout>
             <AppHeader />
             <AppContent />
