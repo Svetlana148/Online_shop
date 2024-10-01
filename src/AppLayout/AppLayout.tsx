@@ -1,5 +1,4 @@
-/** Main component with layout*/
-import React from 'react';
+/** App component that sets up the main layout and theme configuration for the application.*/
 import { ConfigProvider, Layout } from 'antd';
 import s from './AppLayout.module.css';
 import './AppLayout.module.css';
@@ -7,9 +6,13 @@ import AppHeader from '../components/AppHeader/AppHeader';
 import AppFooter from '../components/AppFooter/AppFooter';
 import AppContent from '../components/AppContent/AppContent';
 
-
+/**
+ * App component that sets up the main layout and theme configuration for the application.
+ *
+ * @component
+ * @returns {JSX.Element} The rendered App component.
+ */
 function App() {
-
   return (
     <div >
       <div className={s.wrapper} >
@@ -34,7 +37,6 @@ function App() {
               },
             },
           }}>
-            
           <Layout>
             <AppHeader />
             <AppContent />

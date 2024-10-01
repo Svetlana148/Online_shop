@@ -1,7 +1,7 @@
+/* Mobile Header menu   sm = 900*/
 import React, { useState } from "react";
 import s from "../ShopSider.module.css";
-import Sider from "antd/es/layout/Sider";
-import { Button, ConfigProvider, Grid, Menu, Flex, Input, Drawer, MenuProps } from "antd";
+import { Button, ConfigProvider, Menu, Input, Drawer, MenuProps } from "antd";
 import PriseSlider from "../PriceSlider/PriceSlider";
 import filterButtonMobile from "../../../../resources/img/ShopScreen/filterButtonMobile.svg";
 import { SearchOutlined } from "@ant-design/icons";
@@ -10,36 +10,32 @@ import { useSelector } from "react-redux";
 import { FilterSizeType, FilterSortType, selectFilterCategoryId, selectFilterSize, selectFilterSort, shop_setFilterCategoryId, shop_setFilterSize, shop_setFilterSort } from "../../../../features/ShopSlice";
 
 
+/* Mobile Header menu   sm = 900*/
+/**
+ * ShopSiderMobile component for rendering a mobile sidebar with filtering options.
+ *
+ * @component
+ * @param {PropsType} props - The properties passed to the component.
+ * @returns {JSX.Element} The rendered ShopSiderMobile component.
+ */
+const ShopSiderMobile: React.FC = () => {
 
-
-type PropsType = {
-
-}
-
-
-
-/* Mobile Header menu ------sm = 900----------------------------------------------------------------- */
-const ShopSiderMobile: React.FC<PropsType> = (props) => {
-
-	//Получает Hook-и
+	//get Hooks
 	const dispatch = useAppDispatch();
 
-	//Для установки по default-у   значения фильтров     из Store2--------------- 
+	//To set the default filter values ​​from Store
 	const currentFilterCategoryId = useSelector(selectFilterCategoryId);
 	const currentFilterSize = useSelector(selectFilterSize);
 	const currentFilterSort = useSelector(selectFilterSort);
 
 
-	//dispatch-им полученное значение Filter-ра в Store2------------------------
+	//dispatch the received value of Filter-pa to Store
 	const onSelectCategory: MenuProps['onSelect'] = (e) => {
 		dispatch(shop_setFilterCategoryId(e.selectedKeys));
 	};
 	const onDeselectCategory: MenuProps['onDeselect'] = (e) => {
 		dispatch(shop_setFilterCategoryId(e.selectedKeys));
 	};
-	// const onClickCategory: MenuProps['onClick'] = (e) => {
-	// 	dispatch(shop_setFilterCategoryId(e.key));
-	// };
 
 	const onSelectSize: MenuProps['onSelect'] = (e) => {
 		dispatch(shop_setFilterSize(e.selectedKeys as FilterSizeType[]));
@@ -52,11 +48,6 @@ const ShopSiderMobile: React.FC<PropsType> = (props) => {
 		dispatch(shop_setFilterSort(e.key as FilterSortType));
 	};
 
-
-
-
-
-
 	const [open, setOpen] = useState(false);
 
 	const showDrawer = () => {
@@ -66,14 +57,6 @@ const ShopSiderMobile: React.FC<PropsType> = (props) => {
 	const onClose = () => {
 		setOpen(false);
 	};
-
-
-
-
-
-
-
-
 
 	return (
 		<div className={s.shopScreenMobile}>
@@ -86,18 +69,11 @@ const ShopSiderMobile: React.FC<PropsType> = (props) => {
 			</div>
 
 			<Drawer title="Filter" onClose={onClose} open={open}>
-				{/* Для кастомизации дизайна	 */}
 				<ConfigProvider
-
 					theme={{
 						token: {
-							// Отключить анимацию
 							motion: false,
-							//Цвет для подчеркивания в меню под активным элементом
-							//#46a358;
 							colorPrimaryActive: '#3d3dff',
-							// colorPrimaryText: '#3d3dff',
-							// fontWeightStrong:900,
 						},
 
 						components: {
@@ -107,85 +83,60 @@ const ShopSiderMobile: React.FC<PropsType> = (props) => {
 						}
 					}}
 				>
-
-
-					
-
 					{/* ---1part Categories------------------------------------------------------- */}
 					<div className={s.container1}>
 						<div className={s.container2}>
 							<div className={s.siderTitle}>Categories</div>
-
 							<Menu
 								onSelect={onSelectCategory}
 								onDeselect={onDeselectCategory}
 								multiple={true}
-								//onClick={onClickCategory}
 								defaultSelectedKeys={currentFilterCategoryId}
 								className={s.header_menu}>
-
 								<Menu.Item key="1" >
-									{/* <NavLink to="/home" className={s.menu_link }> */}
 									<div className={s.menu_itemContainer}>
 										<div>House Plants</div>
 									</div>
-									{/* </NavLink> */}
 								</Menu.Item>
 								<Menu.Item key="2" >
-									{/* <NavLink to="/home" className={s.menu_link }> */}
 									<div className={s.menu_itemContainer}>
 										<div>Potter Plants</div>
 									</div>
-									{/* </NavLink> */}
 								</Menu.Item>
 								<Menu.Item key="3" >
-									{/* <NavLink to="/home" className={s.menu_link }> */}
 									<div className={s.menu_itemContainer}>
 										<div>Seed</div>
 									</div>
-									{/* </NavLink> */}
 								</Menu.Item>
 								<Menu.Item key="4" >
-									{/* <NavLink to="/home" className={s.menu_link }> */}
 									<div className={s.menu_itemContainer}>
 										<div>Small Plants</div>
 									</div>
-									{/* </NavLink> */}
 								</Menu.Item>
 								<Menu.Item key="5" >
-									{/* <NavLink to="/home" className={s.menu_link }> */}
 									<div className={s.menu_itemContainer}>
 										<div>Big Plants</div>
 									</div>
-									{/* </NavLink> */}
 								</Menu.Item>
 								<Menu.Item key="6" >
-									{/* <NavLink to="/home" className={s.menu_link }> */}
 									<div className={s.menu_itemContainer}>
 										<div>Succulents</div>
 									</div>
-									{/* </NavLink> */}
 								</Menu.Item>
 								<Menu.Item key="7" >
-									{/* <NavLink to="/home" className={s.menu_link }> */}
 									<div className={s.menu_itemContainer}>
 										<div>Terrariums</div>
 									</div>
-									{/* </NavLink> */}
 								</Menu.Item>
 								<Menu.Item key="8" >
-									{/* <NavLink to="/home" className={s.menu_link }> */}
 									<div className={s.menu_itemContainer}>
 										<div>Gardening</div>
 									</div>
-									{/* </NavLink> */}
 								</Menu.Item>
 								<Menu.Item key="9" >
-									{/* <NavLink to="/home" className={s.menu_link }> */}
 									<div className={s.menu_itemContainer}>
 										<div>Accessories</div>
 									</div>
-									{/* </NavLink> */}
 								</Menu.Item>
 							</Menu>
 

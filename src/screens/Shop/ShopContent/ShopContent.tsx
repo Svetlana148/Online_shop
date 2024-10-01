@@ -1,4 +1,7 @@
-/** Renders a content for a shop page*/
+/** Renders a content for a shop page
+ * ShopContent component renders the main content of the shop page, including filters, sorting options, 
+ * and the list of shop cards with pagination.
+ */
 import React from "react";
 import s from "./ShopContent.module.css";
 import { Content } from "antd/es/layout/layout";
@@ -12,12 +15,11 @@ import { useSelector } from "react-redux";
 
 const { useBreakpoint } = Grid;
 
-type PropsType = {
-}
+
 
 
 /** Renders a content for a shop page*/
-const ShopContent: React.FC<PropsType> = (props) => {
+const ShopContent: React.FC = () => {
 
 	/** get HOOKs*/
 	const screens = useBreakpoint();

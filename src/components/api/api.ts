@@ -1,12 +1,12 @@
 /** DAl (Data Access Layer)
- * Here are all the REQUESTS TO THE SERVER
+ * Here are the REQUESTS TO THE SERVER
 */
 import axios from 'axios';
-import React from 'react';
 import { BlogPostListType } from '../../features/BlogPostsSlice';
 
 
-/** Template for a request to the server (hereinafter it is used everywhere for other requests)*/
+/** Template for a request to the server (hereinafter it is used everywhere for other requests) */
+
 export const instance = axios.create({
 	/** for cookie*/
 	withCredentials: false,

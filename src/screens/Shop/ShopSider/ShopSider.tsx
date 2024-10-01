@@ -11,36 +11,35 @@ import { useSelector } from "react-redux";
 const { useBreakpoint } = Grid;
 
 
-type PropsType = {
+/**
+ * ShopSider component renders the sidebar for the shop page, including categories, price range, and size filters.
+ * It uses Ant Design's Sider component and custom hooks for managing state and dispatching actions.
+ *
+ * @component
+ * @param {PropsType} props - The props for the ShopSider component.
+ * @returns {JSX.Element} The rendered ShopSider component.
+ */
+const ShopSider: React.FC = () => {
 
-}
-
-const ShopSider: React.FC<PropsType> = (props) => {
-
-	//Получает Hook-и
+	//get Hooks
 	const screens = useBreakpoint();
 	const dispatch = useAppDispatch();
-	const categoryIdItems = useAppSelector(selectFilterCategoryId);
 	
 	const shopCategoryList = useAppSelector(selectShopCategoryList);
-	useShopCategoryList(); //Наш HOOK
+	useShopCategoryList(); //our HOOK
 
 
-	//Для установки по default-у   значения фильтров     из Store2 ------------------------
+	//To set the default filter values ​​from Store
 	const currentFilterCategoryId = useSelector(selectFilterCategoryId);
 	const currentFilterSize = useSelector(selectFilterSize);
 
-	//dispatch-им полученное значение Filter-ра в Store2------------------------
+	//dispatch the received value of Filter to Store
 	const onSelectCategory: MenuProps['onSelect'] = (e) => {
 		dispatch(shop_setFilterCategoryId(e.selectedKeys));
 	};
 	const onDeselectCategory: MenuProps['onDeselect'] = (e) => {
 		dispatch(shop_setFilterCategoryId(e.selectedKeys));
 	};
-	// const onClickCategory: MenuProps['onClick'] = (e) => {
-	// 	dispatch(shop_setFilterCategoryId(e.key));
-	// };
-
 	const onSelectSize: MenuProps['onSelect'] = (e) => {
 		dispatch(shop_setFilterSize(e.selectedKeys as FilterSizeType[]));
 	};
@@ -50,7 +49,7 @@ const ShopSider: React.FC<PropsType> = (props) => {
 
 
 
-	//Стиль для Sider-а
+	//Style for Sider
 	const siderStyle: React.CSSProperties = {
 		textAlign: 'start',
 		lineHeight: '40px',
@@ -66,17 +65,14 @@ const ShopSider: React.FC<PropsType> = (props) => {
 		<ConfigProvider
 			theme={{
 				token: {
-					// Отключить анимацию
+					// Disable animation
 					motion: false,
 					colorPrimaryActive: '#3d3dff',
-					// colorPrimaryText: '#3d3dff',
-					// fontWeightStrong:900,
 					colorBgBase: '#FBFBFB',
 				},
 
 				components: {
 					Menu: {
-						// horizontalItemSelectedColor: '#3d3d3d',
 						itemSelectedBg: '#FBFBFB',
 						fontSizeXL: 15,
 						itemColor: '#3d3d3d',
@@ -164,7 +160,6 @@ const ShopSider: React.FC<PropsType> = (props) => {
 									<div>Large</div>
 									<div>(33)</div>
 								</div>
-								{/* </NavLink> */}
 							</Menu.Item>
 						</Menu>
 					</div>

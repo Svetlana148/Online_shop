@@ -8,13 +8,25 @@ import LikeMobile from "../../../../resources/img/ShopScreen/LikeMobile.svg";
 import { ShopCardType } from "../../../../features/ShopSlice";
 
 
-
 type PropsType = {
 	shopCard: ShopCardType
 }
 
-
-/** Renders 1 Card for a content of a shop page*/
+/**
+ * Renders 1 Card for a content of a shop page
+ * ShopCard component displays a card with shop item details including image, title, price, and sale information.
+ * 
+ * @component
+ * @param {PropsType} props - The properties object.
+ * @param {Object} props.shopCard - The shop card data.
+ * @param {string} props.shopCard.photo - The URL of the shop item photo.
+ * @param {string} props.shopCard.title - The title of the shop item.
+ * @param {number} props.shopCard.price - The price of the shop item.
+ * @param {number} [props.shopCard.salePercent] - The sale percentage of the shop item, if any.
+ * @param {number} [props.shopCard.salePrice] - The sale price of the shop item, if any.
+ * 
+ * @returns {JSX.Element} The rendered ShopCard component.
+ */
 const ShopCard : React.FC<PropsType> = (props) => {
 	
 	return (

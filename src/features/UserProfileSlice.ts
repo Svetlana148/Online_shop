@@ -1,20 +1,8 @@
+/** Initial state for the user profile slice*/
 import { createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
 import type { RootState } from '../redux/redux-store'
-import { PhotoType, useAppDispatch, useAppSelector } from '../types/types';
-import { useEffect, useState } from 'react';
-import { BlogPostsAPI } from '../components/api/BlogPosts-api';
 
-
-
-
-// SLICE------------------------------------------------------------------------
-
-//Типизируем initialState
-// Define a type for the slice state
-
-
-//-------------------------------
 
 export interface UserProfilerType {
 	profileId: string
@@ -40,8 +28,6 @@ export type UserAddressType  = {
 }
 
 
-
-//Конкретный заяц
 const initialState: UserProfilerType = {
 	profileId: "1",
 	isLogged: true,
@@ -62,51 +48,27 @@ const initialState: UserProfilerType = {
 		zip: 55551,
 	},
 }
-//----------------------------
-
-
-
 
 
 export const UserProfileSlice = createSlice({
 	name: 'userProfile',
 
 	// `createSlice` will infer the state type from the `initialState` argument
-	//`createSlice` выведет тип состояния из аргумента `initialState`
 	initialState,
 
-	//1reducers внутри имеет неск.разделов: (1action + его обработка) этим  reducers-ом
 	reducers: {
-		//создаем и ActionCrearor-ы, и swich-case-ы
-		//Запись в Store2
 		userProfile_setAccount: (state, action: PayloadAction<UserAccountType>) => {
 			state.account = action.payload
 		},
 	},
 })
 
-// Reducer----------------
+// Reducer
 export default UserProfileSlice.reducer;
 
-//Actions--1объект со всеми Action-ами--------------
+//Actions--1 Object with all Actions
 export const { userProfile_setAccount,
 	} = UserProfileSlice.actions
 
-// Selectors-----------------
+// Selectors
 export const selectUserProfileId = (state: RootState) => state.userProfile.profileId;
-
-
-// BLL-Запрос на сервер-----------------------------------------------------------------------
-
-// export const useLatestBlogPost = () => {
-
-// 	const dispatch = useAppDispatch()
-
-// 	useEffect(() => {
-// 		BlogPostsAPI.getLatestBlogPosts()
-//       .then((data) => {
-// 			dispatch(setLatest(data));
-//       })
-//       .catch((res) => console.error(res.status));
-// 	}, [dispatch]);
-// };

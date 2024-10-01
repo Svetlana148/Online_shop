@@ -1,30 +1,21 @@
+/** Slice for managing the shop state*/
 import { createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
 import type { RootState } from '../redux/redux-store'
 import { PhotoType, useAppDispatch, useAppSelector } from '../types/types';
-import { useEffect, useState } from 'react';
-import { BlogPostsAPI } from '../components/api/BlogPosts-api';
+import { useEffect } from 'react';
 import { selectUserProfileId } from './UserProfileSlice';
 import { useSelector } from 'react-redux';
 import { ShopAPI } from '../components/api/Shop-api';
 
 
-
-
-
-// SLICE------------------------------------------------------------------------
-
-//Типизируем initialState
 // Define a type for the slice state
-
-
-//---Main----initialState-->>shopFilter-&-shopCards----------------------------
 interface initialStateType {
 	shopFilter: ShopFilterType,
 	shopCardsList: ShopCardsListType,
 	shopCategoryList: ShopCategoryListType,
 }
-//-->>shopFilter-------------------------------------------------------------------
+//shopFilter
 export interface ShopFilterType {
 	categoryId: Array<string>
 	size: Array<FilterSizeType>
@@ -54,9 +45,6 @@ export type shopFilterPageType = 	{
 	itemsCount: number
 }
 
-
-
-
 // -->>shopCards  :  shopCardsList --> shopCard
 export type ShopCardsListType = Array<ShopCardType>
 export interface ShopCardType {
@@ -71,14 +59,13 @@ export interface ShopCardType {
 	inBasket: boolean
 }
 
-//Type для  Payload
+//Type for  Payload
 type ShopCardLikeType={
 	cardId: string
 	isLike: boolean
 }
-//-----------------------------------------------------------------------------
 
-//shopCategory---------------------------
+//shopCategory
 export interface ShopCategoryType {
 	categoryId: string
 	name: string
@@ -87,12 +74,6 @@ export interface ShopCategoryType {
 export type ShopCategoryListType = ShopCategoryType[]
 
 
-
-
-
-
-
-//Конкретный заяц
 const initialState: initialStateType = {
 	shopFilter: {
 		categoryId: [],
@@ -144,18 +125,15 @@ const initialState: initialStateType = {
 		itemsCount: 15,
 	},
 }
-//----------------------------------------------------
+
 
 export const ShopSlice = createSlice({
 	name: 'shop',
 
 	// `createSlice` will infer the state type from the `initialState` argument
-	//`createSlice` выведет тип состояния из аргумента `initialState`
 	initialState,
 
-	//1reducers внутри имеет неск.разделов: (1action + его обработка) этим  reducers-ом
 	reducers: {
-
 
 		//создаем и ActionCrearor-ы, и swich-case-ы
 		//Запись в Store2
@@ -166,7 +144,7 @@ export const ShopSlice = createSlice({
 			state.shopCategoryList = action.payload
 		},
 
-		//Для Filtr-ов
+		//For Filtrs
 		shop_setFilterCategoryId: (state, action: PayloadAction<string[]>) => {
 			state.shopFilter.categoryId = action.payload
 		},
@@ -195,24 +173,24 @@ export const ShopSlice = createSlice({
 		},
 
 
-		//Для Paginator-а------------------------------------------------------
-		// записать в Store2 :
-			//---общее кол-во карточек
+		//for Paginator
+		// set in Store :
+			//total number of cards
 		shop_setShopItemsCount: (state, action: PayloadAction<number>) => {
 			state.shopFilterPage.itemsCount = action.payload
 		},
-			//---currentPage
+			//currentPage
 		shop_setShopCurrentPage: (state, action: PayloadAction<number>) => {
 		state.shopFilterPage.currentPage = action.payload
 		},
-			//---pageSize
+			//pageSize
 		shop_setShopPageSize: (state, action: PayloadAction<number>) => {
 			state.shopFilterPage.pageSize = action.payload
 		},
 	},
 })
 
-// Reducer----------------
+// Reducer
 export default ShopSlice.reducer;
 
 

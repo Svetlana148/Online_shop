@@ -2,7 +2,6 @@
 import { BlogPostListType } from '../../features/BlogPostsSlice';
 import { instance } from './api';
 
-
 /** Requests for BlogPosts to the server*/
 export const BlogPostsAPI = {
 	getLatestBlogPosts():Promise<BlogPostListType> {

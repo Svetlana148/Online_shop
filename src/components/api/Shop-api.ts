@@ -19,7 +19,14 @@ export interface ServerShopTotalCountType {
 /** Server Request Group for Shop page*/
 export const ShopAPI = {
 
-	/** Assembles a query string*/
+	/** 
+	 * Assembles a query string from the provided filters.
+	 * 
+	 * @param shopFilter - The filter criteria for the shop items.
+	 * @param filterPage - The pagination information.
+	 * @returns The assembled query string.
+	 */
+
 	_calculateQueryParamsString(shopFilter:ShopFilterType, filterPage: shopFilterPageType):string {
 
 		let backendQuery = "";
@@ -37,15 +44,26 @@ export const ShopAPI = {
 	},
 
 
-	/** Get all CARDS with all filter restrictions*/
+	/**
+	 * Get all shop cards with the specified filter restrictions.
+	 * 
+	 * @param shopFilter - The filter criteria for the shop items.
+	 * @param filterPage - The pagination information.
+	 * @returns A promise that resolves to the list of shop cards.
+	 */
 	getShopCardsList(shopFilter: ShopFilterType, filterPage: shopFilterPageType ):Promise<ShopCardsListType> {
 		let backendQuery = this._calculateQueryParamsString(shopFilter, filterPage);
 		return instance.get<ShopCardsListType>("shop/items?" + backendQuery)
-			//С сервера придет : список Card-очек
 			.then(res => res.data)
 	},
 
-	/** Get the total NUMBER of cards*/
+	/**
+	 * Get the total number of shop items with the specified filter restrictions.
+	 * 
+	 * @param shopFilter - The filter criteria for the shop items.
+	 * @param filterPage - The pagination information.
+	 * @returns A promise that resolves to the total count of shop items.
+	 */
 	getShopItemsCount(shopFilter:ShopFilterType, filterPage: shopFilterPageType):Promise<number> {
 		let backendQuery = this._calculateQueryParamsString(shopFilter, filterPage);
 
@@ -54,19 +72,34 @@ export const ShopAPI = {
 			.then(res => res.data.totalCount)
 	},		
 
-
-	/** Processing likes*/
-	/** Set the state "like=true". Send Click on the like on the card (set on Server: ""cardId", "userProfileId", "isLike")*/
+	/**
+	 * Processing likes
+	 * Set the state "like=true". Send Click on the like on the card (set on Server: ""cardId", "userProfileId", "isLike")
+	 * @param cardId - The ID of the card.
+	 * @param userProfileId - The ID of the user profile.
+	 * @returns A promise that resolves to the updated list of shop cards.
+	 */
 	putCardLike(cardId:string, userProfileId:string ) {
 		return instance.put<ShopCardsListType>(`blog/latest?top=4`).then(res => res.data)
 	},
-	/**  Delete the state "like=true".*/
+
+	/**
+	 * Delete the state "like=true" for a specific card.
+	 * 
+	 * @param cardId - The ID of the card.
+	 * @param userProfileId - The ID of the user profile.
+	 * @returns A promise that resolves to the API response.
+	 */
 	delCardLike(cardId: string, userProfileId:string) {
 		return instance.delete(`like/${cardId}`).then(res => res.data) as Promise<APIResponseType>
 	},
 
 
-	/** Getting specific categories in the "Categories" menu ---(Sider-->menu for Categories)*/
+	/**
+	 * Get the list of shop categories for the "Categories" menu ---(Sider-->menu for Categories).
+	 * 
+	 * @returns A promise that resolves to the list of shop categories.
+	 */
 	getShopCategoryList():Promise<ShopCategoryType[]> {
 			return instance.get<ServerShopCategoryType[]>("catalog/0")
 				.then(res => res.data.map( (srvCategory) => {
