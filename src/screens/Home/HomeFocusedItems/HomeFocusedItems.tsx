@@ -1,17 +1,17 @@
+/** Renders 2 Focused items for Home page*/
 import React from 'react';
 import { Button, Col, Row } from 'antd';
-import s from './FocusedItems.module.css';
+import s from './HomeFocusedItems.module.css';
 import right_arrow_white from '../../../resources/img/HomeScreen/right_arrow_white.svg';
 
-const ScreenHomeFocusedItems: React.FC = () => {
 
-
+/** Renders 2 Focused items for Home page*/
+const HomeFocusedItems: React.FC = () => {
 	return (
 		<Row className={s.homeFocusedItems_row} gutter={28}>
 
 			{/* ----1card------------------------------------------------ */}
 			<Col xl={12} lg={24} xs={24}>
-
 				<Row className={s.homeFocusedItems_row1}>
 					<Col span={10} >
 						<div className={s.homeFocusedItems_card_space}>
@@ -20,7 +20,6 @@ const ScreenHomeFocusedItems: React.FC = () => {
 						</div>
 						<div className={s.homeFocusedItems_card_background}></div>
 					</Col>
-
 					<Col span={14} >
 						<div className={s.homeFocusedItems_card_container}>
 							<div className={s.homeFocusedItems_card_background}>
@@ -37,9 +36,7 @@ const ScreenHomeFocusedItems: React.FC = () => {
 						</div>
 					</Col>
 				</Row>
-
 			</Col>
-
 
 			{/* ----2card------------------------------------------------ */}
 			<Col xl={12} lg={24} xs={24}>
@@ -74,4 +71,4 @@ const ScreenHomeFocusedItems: React.FC = () => {
 	);
 };
 
-export default ScreenHomeFocusedItems;
+export default HomeFocusedItems;

@@ -1,11 +1,7 @@
-import React, { useState } from "react";
+/** Shop page*/
+import React from "react";
 import s from "./Shop.module.css";
-import { Button, ConfigProvider, Grid, Layout, Menu } from "antd";
-import { Content } from "antd/es/layout/layout";
-import { NavLink } from "react-router-dom";
-import { Slider, Switch } from 'antd';
-import PriseSlider from "./ShopSider/PriceSlider/PriceSlider";
-import Sider from "antd/es/layout/Sider";
+import { Grid, Layout } from "antd";
 import ShopContent from "./ShopContent/ShopContent";
 import ShopSider from "./ShopSider/ShopSider";
 import ShopSiderMobile from "./ShopSider/ShopSiderMobile/ShopSiderMobile";
@@ -14,9 +10,9 @@ import ShopSiderMobile from "./ShopSider/ShopSiderMobile/ShopSiderMobile";
 const { useBreakpoint } = Grid;
 
 type PropsType = {
-
 }
 
+/** Shop page*/
 const Shop: React.FC<PropsType> = (props) => {
 
 	const screens = useBreakpoint();
@@ -29,6 +25,5 @@ const Shop: React.FC<PropsType> = (props) => {
 		</div>
 	)
 }
-
 
 export default Shop;

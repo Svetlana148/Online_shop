@@ -1,6 +1,3 @@
-
-
-
 .blogPost_card {
 	display: flex;
 	flex-direction: row;
@@ -27,7 +24,6 @@
 	max-height: 195px;
 }
 
-
 .blogPost_card_textContainer{
 		padding: 0 11px 12px 15px;
 }
@@ -50,8 +46,6 @@
 }
 
 
-
-
 .blogPost_card_text {
 	font-weight: 400;
 	font-size: 14px;
@@ -60,11 +54,6 @@
 	color: rgb(114, 114, 114);
 	margin: 0 0 4px 0;
 }
-
-
-
-
-
 
 
 .blogPost_linkContainer{

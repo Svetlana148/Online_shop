@@ -1,13 +1,13 @@
-
+/** Page not found(error handling)*/
 import React from 'react';
 
 
-
-const Pagenotfound: React.FC = () => {
+/** Page not found(error handling)*/
+const PageNotFound: React.FC = () => {
 
 	return (
-		<div> Page not found
-		</div>
-)}
+		<div> Page not found </div>
+	)
+}
 
-export default Pagenotfound
+export default PageNotFound

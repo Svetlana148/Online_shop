@@ -1,13 +1,9 @@
-
-
-
 .shopContent_card {
 	width: 258px;
 	min-width: 258px;
 	height: 350px;
 	height: 100%;
 	margin: 0 auto;
-	/* border: 1px red solid; */
 }
 .shopContent_card:hover{
 	.shopContent_card_likeContainer{
@@ -23,7 +19,7 @@
 	background-color: rgb(251, 251, 251);
 }
 
-/* --img--------------------------------------------------------- */
+/* --img--------------- */
 .shopContent_card_imgContainer{
 	position: relative;
 	background-color: #FBFBFB;
@@ -38,7 +34,6 @@
 	max-height: 100%;
 	padding: 31px 0 0 0;
 }
-
 
 .shopContent_card_likeContainer{
 	width: 100%;
@@ -63,7 +58,6 @@
 	top: 14px;
 	left: 0;
 	background-color: #46A358;
-	/* border: 1px red solid; */
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -81,10 +75,8 @@
 	position: absolute;
 	right: 9px;
 	top: 12px;
+	visibility: hidden;
 }
-/* ----------------------------------------------------------- */
-
-
 
 
 .ShopScreen_textContainer{
@@ -99,8 +91,6 @@
 	color: #3D3D3D;
 	margin: 0 0 6px 0;
 }
-
-
 
 
 .ShopScreen_card_price {
@@ -122,45 +112,49 @@
 /* ------@media------------------------------------------------------------------------------ */
 @media (max-width: 899px) {
 	
-.shopContent_card {
-	width: 175px;
-	min-width: 175px;
+	.shopContent_card {
+		width: 175px;
+		min-width: 175px;
 
-	height: 100%;
-}
-
-.shopContent_card_imgContainer{
-	background-color: #F4F4F4;
-	border-radius: 25px;
-	height: 200px;
-}
-
-.shopContent_card_saleContainer{
-	width: 68px;
-	min-height: 29px;
-	position: absolute;
-	top: 18px;
-	left: 0;
-}
-
-.shopContent_card_sale{
-	font-weight: 500;
-	font-size: 14px;
-}
-
-.shopContent_card_saleTextContainer{
-	font-size: 15px;
-}
-
-.ShopScreen_card_price,
-.shopContent_card_saleTextContainer {
-	font-size: 16px;
-}
-
-.shopContent_card:hover{
-	.shopContent_card_likeContainer{
-		visibility: hidden;
+		height: 100%;
 	}
-	border-top: none;
-}
+
+	.shopContent_card_imgContainer{
+		background-color: #F4F4F4;
+		border-radius: 25px;
+		height: 200px;
+	}
+
+	.shopContent_card_saleContainer{
+		width: 68px;
+		min-height: 29px;
+		position: absolute;
+		top: 18px;
+		left: 0;
+	}
+
+	.shopContent_card_sale{
+		font-weight: 500;
+		font-size: 14px;
+	}
+
+	.shopContent_card_saleTextContainer{
+		font-size: 15px;
+	}
+
+	.ShopScreen_card_price,
+	.shopContent_card_saleTextContainer {
+		font-size: 16px;
+	}
+
+	.shopContent_card:hover{
+		.shopContent_card_likeContainer{
+			visibility: hidden;
+		}
+		border-top: none;
+	}
+
+	.shopContent_likeMobile {
+		visibility: visible;
+	}
 }

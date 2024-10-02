@@ -1,3 +1,4 @@
+/** Creates a root for the React application and attaches it to the DOM element with the id 'root' */
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
@@ -8,13 +9,18 @@ import { Provider } from 'react-redux';
 import store from './redux/redux-store';
 
 
-
+/**
+ * Creates a root for the React application and attaches it to the DOM element with the id 'root'.
+ * 
+ * @constant {ReactDOM.Root} root - The root of the React application.
+ * @see https://reactjs.org/docs/react-dom-client.html#createroot
+ */
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    {/* Provider кладет store в глобальный CONTEXT, чтобы все  */}
+    {/* Provider puts the store in the global CONTEXT so that everyone has access to it*/}
     <Provider store={store}>
       <BrowserRouter>
         <App />
@@ -23,7 +29,4 @@ root.render(
   </React.StrictMode>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();

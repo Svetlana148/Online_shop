@@ -1,4 +1,5 @@
-/* Подключаем шрифты--------------------------------------------------------- */
+/** Connect fonts*/
+
 @font-face {
 	font-family: 'CeraPro';
 	font-style: normal; 
@@ -32,8 +33,6 @@
   font-weight: 500;
   src: local('CeraPro'), url("../assets/CeraPro/CeraPro-Medium.woff") format("truetype");
 }
-
-
 @font-face {
 	font-family: 'HangingLetters';	
   src: url("https://db.onlinewebfonts.com/t/1da2ac0ce2475f77ead14788891e054a.eot");
@@ -45,10 +44,8 @@
 }
 
 
-
 .wrapper{
   max-width: 1200px;
-  /* overflow: hidden; */
 	min-height: 100%;
   margin: 0 auto;
 }

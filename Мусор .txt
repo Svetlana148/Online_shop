@@ -1,0 +1,48 @@
+// <Menu.Item key="2" >
+							// 	<div className={s.menu_itemContainer}>
+							// 		<div>Potter Plants</div>
+							// 		<div>(33)</div>
+							// 	</div>
+							// </Menu.Item>
+							// <Menu.Item key="3" >
+							// 	<div className={s.menu_itemContainer}>
+							// 		<div>Seed</div>
+							// 		<div>(33)</div>
+							// 	</div>
+							// </Menu.Item>
+							// <Menu.Item key="4" >
+							// 	<div className={s.menu_itemContainer}>
+							// 		<div>Small Plants</div>
+							// 		<div>(33)</div>
+							// 	</div>
+							// </Menu.Item>
+							// <Menu.Item key="5" >
+							// 	<div className={s.menu_itemContainer}>
+							// 		<div>Big Plants</div>
+							// 		<div>(33)</div>
+							// 	</div>
+							// </Menu.Item>
+							// <Menu.Item key="6" >
+							// 	<div className={s.menu_itemContainer}>
+							// 		<div>Succulents</div>
+							// 		<div>(33)</div>
+							// 	</div>
+							// </Menu.Item>
+							// <Menu.Item key="7" >
+							// 	<div className={s.menu_itemContainer}>
+							// 		<div>Terrariums</div>
+							// 		<div>(33)</div>
+							// 	</div>
+							// </Menu.Item>
+							// <Menu.Item key="8" >
+							// 	<div className={s.menu_itemContainer}>
+							// 		<div>Gardening</div>
+							// 		<div>(33)</div>
+							// 	</div>
+							// </Menu.Item>
+							// <Menu.Item key="9" >
+							// 	<div className={s.menu_itemContainer}>
+							// 		<div>Accessories</div>
+							// 		<div>(18)</div>
+							// 	</div>
+							// </Menu.Item>

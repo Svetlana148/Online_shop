@@ -1,39 +1,55 @@
+/** Slice for managing blog posts state */
 import { createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
 import type { RootState } from '../redux/redux-store'
-import { BlogPostListType, useAppDispatch, useAppSelector } from '../types/types';
-import { useEffect, useState } from 'react';
+import {PhotoType, useAppDispatch } from '../types/types';
+import { useEffect } from 'react';
 import { BlogPostsAPI } from '../components/api/BlogPosts-api';
 
 
-
-
-// SLICE------------------------------------------------------------------------
-
-//Типизируем initialState
 // Define a type for the slice state
 interface initialStateType {
   latestBlogPosts: BlogPostListType,
+}
+
+//-->BlogPostList
+export type BlogPostListType = Array<BlogPostType>
+
+//-->BlogPost-->Photo
+export type BlogPostType = { 
+	id: number
+	title:  string
+	description:  string
+	titleImage: PhotoType
+	postDate : string
+	timeToRead : number
 }
 
 // Define the initial state using that type
 const initialState: initialStateType = {
   latestBlogPosts: [{
     id: 1,
-    description: "hjhfkjfjfjjfmfg",
-    title: "hjhfkjfjfjjfmfg",
-    titleImage: "hjhfkjfjfjjfmfg",
+    description: "",
+    title: "",
+    titleImage: "",
     timeToRead: 1,
     postDate: "2024-08-08T12:43:12",
   }],
 }
 
-
-
-
-
+/**
+ * Slice for managing blog posts state.
+ * 
+ * @component
+ * 
+ * @param {Object} state - The current state of the blog posts.
+ * @param {Object} action - The action to be handled.
+ * @param {BlogPostListType} action.payload - The payload containing the latest blog posts.
+ * 
+ * @returns {void}
+ */
 export const blogPostsSlice = createSlice({
-  name: 'blogPosts ',
+  name: 'blogPosts',
   // `createSlice` will infer the state type from the `initialState` argument
   initialState,
   reducers: {
@@ -43,23 +59,23 @@ export const blogPostsSlice = createSlice({
   },
 })
 
-//Actions----------------
+//Actions
 export const { setLatest } = blogPostsSlice.actions
 
-// Selectors-----------------
+// Selectors
 export const selectLatestBlogPosts = (state: RootState) => state.blogPosts.latestBlogPosts;
 
 //1 Reducer
 export default blogPostsSlice.reducer;
 
-
-
-// BLL------------------------------------------------------------------------
-
+/** BLL
+ * Custom hook to fetch and dispatch the latest blog posts.
+ *
+ * @component
+ * @returns {void} This hook does not return a value.
+ */
 export const useLatestBlogPost = () => {
-
   const dispatch = useAppDispatch()
-
   useEffect(() => {
     BlogPostsAPI.getLatestBlogPosts()
       .then((data) => {

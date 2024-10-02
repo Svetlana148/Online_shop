@@ -4,10 +4,6 @@
 	border-radius: borderRadiusLG;
 }
 
-.appContent{
-	/* padding: 0 118px  */
-}
-
 /* sm = 900------------------------------------------------------------- */
 
 @media (max-width: 899px) {
