@@ -70,9 +70,7 @@ const ShopContent: React.FC = () => {
 						<ConfigProvider
 							theme={{
 								token: {
-									// Отключить анимацию
 									motion: false,
-									//fontWeightStrong:700,
 								},
 								components: {
 									Menu: {

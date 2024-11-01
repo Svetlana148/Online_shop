@@ -4,8 +4,6 @@ import burgerButton from '../../resources/img/AppMenu/burgerButton.svg';
 import s from './AppHeader.module.css';
 import { NavLink } from 'react-router-dom';
 
-
-
 const AppHeaderMobileMenu: React.FC = () => {
 	const [open, setOpen] = useState(false);
 
@@ -24,23 +22,20 @@ const AppHeaderMobileMenu: React.FC = () => {
 				<img src={burgerButton} alt="" />
 			</div>
 		</div>
-      <Drawer title="Menu" onClose={onClose} open={open}>
-      
-
-		{/* Для кастомизации дизайна	 */}
+	  <Drawer title="Menu" onClose={onClose} open={open}>
+	  
+		{/* For design customization */}
 		<ConfigProvider
-				
 				theme={{
 					token: {
-						// Отключить анимацию
+						// Disable animation
 						motion:false,  
-						//Цвет для подчеркивания в меню под активным элементом
+						// Color for underline in the menu under the active item
 						//#46a358;
 						colorPrimaryActive: '#3d3dff',  
 						// colorPrimaryText: '#3d3dff',
 						// fontWeightStrong:900,
 					},
-				
 					components: {
 						Menu: {
 							horizontalItemSelectedColor: '#3d3d3d',
@@ -60,9 +55,7 @@ const AppHeaderMobileMenu: React.FC = () => {
 				</Menu>
 			</ConfigProvider>
 
-
-
-      </Drawer>
+	  </Drawer>
 		</>
 	);
 };

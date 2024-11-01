@@ -135,8 +135,6 @@ export const ShopSlice = createSlice({
 
 	reducers: {
 
-		//создаем и ActionCrearor-ы, и swich-case-ы
-		//Запись в Store2
 		shop_setShopCardsList: (state, action: PayloadAction<ShopCardsListType>) => {
 			state.shopCardsList = action.payload
 		},
@@ -144,7 +142,7 @@ export const ShopSlice = createSlice({
 			state.shopCategoryList = action.payload
 		},
 
-		//For Filtrs
+		//For Filters
 		shop_setFilterCategoryId: (state, action: PayloadAction<string[]>) => {
 			state.shopFilter.categoryId = action.payload
 		},
@@ -194,11 +192,7 @@ export const ShopSlice = createSlice({
 export default ShopSlice.reducer;
 
 
-
-
-
-
-//Actions--1объект со всеми Action-ами--------------
+//Actions
 export const { 
 	shop_setShopCardsList,
 
@@ -234,11 +228,8 @@ export const selectFilters = (state: RootState) => state.shop.shopFilter;
 export const selectFilterPage = (state: RootState) => state.shop.shopFilterPage;
 
 
-
-
-// BLL-Запросы на сервер-----------------------------------------------------------------------
-
-// 1.Вызов Запроса на сервер(из "Shop-api.ts")--на ShopCardList--(отфильтрованные карточки)------------------------------
+// BLL
+// 1. Call request to the server (from "Shop-api.ts")--on ShopCardList--(filtered cards)------------------------------
 export const ShopCardsList = () => {
 	let filters = useAppSelector(selectFilters);
 	let filterPage = useAppSelector(selectFilterPage);
@@ -251,29 +242,29 @@ export const ShopCardsList = () => {
 		let fetchData = async () => {
 			let res = await ShopAPI.getShopCardsList(filters, filterPage)
 			dispatch(shop_setShopCardsList(res));
-      }
+	  }
 		fetchData();
 	}, [dispatch, filters, filterPage]);
 };
 
 
-// 2.ЗВызов запроса на сервер(из "Shop-api.ts")---на CardLike--------------------------------
+// 2. Call request to the server (from "Shop-api.ts")---on CardLike--------------------------------
 export const ClickCardLike=(cardId:string)=>{
 
 	const dispatch = useAppDispatch();
 
-	//Это *Аргумент  для dispatch(Action-а(*))  (* - Объект-экземпляр типа ShopCardLikeType)
+	//This is *Argument for dispatch(Action (*))  (* - Object-instance of type ShopCardLikeType)
 	const shopCardLike: ShopCardLikeType = {
 		cardId: cardId,
 		isLike: false,
 	};
 
-	//Получаем ProfileId
+	//Get ProfileId
 	const userProfileId = useSelector(selectUserProfileId);
 	let isLike: boolean = false;
 
-	//Обработка Like-ов-------------------------------------------------
-	//forEach-просмотр всех
+	//Processing Likes-------------------------------------------------
+	//forEach-view all
 	const cardList = useSelector(selectShopCardsList);
 
 	cardList.forEach(card => {
@@ -290,7 +281,7 @@ export const ClickCardLike=(cardId:string)=>{
 };
 
 
-// 3.Вызов Запроса на сервер(из "Shop-api.ts")---на конкретные категории в меню "Categories"--------------------------------
+// 3. Call request to the server (from "Shop-api.ts")---on specific categories in the "Categories" menu--------------------------------
 
 export const useShopCategoryList = () => {
 	const dispatch = useAppDispatch()
@@ -299,13 +290,13 @@ export const useShopCategoryList = () => {
 		let fetchData = async () => {
 			let res = await ShopAPI.getShopCategoryList() 
 			dispatch(shop_setCategoryList(res));
-      }
+	  }
 		fetchData();
 	}, [dispatch]);
 };
 
 
-// 4.Вызов Запроса на сервер(из "Shop-api.ts")--на общее количество карточек--------------------------------
+// 4. Call request to the server (from "Shop-api.ts")--on the total number of cards--------------------------------
 export const ShopItemsCount = () => {
 	let filters = useAppSelector(selectFilters);
 	let filterPage = useAppSelector(selectFilterPage);
@@ -317,5 +308,5 @@ export const ShopItemsCount = () => {
 			dispatch(shop_setShopItemsCount(res));
 		}
 		fetchData();
-      }, [dispatch, filters, filterPage]);
+	  }, [dispatch, filters, filterPage]);
 };
