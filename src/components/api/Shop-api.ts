@@ -51,10 +51,10 @@ export const ShopAPI = {
 	 * @param filterPage - The pagination information.
 	 * @returns A promise that resolves to the list of shop cards.
 	 */
-	getShopCardsList(shopFilter: ShopFilterType, filterPage: shopFilterPageType ):Promise<ShopCardsListType> {
+	async getShopCardsList(shopFilter: ShopFilterType, filterPage: shopFilterPageType ):Promise<ShopCardsListType> {
 		let backendQuery = this._calculateQueryParamsString(shopFilter, filterPage);
-		return instance.get<ShopCardsListType>("shop/items?" + backendQuery)
-			.then(res => res.data)
+		const res = await instance.get<ShopCardsListType>("shop/items?" + backendQuery)
+		return res.data
 	},
 
 	/**
@@ -64,12 +64,13 @@ export const ShopAPI = {
 	 * @param filterPage - The pagination information.
 	 * @returns A promise that resolves to the total count of shop items.
 	 */
-	getShopItemsCount(shopFilter:ShopFilterType, filterPage: shopFilterPageType):Promise<number> {
+	async getShopItemsCount(shopFilter:ShopFilterType, filterPage: shopFilterPageType):Promise<number> {
 		let backendQuery = this._calculateQueryParamsString(shopFilter, filterPage);
 
-		return instance.get<ServerShopTotalCountType>("shop/itemsCount?" + backendQuery)
+		let res= await instance.get<ServerShopTotalCountType>("shop/itemsCount?" + backendQuery);
+		return  res.data.totalCount;
 		/** a list of Cards comes from the server : */
-			.then(res => res.data.totalCount)
+		
 	},		
 
 	/**
@@ -79,8 +80,9 @@ export const ShopAPI = {
 	 * @param userProfileId - The ID of the user profile.
 	 * @returns A promise that resolves to the updated list of shop cards.
 	 */
-	putCardLike(cardId:string, userProfileId:string ) {
-		return instance.put<ShopCardsListType>(`blog/latest?top=4`).then(res => res.data)
+	async putCardLike(cardId:string, userProfileId:string ) {
+		let res = await instance.put<ShopCardsListType>(`blog/latest?top=4`);
+		return  res.data
 	},
 
 	/**
@@ -90,8 +92,9 @@ export const ShopAPI = {
 	 * @param userProfileId - The ID of the user profile.
 	 * @returns A promise that resolves to the API response.
 	 */
-	delCardLike(cardId: string, userProfileId:string) {
-		return instance.delete(`like/${cardId}`).then(res => res.data) as Promise<APIResponseType>
+	async delCardLike(cardId: string, userProfileId:string) {
+		let res = await instance.delete(`like/${cardId}`)
+		return res.data
 	},
 
 
@@ -100,15 +103,16 @@ export const ShopAPI = {
 	 * 
 	 * @returns A promise that resolves to the list of shop categories.
 	 */
-	getShopCategoryList():Promise<ShopCategoryType[]> {
-			return instance.get<ServerShopCategoryType[]>("catalog/0")
-				.then(res => res.data.map( (srvCategory) => {
+	async getShopCategoryList():Promise<ShopCategoryType[]> {
+		let res = await instance.get<ServerShopCategoryType[]>("catalog/0")
+			return (
+				res.data.map( (srvCategory) => {
 					const  appCategory:ShopCategoryType = {
 						categoryId : srvCategory.id,
 						name : srvCategory.name,
 						itemCount : 0,
 					}
 					return appCategory;
-				}  ))
+				}  ));
 	},
 }

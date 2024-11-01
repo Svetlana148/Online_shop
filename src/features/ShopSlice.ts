@@ -248,12 +248,11 @@ export const ShopCardsList = () => {
 
 
 	useEffect(() => {
-		ShopAPI.getShopCardsList(filters, filterPage)
-      .then((res) => {
-			// Записали ответ сервера в Store2
+		let fetchData = async () => {
+			let res = await ShopAPI.getShopCardsList(filters, filterPage)
 			dispatch(shop_setShopCardsList(res));
-      })
-      .catch((res) => console.error(res.status));
+      }
+		fetchData();
 	}, [dispatch, filters, filterPage]);
 };
 
@@ -297,13 +296,11 @@ export const useShopCategoryList = () => {
 	const dispatch = useAppDispatch()
 
 	useEffect(() => {
-		//Запроса на сервер
-		ShopAPI.getShopCategoryList() 
-      .then((res) => {
-			// Записали ответ сервера в Store2
+		let fetchData = async () => {
+			let res = await ShopAPI.getShopCategoryList() 
 			dispatch(shop_setCategoryList(res));
-      })
-      .catch((res) => console.error(res.status));
+      }
+		fetchData();
 	}, [dispatch]);
 };
 
@@ -315,11 +312,10 @@ export const ShopItemsCount = () => {
 	const dispatch = useAppDispatch()
 
 	useEffect(() => {
-		ShopAPI.getShopItemsCount(filters, filterPage)
-      .then((res) => {	
-			// Записали ответ сервера в Store2
+		let fetchData = async () => {
+			let res = await ShopAPI.getShopItemsCount(filters, filterPage)
 			dispatch(shop_setShopItemsCount(res));
-      })
-      .catch((res) => console.error(res.status));
-	}, [dispatch, filters, filterPage]);
+		}
+		fetchData();
+      }, [dispatch, filters, filterPage]);
 };

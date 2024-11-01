@@ -76,11 +76,11 @@ export default blogPostsSlice.reducer;
  */
 export const useLatestBlogPost = () => {
   const dispatch = useAppDispatch()
-  useEffect(() => {
-    BlogPostsAPI.getLatestBlogPosts()
-      .then((data) => {
-        dispatch(setLatest(data));
-      })
-      .catch((res) => console.error(res.status));
+  useEffect( () => {
+    const fetchData = async() => {
+      let data = await BlogPostsAPI.getLatestBlogPosts()
+      dispatch(setLatest(data)) 
+    }
+    fetchData();
   }, [dispatch]);
 };

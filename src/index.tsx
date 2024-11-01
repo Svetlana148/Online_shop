@@ -22,7 +22,7 @@ root.render(
   <React.StrictMode>
     {/* Provider puts the store in the global CONTEXT so that everyone has access to it*/}
     <Provider store={store}>
-      <BrowserRouter>
+      <BrowserRouter basename={process.env.PUBLIC_URL}>
         <App />
       </BrowserRouter>
     </Provider>
