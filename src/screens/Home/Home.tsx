@@ -2,7 +2,7 @@
 import React from 'react';
 import HomePageCarousel from './Carousel/ScreenHomeCarousel';
 import HomeFocusedItems from './HomeFocusedItems/HomeFocusedItems';
-import { BlogPostsSet } from './BlogPosts/BlogPostsSet';
+import BlogPostsSet from './BlogPosts/BlogPostsSet';
 
 
 /** Home page*/

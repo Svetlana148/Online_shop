@@ -12,7 +12,7 @@ import AppContent from '../components/AppContent/AppContent';
  * @component
  * @returns {JSX.Element} The rendered App component.
  */
-function App() {
+const AppLayout: React.FC = () => {
   return (
     <div >
       <div className={s.wrapper} >
@@ -49,4 +49,4 @@ function App() {
   );
 }
 
-export default App;
+export default AppLayout;

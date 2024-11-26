@@ -10,7 +10,7 @@ import AppLayout from './AppLayout/AppLayout';
  * @component
  * @returns {JSX.Element} The rendered component.
  */
-function App() {
+const App: React.FC = () => {
   return (
     <div>
         <AppLayout />

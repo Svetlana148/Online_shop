@@ -8,7 +8,7 @@ import { selectLatestBlogPosts, useLatestBlogPost } from '../../../features/Blog
 
 
 /** Renders a set of 4 Blogposts for Home page*/
-export const BlogPostsSet: FC = () => {
+const BlogPostsSet: FC = () => {
 
 	const latestBlogPosts = useAppSelector(selectLatestBlogPosts);
 	/** HOOK requests the last 4 BlogPosts each time the current BlogPostsSet component is mounted*/
@@ -30,3 +30,4 @@ export const BlogPostsSet: FC = () => {
 		</div>
 	);
 };
+export default BlogPostsSet;
