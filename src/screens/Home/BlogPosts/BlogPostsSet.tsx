@@ -15,7 +15,7 @@ const BlogPostsSet: FC = () => {
 	useLatestBlogPost();
 
 	return (
-		<div>
+		<div data-testid="blog-posts-set">
 			<div className={s.blogPostSet}>
 				<div className={s.blogPostSet_title}>Our Blog Posts</div>
 				<div className={s.blogPostSet_subtitle}>We are an online plant shop offering a wide range of cheap and trendy plants. </div>

@@ -4,6 +4,7 @@ import BlogPostsSet from './BlogPostsSet';
 import { useAppSelector } from '../../../types/types';
 import { Provider } from 'react-redux';
 import store from '../../../redux/redux-store';
+import * as reduxHooks from '../../../types/types';
 
 beforeAll(() => {
 	Object.defineProperty(window, 'matchMedia', {
@@ -25,7 +26,11 @@ beforeAll(() => {
 
 describe('BlogPostsSet', () => {
 	test('renders without crashing', () => {
-		render(<BlogPostsSet />);
+		render(
+			<Provider store={store}>
+				<BlogPostsSet />
+			</Provider>
+		);
 		const blogPostsElement = screen.getByTestId('blog-posts-set');
 		expect(blogPostsElement).toBeInTheDocument();
 	});
@@ -36,7 +41,14 @@ describe('BlogPostsSet', () => {
 			{ id: 1, title: 'Post 1', description: 'description 1' },
 			{ id: 2, title: 'Post 2', description: 'description 2' },
 		];
-		render(<BlogPostsSet posts={mockPosts} />);
+
+		jest.spyOn(reduxHooks, 'useAppSelector').mockReturnValue(mockPosts);
+
+		render(
+			<Provider store={store}>
+				<BlogPostsSet />
+			</Provider>
+		);
 		const blogPostElements = screen.getAllByTestId('blog-post');
 		expect(blogPostElements.length).toBe(mockPosts.length);
 	});
@@ -46,7 +58,14 @@ describe('BlogPostsSet', () => {
 			{ id: 1, title: 'Post 1', description: 'description 1' },
 			{ id: 2, title: 'Post 2', description: 'description 2' },
 		];
-		render(<BlogPostsSet posts={mockPosts} />);
+
+		jest.spyOn(reduxHooks, 'useAppSelector').mockReturnValue(mockPosts);
+
+		render(
+			<Provider store={store}>
+				<BlogPostsSet />
+			</Provider>
+		);
 		mockPosts.forEach(post => {
 			expect(screen.getByText(post.title)).toBeInTheDocument();
 		});
@@ -58,9 +77,11 @@ describe('BlogPostsSet', () => {
 			{ id: 2, title: 'Post 2', description: 'description 2' },
 		];
 
-		jest.mock('../../../types/types', () => ({
-			useAppSelector: jest.fn().mockReturnValue(mockPosts),
-		}));
+		// jest.mock('../../../types/types', () => ({
+        //     useAppSelector: jest.fn().mockReturnValue(mockPosts),
+        // }));
+
+		jest.spyOn(reduxHooks, 'useAppSelector').mockReturnValue(mockPosts);
 
 		render(
 			<Provider store={store}>

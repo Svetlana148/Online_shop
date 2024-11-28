@@ -13,7 +13,7 @@ let BlogPost: React.FC<PropsType> = (props) => {
 	const { DateTime } = require("luxon");
 
 	return (
-		<div>
+		<div data-testid="blog-post">
 			<div className={s.blogPost_card}>
 				<div className={s.blogPost_card_container}>
 					<div >

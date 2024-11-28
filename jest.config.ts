@@ -12,6 +12,7 @@ const config: Config.InitialOptions = {
     "/node_modules/(?!antd|@babel/runtime|rc-util|@ant-design/icons|rc-pagination|rc-picker)"
   ],
   testEnvironment: "jest-environment-jsdom",
+  testMatch: ['**/*.test.js', '**/*.spec.js', '**/*.test.tsx'],
   setupFilesAfterEnv: ["./src/setupTests.ts"]
 };
 
