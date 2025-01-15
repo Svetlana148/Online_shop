@@ -8,6 +8,10 @@ export const BlogPostsAPI = {
 		const res = await instance.get<BlogPostListType>(`blog/latest?top=4`);
 		return res.data;
 	},
+	async getAllBlogPosts():Promise<BlogPostListType> {
+		const res = await instance.get<BlogPostListType>(`blog/latest`);
+		return res.data;
+	},
 }
 
 	

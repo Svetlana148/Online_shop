@@ -10,6 +10,7 @@ import { BlogPostsAPI } from '../components/api/BlogPosts-api';
 // Define a type for the slice state
 interface initialStateType {
   latestBlogPosts: BlogPostListType,
+  allBlogPosts: BlogPostListType,
 }
 
 //-->BlogPostList
@@ -35,6 +36,14 @@ const initialState: initialStateType = {
     timeToRead: 1,
     postDate: "2024-08-08T12:43:12",
   }],
+  allBlogPosts: [{
+    id: 1,
+    description: "",
+    title: "",
+    titleImage: "",
+    timeToRead: 1,
+    postDate: "2024-08-08T12:43:12",
+  }],
 }
 
 /**
@@ -53,33 +62,55 @@ export const blogPostsSlice = createSlice({
   // `createSlice` will infer the state type from the `initialState` argument
   initialState,
   reducers: {
-    setLatest: (state, action: PayloadAction<BlogPostListType>) => {
+    setLatestBlogPosts: (state, action: PayloadAction<BlogPostListType>) => {
       state.latestBlogPosts = action.payload
+    },
+    setAllBlogPosts: (state, action: PayloadAction<BlogPostListType>) => {
+      state.allBlogPosts = action.payload
     },
   },
 })
 
 //Actions
-export const { setLatest } = blogPostsSlice.actions
+export const { setLatestBlogPosts } = blogPostsSlice.actions
+export const { setAllBlogPosts } = blogPostsSlice.actions
+
 
 // Selectors
 export const selectLatestBlogPosts = (state: RootState) => state.blogPosts.latestBlogPosts;
+export const selectAllBlogPosts = (state: RootState) => state.blogPosts.allBlogPosts;
 
-//1 Reducer
+
+//SliceReducers
 export default blogPostsSlice.reducer;
 
+//Hooks
 /** BLL
  * Custom hook to fetch and dispatch the latest blog posts.
  *
  * @component
  * @returns {void} This hook does not return a value.
  */
+
+//for Home page
 export const useLatestBlogPost = () => {
   const dispatch = useAppDispatch()
   useEffect( () => {
     const fetchData = async() => {
       let data = await BlogPostsAPI.getLatestBlogPosts()
-      dispatch(setLatest(data)) 
+      dispatch(setLatestBlogPosts(data)) 
+    }
+    fetchData();
+  }, [dispatch]);
+};
+
+//for Blogs page
+export const useAllBlogPost = () => {
+  const dispatch = useAppDispatch()
+  useEffect( () => {
+    const fetchData = async() => {
+      let data = await BlogPostsAPI.getAllBlogPosts()
+      dispatch(setAllBlogPosts(data)) 
     }
     fetchData();
   }, [dispatch]);

@@ -9,7 +9,7 @@ type PropsType = {
 	blogPost: BlogPostType
 }
 
-let BlogPost: React.FC<PropsType> = (props) => {
+let LatestBlogPost: React.FC<PropsType> = (props) => {
 	const { DateTime } = require("luxon");
 
 	return (
@@ -47,4 +47,4 @@ let BlogPost: React.FC<PropsType> = (props) => {
 	)
 };
 
-export default BlogPost;
+export default LatestBlogPost;

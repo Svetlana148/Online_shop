@@ -1,14 +1,15 @@
 /** Renders a set of 4 Blogposts for Home page*/
 import { Col, Row } from 'antd';
 import { FC } from 'react';
-import s from './BlogPostsSet.module.css';
+import s from './LatestBlogPostsSet.module.css';
 import BlogPost from './BlogPost';
 import { useAppSelector } from '../../../types/types'
 import { selectLatestBlogPosts, useLatestBlogPost } from '../../../features/BlogPostsSlice'
+import LatestBlogPost from './BlogPost';
 
 
 /** Renders a set of 4 Blogposts for Home page*/
-const BlogPostsSet: FC = () => {
+const LatestBlogPostsSet: FC = () => {
 
 	const latestBlogPosts = useAppSelector(selectLatestBlogPosts);
 	/** HOOK requests the last 4 BlogPosts each time the current BlogPostsSet component is mounted*/
@@ -22,7 +23,7 @@ const BlogPostsSet: FC = () => {
 
 				<Row className={s.blogPostSet_row} gutter={[{ xl: 44, lg: 30, xs: 20 }, { xl: 0, lg: 50, sm: 50, md: 40, xs: 40 }]}>
 					{latestBlogPosts.map(bp => <Col xl={6} lg={12} xs={24}>
-						<BlogPost blogPost={bp} />
+						<LatestBlogPost blogPost={bp} />
 					</Col>
 					)}
 				</Row>
@@ -30,4 +31,4 @@ const BlogPostsSet: FC = () => {
 		</div>
 	);
 };
-export default BlogPostsSet;
+export default LatestBlogPostsSet;

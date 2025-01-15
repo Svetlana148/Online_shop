@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import BlogPostsSet from './BlogPostsSet';
+import BlogPostsSet from './LatestBlogPostsSet';
 import { useAppSelector } from '../../../types/types';
 import { Provider } from 'react-redux';
 import store from '../../../redux/redux-store';
@@ -8,19 +8,19 @@ import * as reduxHooks from '../../../types/types';
 
 beforeAll(() => {
 	Object.defineProperty(window, 'matchMedia', {
-	  writable: true,
-	  value: jest.fn().mockImplementation(query => ({
-		 matches: false,
-		 media: query,
-		 onchange: null,
-		 addListener: jest.fn(), // устаревший метод
-		 removeListener: jest.fn(), // устаревший метод
-		 addEventListener: jest.fn(),
-		 removeEventListener: jest.fn(),
-		 dispatchEvent: jest.fn(),
-	  })),
+		writable: true,
+		value: jest.fn().mockImplementation(query => ({
+			matches: false,
+			media: query,
+			onchange: null,
+			addListener: jest.fn(), // устаревший метод
+			removeListener: jest.fn(), // устаревший метод
+			addEventListener: jest.fn(),
+			removeEventListener: jest.fn(),
+			dispatchEvent: jest.fn(),
+		})),
 	});
- });
+});
 
 
 
@@ -78,8 +78,8 @@ describe('BlogPostsSet', () => {
 		];
 
 		// jest.mock('../../../types/types', () => ({
-        //     useAppSelector: jest.fn().mockReturnValue(mockPosts),
-        // }));
+		//     useAppSelector: jest.fn().mockReturnValue(mockPosts),
+		// }));
 
 		jest.spyOn(reduxHooks, 'useAppSelector').mockReturnValue(mockPosts);
 

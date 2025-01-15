@@ -2,7 +2,7 @@
 import React from 'react';
 import HomePageCarousel from './Carousel/ScreenHomeCarousel';
 import HomeFocusedItems from './HomeFocusedItems/HomeFocusedItems';
-import BlogPostsSet from './BlogPosts/BlogPostsSet';
+import LatestBlogPostsSet from './LatestBlogPostsSet/LatestBlogPostsSet';
 
 
 /** Home page*/
@@ -11,7 +11,7 @@ const ScreenHome: React.FC = () => {
 		<div>
 			<HomePageCarousel />
 			<HomeFocusedItems />
-			<BlogPostsSet />
+			<LatestBlogPostsSet />
 		</div>
 	);
 };
