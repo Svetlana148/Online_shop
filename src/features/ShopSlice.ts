@@ -308,5 +308,5 @@ export const ShopItemsCount = () => {
 			dispatch(shop_setShopItemsCount(res));
 		}
 		fetchData();
-	  }, [dispatch, filters, filterPage]);
+	}, [dispatch, filters, filterPage]);
 };

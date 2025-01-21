@@ -11,6 +11,7 @@ import Address from '../Address/Address';
 import PageNotfound from '../PageNotFound';
 import Blogs from '../Blogs/Blogs';
 import Preloader from '../../components/common/Preloader/Preloader';
+import BlogPostLarge from '../Blogs/BlogPostLarge/BlogPostLarge';
 
 
 /** All Routes of application*/
@@ -22,6 +23,7 @@ const AppRouter: React.FC = () => {
 				<Route path='/home' element={<Home />} />
 				<Route path='/shop' element={<Shop />} />
 				<Route path='/blogs' element={<Blogs />} />
+				<Route path='/blogs/:blogPostId' element={<BlogPostLarge />} />
 				<Route path='/productView' element={<ProductView />} />
 				<Route path='/productCart' element={<ProductCart />} />
 				<Route path='/productCheckout' element={<ProductCheckout />} />
